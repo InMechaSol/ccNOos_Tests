@@ -7,3 +7,6 @@
 [submodule "ccNOos"]
 	path = ccNOos
 	url = https://github.com/InMechaSol/ccNOos.git
+[submodule "PICccNOos_Tests"]
+	path = PICccNOos_Tests
+	url = https://github.com/InMechaSol/PICccNOos_Tests.git
