@@ -1,0 +1,3 @@
+[submodule "PSoC"]
+	path = PSoC
+	url = https://github.com/InMechaSol/PSoC_ccNOos_Tests.git
