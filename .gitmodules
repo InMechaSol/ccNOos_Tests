@@ -1,3 +1,9 @@
 [submodule "PSoC"]
 	path = PSoC
 	url = https://github.com/InMechaSol/PSoC_ccNOos_Tests.git
+[submodule "Arduino"]
+	path = Arduino
+	url = https://github.com/InMechaSol/Arduino_ccNOos_Tests.git
+[submodule "ccNOos"]
+	path = ccNOos
+	url = https://github.com/InMechaSol/ccNOos.git
