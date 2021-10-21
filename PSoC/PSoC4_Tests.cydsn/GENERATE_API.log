@@ -1,0 +1,9 @@
+--------------- Build Started: 10/12/2021 11:32:27 Project: PSoC4_Tests, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+cydsfit.exe -.appdatapath "C:\Users\geades\AppData\Local\Cypress Semiconductor\PSoC Creator\4.4" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\PSoC4_Tests.cydsn\PSoC4_Tests.cyprj -d CY8C4248BZI-L489 -s C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\PSoC4_Tests.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+ADD: fit.M0031: error: Clock Error: (HFCLK must run at 48 MHz with an accuracy of 0.25% or better when using USB.).
+ * C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\PSoC4_Tests.cydsn\PSoC4_Tests.cydwr (HFClk)
+ADD: fit.M0031: error: Clock Error: (Source clock 'HFClk' contains an error.  Address the error on 'HFClk' or select another source for this clock.).
+ * C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\PSoC4_Tests.cydsn\PSoC4_Tests.cydwr (SysClk)
+Error: fit.M0050: The fitter aborted due to errors, please address all errors and rebuild. (App=cydsfit)
+--------------- Build Failed: 10/12/2021 11:32:42 ---------------
