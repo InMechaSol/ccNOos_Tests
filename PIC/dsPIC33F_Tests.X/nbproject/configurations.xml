@@ -91,16 +91,16 @@
     <conf name="default" type="2">
       <toolsSet>
         <developmentServer>localhost</developmentServer>
-        <targetDevice>dsPIC33FJ16GS502</targetDevice>
+        <targetDevice>dsPIC33FJ64MC802</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>Simulator</platformTool>
+        <platformTool>MICROSTICKPlatformTool</platformTool>
         <languageToolchain>XC16</languageToolchain>
         <languageToolchainVersion>1.70</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="dsPIC33F-GS_DFP" vendor="Microchip" version="1.2.36"/>
+        <pack name="dsPIC33F-GP-MC_DFP" vendor="Microchip" version="1.2.35"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>
