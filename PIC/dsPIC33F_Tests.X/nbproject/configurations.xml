@@ -5,11 +5,6 @@
                    displayName="Header Files"
                    projectFiles="true">
       <logicalFolder name="ccNOos" displayName="ccNOos" projectFiles="true">
-        <logicalFolder name="apiCompModule"
-                       displayName="apiCompModule"
-                       projectFiles="true">
-          <itemPath>../../ccNOos/apiCompModule/api_comp_mod.h</itemPath>
-        </logicalFolder>
         <logicalFolder name="computeModule"
                        displayName="computeModule"
                        projectFiles="true">
@@ -17,11 +12,6 @@
         </logicalFolder>
         <logicalFolder name="consoleMenu" displayName="consoleMenu" projectFiles="true">
           <itemPath>../../ccNOos/consoleMenu/console_menu.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="deviceCompModule"
-                       displayName="deviceCompModule"
-                       projectFiles="true">
-          <itemPath>../../ccNOos/deviceCompModule/dev_comp_mod.h</itemPath>
         </logicalFolder>
         <logicalFolder name="executionSystem"
                        displayName="executionSystem"
@@ -45,11 +35,6 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="ccNOos" displayName="ccNOos" projectFiles="true">
-        <logicalFolder name="apiCompModule"
-                       displayName="apiCompModule"
-                       projectFiles="true">
-          <itemPath>../../ccNOos/apiCompModule/api_comp_mod.c</itemPath>
-        </logicalFolder>
         <logicalFolder name="computeModule"
                        displayName="computeModule"
                        projectFiles="true">
@@ -57,11 +42,6 @@
         </logicalFolder>
         <logicalFolder name="consoleMenu" displayName="consoleMenu" projectFiles="true">
           <itemPath>../../ccNOos/consoleMenu/console_menu.c</itemPath>
-        </logicalFolder>
-        <logicalFolder name="deviceCompModule"
-                       displayName="deviceCompModule"
-                       projectFiles="true">
-          <itemPath>../../ccNOos/deviceCompModule/dev_comp_mod.c</itemPath>
         </logicalFolder>
         <logicalFolder name="executionSystem"
                        displayName="executionSystem"

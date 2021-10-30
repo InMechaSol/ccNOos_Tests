@@ -5,11 +5,6 @@
                    displayName="Header Files"
                    projectFiles="true">
       <logicalFolder name="ccNOos" displayName="ccNOos" projectFiles="true">
-        <logicalFolder name="apiCompModule"
-                       displayName="apiCompModule"
-                       projectFiles="true">
-          <itemPath>../../ccNOos/apiCompModule/api_comp_mod.h</itemPath>
-        </logicalFolder>
         <logicalFolder name="computeModule"
                        displayName="computeModule"
                        projectFiles="true">
@@ -17,11 +12,6 @@
         </logicalFolder>
         <logicalFolder name="consoleMenu" displayName="consoleMenu" projectFiles="true">
           <itemPath>../../ccNOos/consoleMenu/console_menu.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="deviceCompModule"
-                       displayName="deviceCompModule"
-                       projectFiles="true">
-          <itemPath>../../ccNOos/deviceCompModule/dev_comp_mod.h</itemPath>
         </logicalFolder>
         <logicalFolder name="executionSystem"
                        displayName="executionSystem"
@@ -45,48 +35,29 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="ccNOos" displayName="ccNOos" projectFiles="true">
-        <logicalFolder name="apiCompModule"
-                       displayName="apiCompModule"
-                       projectFiles="true">
-          <itemPath>../../ccNOos/apiCompModule/api_comp_mod.c</itemPath>
-          <itemPath>../../ccNOos/apiCompModule/api_comp_mod_class.cpp</itemPath>
-          <itemPath>../../ccNOos/apiCompModule/api_comp_mod_class.hpp</itemPath>
-        </logicalFolder>
         <logicalFolder name="computeModule"
                        displayName="computeModule"
                        projectFiles="true">
           <itemPath>../../ccNOos/computeModule/compute_module.c</itemPath>
           <itemPath>../../ccNOos/computeModule/compute_module_class.cpp</itemPath>
-          <itemPath>../../ccNOos/computeModule/compute_module_class.hpp</itemPath>
         </logicalFolder>
         <logicalFolder name="consoleMenu" displayName="consoleMenu" projectFiles="true">
           <itemPath>../../ccNOos/consoleMenu/console_menu.c</itemPath>
           <itemPath>../../ccNOos/consoleMenu/console_menu_class.cpp</itemPath>
-          <itemPath>../../ccNOos/consoleMenu/console_menu_class.hpp</itemPath>
-        </logicalFolder>
-        <logicalFolder name="deviceCompModule"
-                       displayName="deviceCompModule"
-                       projectFiles="true">
-          <itemPath>../../ccNOos/deviceCompModule/dev_comp_mod.c</itemPath>
-          <itemPath>../../ccNOos/deviceCompModule/dev_comp_mod_class.cpp</itemPath>
-          <itemPath>../../ccNOos/deviceCompModule/dev_comp_mod_class.hpp</itemPath>
         </logicalFolder>
         <logicalFolder name="executionSystem"
                        displayName="executionSystem"
                        projectFiles="true">
           <itemPath>../../ccNOos/executionSystem/execution_system.c</itemPath>
           <itemPath>../../ccNOos/executionSystem/execution_system_class.cpp</itemPath>
-          <itemPath>../../ccNOos/executionSystem/execution_system_class.hpp</itemPath>
         </logicalFolder>
         <logicalFolder name="ioDevice" displayName="ioDevice" projectFiles="true">
           <itemPath>../../ccNOos/ioDevice/io_device.c</itemPath>
           <itemPath>../../ccNOos/ioDevice/io_device_class.cpp</itemPath>
-          <itemPath>../../ccNOos/ioDevice/io_device_class.hpp</itemPath>
         </logicalFolder>
         <logicalFolder name="tests" displayName="tests" projectFiles="true">
           <itemPath>../../ccNOos/tests/ccNOos_tests.c</itemPath>
           <itemPath>../../ccNOos/tests/ccNOos_tests_class.cpp</itemPath>
-          <itemPath>../../ccNOos/tests/ccNOos_tests_class.hpp</itemPath>
         </logicalFolder>
       </logicalFolder>
       <itemPath>PIC32MZ_Tests.cpp</itemPath>
@@ -105,10 +76,10 @@
     <conf name="default" type="2">
       <toolsSet>
         <developmentServer>localhost</developmentServer>
-        <targetDevice>PIC32MZ1024EFE064</targetDevice>
+        <targetDevice>PIC32MZ2048EFM144</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>Simulator</platformTool>
+        <platformTool></platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>3.01</languageToolchainVersion>
         <platform>3</platform>
@@ -142,6 +113,92 @@
         <makeCustomizationEnableLongLines>false</makeCustomizationEnableLongLines>
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
+      <item path="../../ccNOos/computeModule/compute_module.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-CO>
+        </C32-CO>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../../ccNOos/consoleMenu/console_menu.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-CO>
+        </C32-CO>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../../ccNOos/executionSystem/execution_system.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-CO>
+        </C32-CO>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../../ccNOos/ioDevice/io_device.c" ex="true" overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-CO>
+        </C32-CO>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../../ccNOos/tests/ccNOos_tests.c" ex="true" overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-CO>
+        </C32-CO>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
       <C32>
         <property key="additional-warnings" value="false"/>
         <property key="addresss-attribute-use" value="false"/>
@@ -275,6 +332,31 @@
         <property key="save-temps" value="false"/>
         <property key="wpo-lto" value="false"/>
       </C32Global>
+      <PKOBSKDEPlatformTool>
+        <property key="AutoSelectMemRanges" value="auto"/>
+        <property key="SecureSegment.SegmentProgramming" value="FullChipProgramming"/>
+        <property key="ToolFirmwareFilePath"
+                  value="Press to browse for a specific firmware version"/>
+        <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
+        <property key="memories.configurationmemory" value="true"/>
+        <property key="memories.dataflash" value="true"/>
+        <property key="memories.eeprom" value="true"/>
+        <property key="memories.id" value="true"/>
+        <property key="memories.programmemory" value="true"/>
+        <property key="memories.programmemory.ranges" value="1d000000-1d1fffff"/>
+        <property key="memories.userotp" value="true"/>
+        <property key="programoptions.donoteraseauxmem" value="false"/>
+        <property key="programoptions.eraseb4program" value="true"/>
+        <property key="programoptions.preservedataflash" value="false"/>
+        <property key="programoptions.preservedataflash.ranges" value=""/>
+        <property key="programoptions.preserveeeprom" value="false"/>
+        <property key="programoptions.preserveeeprom.ranges"
+                  value="${memories.eedata.default}"/>
+        <property key="programoptions.preserveprogram.ranges" value=""/>
+        <property key="programoptions.preserveprogramrange" value="false"/>
+        <property key="programoptions.usehighvoltageonmclr" value="false"/>
+        <property key="programoptions.uselvpprogramming" value="true"/>
+      </PKOBSKDEPlatformTool>
       <Simulator>
         <property key="codecoverage.enabled" value="Disable"/>
         <property key="codecoverage.enableoutputtofile" value="false"/>

@@ -1,5 +1,5 @@
-/** \file main.c
-*   \brief PSoC4 Implementation of SysTick Example
+/** \file SysTickExample.c
+*   \brief Template for Platform Specific Implementation of SysTick Example
 
    Copyright 2021 InMechaSol, Inc
 
@@ -53,13 +53,15 @@ void SysTickISRCallback(void);
 // Platform Configuration
 ///////////////////////////////////////////////////////////////////////
 #include "../../ccNOos/tests/ccNOos_tests.h"    // all things ccNOos w/tests
+#include <stdio.h>
+#include <math.h>
 
 ///////////////////////////////
 // Systick example consists of:
 // 1) An Execution System
-struct executionSystemStruct SysTickExampleSystem;
+struct executionSystemStruct SysTickExecutionSystem;
 // 2) A Device Compute Module (systick example module)
-struct SysTickExampleDevModStruct sysTickCompMod;
+struct SysTickStruct sysTickCompMod;
 // 3) and IO Devices
 //  a. Second Indicator LED Device
 //      sysTickCompMod.devArray[0]
@@ -74,44 +76,48 @@ struct SysTickExampleDevModStruct sysTickCompMod;
 // This SysTick Example Application only uses write
 // for each of its three application devices
 // 1) Minute LED Device Write
-int writeMinLEDdevice()
+void WriteMinLED(struct SysTickStruct* sysTickDataPtr)
 {
     //<writeMinLEDdevice>
-    LED_Min_Write(sysTickCompMod.MinLEDvalue); 
-    return RETURN_SUCCESS;
+    LED_Min_Write(sysTickDataPtr->MinLEDvalue); 
     //</writeMinLEDdevice>
 }
 // 2) Second LED Device Write
-int writeSecLEDdevice()
+void WriteSecLED(struct SysTickStruct* sysTickDataPtr)
 {
     //<writeSecLEDdevice>
-    LED_Sec_Write(sysTickCompMod.SecLEDvalue); 
-    return RETURN_SUCCESS;
+    LED_Sec_Write(sysTickDataPtr->SecLEDvalue);
     //</writeSecLEDdevice>
 }
 // 3) Serial Device Write
-int writeSerialdevice()
+void WriteTimeSerial(struct SysTickStruct* sysTickDataPtr)
 {
     //<writeSerialdevice>
-    UART_PutString(sysTickCompMod.time); 
-    return RETURN_SUCCESS;
+    UART_PutString(sysTickDataPtr->time); 
     //</writeSerialdevice>
 }
-
+// 4) Serialization of Time String
+void SerializeTimeString(struct SysTickStruct* sysTickDataPtr)
+{
+    sprintf(sysTickDataPtr->time, "\r%02u:%02u:%02u", 
+                    (int)(sysTickDataPtr->hrCount % 100), 
+                    (int)(sysTickDataPtr->minCount % TIME_MIN_PER_HR),
+                    (int)(sysTickDataPtr->secCount % TIME_SEC_PER_MIN)
+                    );
+}
 
 ////////////////////////////////////////////////////////////
 // An Execution System Requires Platform Implementations of:
 // 1) Platform Configure Function
-int platformSetup()
+void platformSetup()
 {      
     //<platformSetup>
     /* Enable global interrupts. */
     CyGlobalIntEnable;
-    return RETURN_SUCCESS;
     //</platformSetup>
 }
 // 2) Platform Start Function
-int platformStart()
+void platformStart()
 {
     //<platformStart>
     /* Configure the SysTick timer to generate interrupt every 1 ms
@@ -131,7 +137,6 @@ int platformStart()
             break;
         }
     }
-    return RETURN_SUCCESS;
     //</platformStart>
 }
 // 3) Platform Loop Delay Function
@@ -142,41 +147,48 @@ void platformLoopDelay()
     ;               // let it run full throttle, its a machine after all...
     //</platformLoopDelay>
 }
+////////////////////////////////////////////////////////////////////////////////
+// and 4) Module API Functions
+uint32_t getuSecTicks()
+{
+    return SysTickExecutionSystem.uSecTicks;
+}
+uint32_t getHourTicks()
+{
+    return SysTickExecutionSystem.hourTicks;
+}
 
 ////////////////////////////////////////////////////////////
 // and the SysTick Example Application Requires:
 // 1) Application EntryPoint Structures
 struct linkedEntryPointStruct setupListHead = {
-    0u,                     // next pointer is zero (end of list)
-    &sysTickCompMod,        // SysTick Module Data Structure (address)
-    setup_systickExample};  // the setup entry point of SysTick Module
+    nullptr,            // next pointer is zero (end of list)
+    (struct computeModuleStruct*)&sysTickCompMod,    // SysTick Module Data Structure (address)
+    setup_systickExample// the setup entry point of SysTick Module
+    };
 struct linkedEntryPointStruct loopListHead = {
-    0u,                     // next pointer is zero (end of list)
-    &sysTickCompMod,        // SysTick Module Data Structure (address)
-    loop_systickExample};   // the loop entry point of SysTick Module
-struct linkedEntryPointStruct systickListHead = {
-    0u,                     // next pointer is zero (end of list)
-    &sysTickCompMod,        // SysTick Module Data Structure (address)
-    0u};                    // no SysTick Entry Point for SysTick Module!
-// 2) Application Configuration Function
-int applicationConfig()
+    nullptr,            // next pointer is zero (end of list)
+    (struct computeModuleStruct*)&sysTickCompMod,    // SysTick Module Data Structure (address)
+    loop_systickExample // the loop entry point of SysTick Module
+    };
+// 2) Execution System Entry Points Structure
+struct executionEntryStruct exeEntryPoints = {
+    &setupListHead,     // setup execution area linked list head
+    &loopListHead,      // loop execution area linked list head
+    nullptr,            // not running module code @ systick area
+    &setupListHead      // setup also running @ exception area
+    };
+// 3) Application Configuration Function
+void applicationConfig()
 {    
-    // Initialize Execution System for SysTick Example on PSoC4
-    SysTickExampleSystem = CreateExecutionSystemStruct(
-            &setupListHead,         // Link List into Execution Slot (setup)
-            &loopListHead,          // Link List into Execution Slot (loop)
-            &systickListHead,       // Link List into Execution Slot (systick)
-            1000);                  // Set uS per SysTick to 1000 (1KHz)
-    
+    // Initialize Execution System for SysTick Example
+    SysTickExecutionSystem = CreateExecutionSystemStruct(
+            1000                // Set uS per SysTick to 1000 (1KHz)
+            );
     // Initialize Device Compute Module for sysTickExample
-    sysTickCompMod = CreateSysTickExampleDevModStruct(
-        writeMinLEDdevice,          // Link IO Device Write Function (min LED)
-        writeSecLEDdevice,          // Link IO Device Write Function (sec LED)
-        writeSerialdevice,          // Link IO Device Write Function (Serial)
-        &SysTickExampleSystem,      // Link ExeSys Instance
-        LIGHT_OFF                   // Set value of IO written for "light off"
-        );    
-    return RETURN_SUCCESS;
+    sysTickCompMod = CreateSysTickStruct(
+            LIGHT_OFF           // Set value of IO written for "light off"
+            );    
 }
 ////////////////////////////////////////////////////////////////////////////////
 // Finally, an applications entry points call the execution system entry points
@@ -184,11 +196,13 @@ int applicationConfig()
 int main()
 {    
     applicationConfig();
-    return ExecuteMain(&SysTickExampleSystem);
+    return ExecuteMain(&SysTickExecutionSystem, &exeEntryPoints);
 }
 // 2) The SysTick Entry Point
 void SysTickISRCallback(void)
 {
-    int retval = ExecuteSysTick(&SysTickExampleSystem);
+    ExecuteSysTick(&SysTickExecutionSystem, &exeEntryPoints);
 }
+// 3) Platform Exceptions/Traps/Interrupts
+
 /* [] END OF FILE */
