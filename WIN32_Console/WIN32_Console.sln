@@ -10,11 +10,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WIN32_Console", "WIN32_Cons
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenerateArduinoLib", "..\GenerateArduinoLib\GenerateArduinoLib.csproj", "{B43A6FF8-9B27-4310-8E84-454A16E49229}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{84A0F8C2-0021-4B4C-960F-08286CF967C6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Platform Application Implementations", "Platform Application Implementations", "{84A0F8C2-0021-4B4C-960F-08286CF967C6}"
 	ProjectSection(SolutionItems) = preProject
 		..\Arduino\ccNOos_Tests\ccNOos_Tests.ino = ..\Arduino\ccNOos_Tests\ccNOos_Tests.ino
+		..\PIC\dsPIC33F_Tests.X\dsPIC33F_Tests.c = ..\PIC\dsPIC33F_Tests.X\dsPIC33F_Tests.c
 		..\PSoC\SysTick_Example01.cydsn\main.c = ..\PSoC\SysTick_Example01.cydsn\main.c
 		..\PIC\PIC32MZ_Tests.X\PIC32MZ_Tests.cpp = ..\PIC\PIC32MZ_Tests.X\PIC32MZ_Tests.cpp
+		WIN32_Console.cpp = WIN32_Console.cpp
 	EndProjectSection
 EndProject
 Global

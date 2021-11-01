@@ -96,10 +96,10 @@
       <Filter>Source Files\tests</Filter>
     </ClInclude>
     <ClInclude Include="..\ccNOos\consoleMenu\console_menu.c">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\consoleMenu</Filter>
     </ClInclude>
     <ClInclude Include="..\ccNOos\executionSystem\execution_system.c">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\executionSystem</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
