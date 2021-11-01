@@ -1,88 +1,48 @@
---------------- Rebuild Started: 10/21/2021 17:19:39 Project: ccNOos_lib, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
-Deleting file ".\CortexM0\ARM_GCC_541\Debug\api_comp_mod.o"
+--------------- Rebuild Started: 11/01/2021 17:47:53 Project: ccNOos_lib, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\compute_module.o"
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\console_menu.o"
-Deleting file ".\CortexM0\ARM_GCC_541\Debug\dev_comp_mod.o"
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\execution_system.o"
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\io_device.o"
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\ccNOos_tests.o"
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\ccNOos_lib.a"
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\.deps\SOURCE_C__ARM_GCC_GENERIC.P"
-Deleting file ".\CortexM3\ARM_GCC_541\Debug\api_comp_mod.o"
 Deleting file ".\CortexM3\ARM_GCC_541\Debug\compute_module.o"
 Deleting file ".\CortexM3\ARM_GCC_541\Debug\console_menu.o"
-Deleting file ".\CortexM3\ARM_GCC_541\Debug\dev_comp_mod.o"
 Deleting file ".\CortexM3\ARM_GCC_541\Debug\execution_system.o"
 Deleting file ".\CortexM3\ARM_GCC_541\Debug\io_device.o"
 Deleting file ".\CortexM3\ARM_GCC_541\Debug\ccNOos_tests.o"
 Deleting file ".\CortexM3\ARM_GCC_541\Debug\ccNOos_lib.a"
 Deleting file ".\CortexM3\ARM_GCC_541\Debug\.deps\SOURCE_C__ARM_GCC_GENERIC.P"
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/api_comp_mod.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\..\ccNOos\apiCompModule\api_comp_mod.c -o .\CortexM0\ARM_GCC_541\Debug\api_comp_mod.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/compute_module.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\..\ccNOos\computeModule\compute_module.c -o .\CortexM0\ARM_GCC_541\Debug\compute_module.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/console_menu.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\..\ccNOos\consoleMenu\console_menu.c -o .\CortexM0\ARM_GCC_541\Debug\console_menu.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/dev_comp_mod.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\..\ccNOos\deviceCompModule\dev_comp_mod.c -o .\CortexM0\ARM_GCC_541\Debug\dev_comp_mod.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/execution_system.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\..\ccNOos\executionSystem\execution_system.c -o .\CortexM0\ARM_GCC_541\Debug\execution_system.o
-In file included from ..\..\ccNOos\executionSystem\execution_system.c:30:0:
-..\..\ccNOos\executionSystem\execution_system.c: In function 'ExecuteMain':
-..\..\ccNOos\executionSystem\execution_system.h:49:17: warning: unused variable 'retVal' [-Wunused-variable]
-             int retVal = currentExeNode->entryPoint(currentExeNode->dataPtr);\
-                 ^
-..\..\ccNOos\executionSystem\execution_system.c:64:5: note: in expansion of macro 'MODULE_EXE_AREA'
-     MODULE_EXE_AREA
-     ^
-..\..\ccNOos\executionSystem\execution_system.h:49:17: warning: unused variable 'retVal' [-Wunused-variable]
-             int retVal = currentExeNode->entryPoint(currentExeNode->dataPtr);\
-                 ^
-..\..\ccNOos\executionSystem\execution_system.c:73:9: note: in expansion of macro 'MODULE_EXE_AREA'
-         MODULE_EXE_AREA    
-         ^
-..\..\ccNOos\executionSystem\execution_system.c:60:9: warning: variable 'retVal' set but not used [-Wunused-but-set-variable]
-     int retVal = platformSetup();
-         ^
-In file included from ..\..\ccNOos\executionSystem\execution_system.c:30:0:
-..\..\ccNOos\executionSystem\execution_system.c: In function 'ExecuteSysTick':
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/io_device.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\..\ccNOos\ioDevice\io_device.c -o .\CortexM0\ARM_GCC_541\Debug\io_device.o
-..\..\ccNOos\executionSystem\execution_system.h:49:17: warning: unused variable 'retVal' [-Wunused-variable]
-             int retVal = currentExeNode->entryPoint(currentExeNode->dataPtr);\
-                 ^
-..\..\ccNOos\executionSystem\execution_system.c:89:5: note: in expansion of macro 'MODULE_EXE_AREA'
-     MODULE_EXE_AREA
-     ^
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/ccNOos_tests.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\..\ccNOos\tests\ccNOos_tests.c -o .\CortexM0\ARM_GCC_541\Debug\ccNOos_tests.o
-arm-none-eabi-ar.exe -rs .\CortexM0\ARM_GCC_541\Debug\ccNOos_lib.a C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\ccNOos_lib.cylib\CortexM0\ARM_GCC_541\Debug\api_comp_mod.o C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\ccNOos_lib.cylib\CortexM0\ARM_GCC_541\Debug\compute_module.o C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\ccNOos_lib.cylib\CortexM0\ARM_GCC_541\Debug\console_menu.o C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\ccNOos_lib.cylib\CortexM0\ARM_GCC_541\Debug\dev_comp_mod.o C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\ccNOos_lib.cylib\CortexM0\ARM_GCC_541\Debug\execution_system.o C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\ccNOos_lib.cylib\CortexM0\ARM_GCC_541\Debug\io_device.o C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\ccNOos_lib.cylib\CortexM0\ARM_GCC_541\Debug\ccNOos_tests.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/compute_module.lst -g -D DEBUG -D CY_CORE_ID=0 -D USING_STDINT -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\..\ccNOos\computeModule\compute_module.c -o .\CortexM0\ARM_GCC_541\Debug\compute_module.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/console_menu.lst -g -D DEBUG -D CY_CORE_ID=0 -D USING_STDINT -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\..\ccNOos\consoleMenu\console_menu.c -o .\CortexM0\ARM_GCC_541\Debug\console_menu.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/execution_system.lst -g -D DEBUG -D CY_CORE_ID=0 -D USING_STDINT -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\..\ccNOos\executionSystem\execution_system.c -o .\CortexM0\ARM_GCC_541\Debug\execution_system.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/io_device.lst -g -D DEBUG -D CY_CORE_ID=0 -D USING_STDINT -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\..\ccNOos\ioDevice\io_device.c -o .\CortexM0\ARM_GCC_541\Debug\io_device.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/ccNOos_tests.lst -g -D DEBUG -D CY_CORE_ID=0 -D USING_STDINT -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\..\ccNOos\tests\ccNOos_tests.c -o .\CortexM0\ARM_GCC_541\Debug\ccNOos_tests.o
+arm-none-eabi-ar.exe -rs .\CortexM0\ARM_GCC_541\Debug\ccNOos_lib.a C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\ccNOos_lib.cylib\CortexM0\ARM_GCC_541\Debug\compute_module.o C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\ccNOos_lib.cylib\CortexM0\ARM_GCC_541\Debug\console_menu.o C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\ccNOos_lib.cylib\CortexM0\ARM_GCC_541\Debug\execution_system.o C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\ccNOos_lib.cylib\CortexM0\ARM_GCC_541\Debug\io_device.o C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\ccNOos_lib.cylib\CortexM0\ARM_GCC_541\Debug\ccNOos_tests.o
 arm-none-eabi-ar.exe: creating .\CortexM0\ARM_GCC_541\Debug\ccNOos_lib.a
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/api_comp_mod.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\..\ccNOos\apiCompModule\api_comp_mod.c -o .\CortexM3\ARM_GCC_541\Debug\api_comp_mod.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/compute_module.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\..\ccNOos\computeModule\compute_module.c -o .\CortexM3\ARM_GCC_541\Debug\compute_module.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/console_menu.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\..\ccNOos\consoleMenu\console_menu.c -o .\CortexM3\ARM_GCC_541\Debug\console_menu.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/dev_comp_mod.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\..\ccNOos\deviceCompModule\dev_comp_mod.c -o .\CortexM3\ARM_GCC_541\Debug\dev_comp_mod.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/execution_system.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\..\ccNOos\executionSystem\execution_system.c -o .\CortexM3\ARM_GCC_541\Debug\execution_system.o
-In file included from ..\..\ccNOos\executionSystem\execution_system.c:30:0:
-..\..\ccNOos\executionSystem\execution_system.c: In function 'ExecuteMain':
-..\..\ccNOos\executionSystem\execution_system.h:49:17: warning: unused variable 'retVal' [-Wunused-variable]
-             int retVal = currentExeNode->entryPoint(currentExeNode->dataPtr);\
-                 ^
-..\..\ccNOos\executionSystem\execution_system.c:64:5: note: in expansion of macro 'MODULE_EXE_AREA'
-     MODULE_EXE_AREA
+In file included from ..\..\ccNOos\computeModule\compute_module.c:32:0:
+..\..\ccNOos\computeModule\compute_module.h:39:5: error: unknown type name 'uint32_t'
+     uint32_t exceptionFlags;    
      ^
-..\..\ccNOos\executionSystem\execution_system.h:49:17: warning: unused variable 'retVal' [-Wunused-variable]
-             int retVal = currentExeNode->entryPoint(currentExeNode->dataPtr);\
-                 ^
-..\..\ccNOos\executionSystem\execution_system.c:73:9: note: in expansion of macro 'MODULE_EXE_AREA'
-         MODULE_EXE_AREA    
-         ^
-..\..\ccNOos\executionSystem\execution_system.c:60:9: warning: variable 'retVal' set but not used [-Wunused-but-set-variable]
-     int retVal = platformSetup();
-         ^
-In file included from ..\..\ccNOos\executionSystem\execution_system.c:30:0:
-..\..\ccNOos\executionSystem\execution_system.c: In function 'ExecuteSysTick':
-..\..\ccNOos\executionSystem\execution_system.h:49:17: warning: unused variable 'retVal' [-Wunused-variable]
-             int retVal = currentExeNode->entryPoint(currentExeNode->dataPtr);\
-                 ^
-..\..\ccNOos\executionSystem\execution_system.c:89:5: note: in expansion of macro 'MODULE_EXE_AREA'
-     MODULE_EXE_AREA
+In file included from ..\..\ccNOos\computeModule\compute_module.c:33:0:
+..\..\ccNOos\computeModule\../executionSystem/execution_system.h:61:5: error: unknown type name 'uint32_t'
+     uint32_t uSecTicks;
      ^
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/io_device.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\..\ccNOos\ioDevice\io_device.c -o .\CortexM3\ARM_GCC_541\Debug\io_device.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/ccNOos_tests.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\..\ccNOos\tests\ccNOos_tests.c -o .\CortexM3\ARM_GCC_541\Debug\ccNOos_tests.o
-arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_541\Debug\ccNOos_lib.a C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\ccNOos_lib.cylib\CortexM3\ARM_GCC_541\Debug\api_comp_mod.o C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\ccNOos_lib.cylib\CortexM3\ARM_GCC_541\Debug\compute_module.o C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\ccNOos_lib.cylib\CortexM3\ARM_GCC_541\Debug\console_menu.o C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\ccNOos_lib.cylib\CortexM3\ARM_GCC_541\Debug\dev_comp_mod.o C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\ccNOos_lib.cylib\CortexM3\ARM_GCC_541\Debug\execution_system.o C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\ccNOos_lib.cylib\CortexM3\ARM_GCC_541\Debug\io_device.o C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\ccNOos_lib.cylib\CortexM3\ARM_GCC_541\Debug\ccNOos_tests.o
-arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_541\Debug\ccNOos_lib.a
---------------- Rebuild Succeeded: 10/21/2021 17:19:41 ---------------
+..\..\ccNOos\computeModule\../executionSystem/execution_system.h:62:5: error: unknown type name 'uint32_t'
+     uint32_t hourTicks;
+     ^
+..\..\ccNOos\computeModule\../executionSystem/execution_system.h:63:5: error: unknown type name 'uint32_t'
+     uint32_t uSecPerSysTick;
+     ^
+..\..\ccNOos\computeModule\../executionSystem/execution_system.h:68:5: error: unknown type name 'uint32_t'
+     uint32_t uSperTick
+     ^
+..\..\ccNOos\computeModule\../executionSystem/execution_system.h:74:1: error: unknown type name 'uint32_t'
+ uint32_t getuSecTicks();
+ ^
+..\..\ccNOos\computeModule\../executionSystem/execution_system.h:75:1: error: unknown type name 'uint32_t'
+ uint32_t getHourTicks();
+ ^
+The command 'arm-none-eabi-gcc.exe' failed with exit code '1'.
+--------------- Rebuild Failed: 11/01/2021 17:47:55 ---------------

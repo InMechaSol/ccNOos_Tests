@@ -1,10 +1,6 @@
---------------- Build Started: 10/22/2021 12:05:44 Project: SysTick_Example01, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Build Started: 11/01/2021 18:02:41 Project: SysTick_Example01, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 The code generation step is up to date.
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/main.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c main.c -o .\CortexM0\ARM_GCC_541\Debug\main.o
-main.c: In function 'SysTickISRCallback':
-main.c:192:9: warning: unused variable 'retval' [-Wunused-variable]
-     int retval = ExecuteSysTick(&SysTickExampleSystem);
-         ^
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D USING_STDINT -Wall -ffunction-sections -ffat-lto-objects -O0 -c main.c -o .\CortexM0\ARM_GCC_541\Debug\main.o
 arm-none-eabi-ar.exe -rs .\CortexM0\ARM_GCC_541\Debug\SysTick_Example01.a .\CortexM0\ARM_GCC_541\Debug\LED_Sec.o .\CortexM0\ARM_GCC_541\Debug\LED_Sec_PM.o .\CortexM0\ARM_GCC_541\Debug\LED_Min.o .\CortexM0\ARM_GCC_541\Debug\LED_Min_PM.o .\CortexM0\ARM_GCC_541\Debug\UART.o .\CortexM0\ARM_GCC_541\Debug\CyFlash.o .\CortexM0\ARM_GCC_541\Debug\CyLib.o .\CortexM0\ARM_GCC_541\Debug\cyPm.o .\CortexM0\ARM_GCC_541\Debug\cyutils.o .\CortexM0\ARM_GCC_541\Debug\CyLFClk.o .\CortexM0\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM0\ARM_GCC_541\Debug\UART_AsmGnu.o .\CortexM0\ARM_GCC_541\Debug\CyBootAsmGnu.o
 arm-none-eabi-ar.exe: creating .\CortexM0\ARM_GCC_541\Debug\SysTick_Example01.a
 arm-none-eabi-gcc.exe -Wl,--start-group -o C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\SysTick_Example01.cydsn\CortexM0\ARM_GCC_541\Debug\SysTick_Example01.elf .\CortexM0\ARM_GCC_541\Debug\main.o .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM0\ARM_GCC_541\Debug\cymetadata.o .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o .\CortexM0\ARM_GCC_541\Debug\SysTick_Example01.a ..\ccNOos_lib.cylib\CortexM0\ARM_GCC_541\Debug\ccNOos_lib.a -mcpu=cortex-m0 -mthumb -L Generated_Source\PSoC4 -Wl,-Map,.\CortexM0\ARM_GCC_541\Debug/SysTick_Example01.map -T Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -O0 -ffat-lto-objects -Wl,--end-group
@@ -13,6 +9,6 @@ No ELF section .cychecksum found, creating one
 Application checksum calculated and stored in ELF section .cychecksum
 Checksum calculated and stored in ELF section .cymeta
 cyelftool.exe -S C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\SysTick_Example01.cydsn\CortexM0\ARM_GCC_541\Debug\SysTick_Example01.elf
-Flash used: 6246 of 32768 bytes (19.1%).
-SRAM used: 1716 of 4096 bytes (41.9%). Stack: 1024 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 10/22/2021 12:05:46 ---------------
+Flash used: 6182 of 32768 bytes (18.9%).
+SRAM used: 1652 of 4096 bytes (40.3%). Stack: 1024 bytes. Heap: 128 bytes.
+--------------- Build Succeeded: 11/01/2021 18:02:42 ---------------

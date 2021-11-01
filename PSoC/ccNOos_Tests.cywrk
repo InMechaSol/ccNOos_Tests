@@ -7,8 +7,6 @@
 <wrkspc_folders />
 <files />
 <projects>
-<v>.\ccNOos_lib.cylib\ccNOos_lib.cyprj</v>
-<v>.\PSoC4_Tests.cydsn\PSoC4_Tests.cyprj</v>
 <v>.\SysTick_Example01.cydsn\SysTick_Example01.cyprj</v>
 </projects>
 <workspace_id v="68f6116e-d0d9-4595-81b0-2a15cacde20a" />

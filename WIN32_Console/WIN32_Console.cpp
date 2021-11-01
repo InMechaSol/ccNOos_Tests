@@ -1,5 +1,5 @@
-/** \file PIC32MZ_Tests.cpp
-*   \brief PIC32MZ Implementation of SysTick Example in c++
+/** \file WIN32_Console.cpp
+*   \brief WIN32 Console Implementation of SysTick Example in c++
 
    Copyright 2021 InMechaSol, Inc
 
@@ -16,10 +16,10 @@
    limitations under the License.
 
 Notes:
- the systick example demonstrates the basic operation of the "systick" execution 
+ the systick example demonstrates the basic operation of the "systick" execution
  area and timing maintained by the execution system.  when properly implemented
- and configured, this example blinks LED(s) every second and minute.  when 
- properly implemented and configured, this example formats and writes a 
+ and configured, this example blinks LED(s) every second and minute.  when
+ properly implemented and configured, this example formats and writes a
  character array of current execution system time - once per second to a serial
  device.
 
@@ -33,38 +33,41 @@ Notes:
    <writeSecLEDdevice> - IO Write Function for Second LED
    <writeSerialdevice> - IO Write Function for Time String Output
    <platformSetup> - Base Execution System Setup
-   <platformStart> - Executed after platformSetup and all Modules Setup, 
-                                                     but before any modules Loop 
+   <platformStart> - Executed after platformSetup and all Modules Setup,
+                                                     but before any modules Loop
    <platformLoopDelay> - Define "rest" between main loop cycles
-  
+
 */
 
 //<platformConfigChecks>
 #ifndef USING_STDINT
-#error Must compile with -DUSING_STDINT on PIC32MZ
+#error Must compile with -DUSING_STDINT on WIN32
 #endif // !USING_STDINT
 #ifndef USING_CSTDINT
-#error Must compile with -DUSING_CSTDINT on PIC32MZ
+#error Must compile with -DUSING_CSTDINT on WIN32
 #endif // !USING_CSTDINT
 #ifdef USING_NONSTDINT_SHORTER
-#error Must not compile with -DUSING_NONSTDINT_SHORTER on PIC32MZ
+#error Must not compile with -DUSING_NONSTDINT_SHORTER on WIN32
+#error Must not compile with -DUSING_NONSTDINT_SHORTER on WIN32
 #endif // !USING_NONSTDINT_SHORTER
 #ifdef USING_NONSTDINT_LONGER
-#error Must not compile with -DUSING_NONSTDINT_LONGER on PIC32MZ
+#error Must not compile with -DUSING_NONSTDINT_LONGER on WIN32
 #endif // !USING_NONSTDINT_LONGER
 #ifdef REDEFINE_NULLPTR
-#error Must not compile with -DREDEFINE_NULLPTR on PIC32MZ
+#error Must not compile with -DREDEFINE_NULLPTR on WIN32
 #endif // !REDEFINE_NULLPTR
 #ifdef __NOEXCEPTIONS
-#error Must not compile with -D__NOEXCEPTIONS on PIC32MZ
+#error Must not compile with -D__NOEXCEPTIONS on WIN32
 #endif // !__NOEXCEPTIONS
 //</platformConfigChecks>
 
 //<platformIncludes>
-#include <xc.h>
-#include "../../ccNOos/tests/ccNOos_tests.h"    // all things ccNOos w/tests
+#include <iostream>
 #include <cstdio>
 #include <cmath>
+#include <ctime>
+#include <thread>
+#include "../ccNOos/tests/ccNOos_tests.h"
 //</platformIncludes>
 
 //<platformAppDefines>
@@ -72,34 +75,36 @@ Notes:
 //</platformAppDefines>
 
 /* Function Prototype for systick isr callback function */
-void SysTickISRCallback(void);
+//void SysTickISRCallback(void);
 
 
 #define USEC_PER_TICK (1000u)
 
 class PIC32MZ_SysTickApplication
-{  
-public:   
+{
+public:
     linkedEntryPointClass setupListHead;
     linkedEntryPointClass loopListHead;
     linkedEntryPointClass systickListHead;
     linkedEntryPointClass exceptionListHead;
     SysTickExample_class sysTickCompMod;
     executionSystemClass SysTickExecutionSystem;
-    PIC32MZ_SysTickApplication():
-    sysTickCompMod(LIGHT_OFF),
-    setupListHead(&sysTickCompMod, nullptr),
-    loopListHead(&sysTickCompMod, nullptr),
-    systickListHead(nullptr, nullptr),
-    exceptionListHead(&sysTickCompMod, nullptr),
-    SysTickExecutionSystem(
-        &setupListHead,
-        &loopListHead,
-        &systickListHead,
-        &exceptionListHead,
-        USEC_PER_TICK
+    PIC32MZ_SysTickApplication() :
+        sysTickCompMod(LIGHT_OFF),
+        setupListHead(&sysTickCompMod, nullptr),
+        loopListHead(&sysTickCompMod, nullptr),
+        systickListHead(nullptr, nullptr),
+        exceptionListHead(&sysTickCompMod, nullptr),
+        SysTickExecutionSystem(
+            &setupListHead,
+            &loopListHead,
+            &systickListHead,
+            &exceptionListHead,
+            USEC_PER_TICK
         )
-    {;}
+    {
+        ;
+    }
 };
 
 PIC32MZ_SysTickApplication theSysTickExample;
@@ -127,24 +132,27 @@ void WriteSecLED(struct SysTickStruct* sysTickDataPtr)
 void WriteTimeSerial(struct SysTickStruct* sysTickDataPtr)
 {
     //<writeSerialdevice>
+
+    std::cout << sysTickDataPtr->time;// << std::fflush;
     //UART_PutString(sysTickDataPtr->time); 
     //</writeSerialdevice>
 }
 // 4) Serialization of Time String
 void SerializeTimeString(struct SysTickStruct* sysTickDataPtr)
 {
-    sprintf(sysTickDataPtr->time, "\r%02u:%02u:%02u", 
-                    (int)(sysTickDataPtr->hrCount % 100), 
-                    (int)(sysTickDataPtr->minCount % TIME_MIN_PER_HR),
-                    (int)(sysTickDataPtr->secCount % TIME_SEC_PER_MIN)
-                    );
+    int retval = sprintf_s(sysTickDataPtr->time, "\r%02u:%02u:%02u",
+        (int)(sysTickDataPtr->hrCount % 100),
+        (int)(sysTickDataPtr->minCount % TIME_MIN_PER_HR),
+        (int)(sysTickDataPtr->secCount % TIME_SEC_PER_MIN)
+    );
+    //sysTickDataPtr->time[retval] = 0x00;
 }
 
 ////////////////////////////////////////////////////////////
 // An Execution System Requires Platform Implementations of:
 // 1) Platform Configure Function
 void platformSetup()
-{      
+{
     //<platformSetup>
     //</platformSetup>
 }
@@ -156,10 +164,9 @@ void platformStart()
 }
 // 3) Platform Loop Delay Function
 void platformLoopDelay()
-{    
+{
     //<platformLoopDelay>
-    //CyDelay(1);   // on PSoc, only if desired
-    ;               // let it run full throttle, its a machine after all...
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
     //</platformLoopDelay>
 }
 ////////////////////////////////////////////////////////////////////////////////
@@ -176,15 +183,42 @@ uint32_t getHourTicks()
 ////////////////////////////////////////////////////////////////////////////////
 // Finally, an applications entry points call the execution system entry points
 // 1) The Main Entry Point
+#define uSEC_PER_CLOCK (1000000/CLOCKS_PER_SEC)
+
 int main(int argc, char** argv)
-{    
-    return theSysTickExample.SysTickExecutionSystem.ExecuteMain();
+{
+    clock_t tlast = clock();
+    clock_t tnow, tdelta;
+    uint32_t* uSecTicksPtr = &theSysTickExample.SysTickExecutionSystem.getExeDataPtr()->uSecTicks;
+    uint32_t* hourTicksPtr = &theSysTickExample.SysTickExecutionSystem.getExeDataPtr()->hourTicks;
+    theSysTickExample.SysTickExecutionSystem.ExecuteSetup();
+    for (;;)
+    {
+        tnow = clock();
+        if (tnow >= tlast)
+            tdelta = tnow - tlast;
+        else
+            tdelta = tnow + (LONG_MAX - tlast);
+        tlast = tnow;
+                
+        (*uSecTicksPtr) += tdelta * uSEC_PER_CLOCK;
+        if ((*uSecTicksPtr) >= TIME_uS_PER_HR)
+        {
+            (*uSecTicksPtr) = 0u;
+            (*hourTicksPtr)++;
+        }
+                
+        theSysTickExample.SysTickExecutionSystem.ExecuteLoop();
+    }
+    return RETURN_ERROR;
 }
 // 2) The SysTick Entry Point
-void SysTickISRCallback(void)
-{
-    theSysTickExample.SysTickExecutionSystem.ExecuteSysTick();
-}
+
 /* [] END OF FILE */
+
+
+
+
+
 
 

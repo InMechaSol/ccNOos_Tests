@@ -38,6 +38,28 @@ Notes:
    <platformLoopDelay> - Define "rest" between main loop cycles
   
 */
+
+//<platformConfigChecks>
+#ifndef USING_STDINT
+#error Must compile with -DUSING_STDINT on dsPIC33f
+#endif // !USING_STDINT
+#ifdef __NOEXCEPTIONS
+#error Must not compile with -D__NOEXCEPTIONS on dsPIC33f
+#endif // !__NOEXCEPTIONS
+#ifdef USING_CSTDINT
+#error Must not compile with -DUSING_CSTDINT on dsPIC33f
+#endif // !USING_CSTDINT
+#ifdef USING_NONSTDINT_SHORTER
+#error Must not compile with -DUSING_NONSTDINT_SHORTER on dsPIC33f
+#endif // !USING_NONSTDINT_SHORTER
+#ifdef USING_NONSTDINT_LONGER
+#error Must not compile with -DUSING_NONSTDINT_LONGER on dsPIC33f
+#endif // !USING_NONSTDINT_LONGER
+#ifdef REDEFINE_NULLPTR
+#error Must not compile with -DREDEFINE_NULLPTR on Aduino dsPIC33f
+#endif // !REDEFINE_NULLPTR
+//</platformConfigChecks>
+
 //<platformIncludes>
 #include "xc.h"           
 #include "p33fxxxx.h"

@@ -117,42 +117,42 @@ ${OBJECTDIR}/_ext/906818983/compute_module_class.o: ../../ccNOos/computeModule/c
 	@${MKDIR} "${OBJECTDIR}/_ext/906818983" 
 	@${RM} ${OBJECTDIR}/_ext/906818983/compute_module_class.o.d 
 	@${RM} ${OBJECTDIR}/_ext/906818983/compute_module_class.o 
-	${MP_CPPC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -MMD -MF "${OBJECTDIR}/_ext/906818983/compute_module_class.o.d" -o ${OBJECTDIR}/_ext/906818983/compute_module_class.o ../../ccNOos/computeModule/compute_module_class.cpp   -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	${MP_CPPC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -MMD -MF "${OBJECTDIR}/_ext/906818983/compute_module_class.o.d" -o ${OBJECTDIR}/_ext/906818983/compute_module_class.o ../../ccNOos/computeModule/compute_module_class.cpp   -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -DUSING_STDINT -DUSING_CSTDINT -mdfp="${DFP_DIR}"  
 	@${FIXDEPS} "${OBJECTDIR}/_ext/906818983/compute_module_class.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/1423417940/console_menu_class.o: ../../ccNOos/consoleMenu/console_menu_class.cpp  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1423417940" 
 	@${RM} ${OBJECTDIR}/_ext/1423417940/console_menu_class.o.d 
 	@${RM} ${OBJECTDIR}/_ext/1423417940/console_menu_class.o 
-	${MP_CPPC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -MMD -MF "${OBJECTDIR}/_ext/1423417940/console_menu_class.o.d" -o ${OBJECTDIR}/_ext/1423417940/console_menu_class.o ../../ccNOos/consoleMenu/console_menu_class.cpp   -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	${MP_CPPC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -MMD -MF "${OBJECTDIR}/_ext/1423417940/console_menu_class.o.d" -o ${OBJECTDIR}/_ext/1423417940/console_menu_class.o ../../ccNOos/consoleMenu/console_menu_class.cpp   -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -DUSING_STDINT -DUSING_CSTDINT -mdfp="${DFP_DIR}"  
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1423417940/console_menu_class.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/1324609859/execution_system_class.o: ../../ccNOos/executionSystem/execution_system_class.cpp  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1324609859" 
 	@${RM} ${OBJECTDIR}/_ext/1324609859/execution_system_class.o.d 
 	@${RM} ${OBJECTDIR}/_ext/1324609859/execution_system_class.o 
-	${MP_CPPC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -MMD -MF "${OBJECTDIR}/_ext/1324609859/execution_system_class.o.d" -o ${OBJECTDIR}/_ext/1324609859/execution_system_class.o ../../ccNOos/executionSystem/execution_system_class.cpp   -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	${MP_CPPC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -MMD -MF "${OBJECTDIR}/_ext/1324609859/execution_system_class.o.d" -o ${OBJECTDIR}/_ext/1324609859/execution_system_class.o ../../ccNOos/executionSystem/execution_system_class.cpp   -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -DUSING_STDINT -DUSING_CSTDINT -mdfp="${DFP_DIR}"  
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1324609859/execution_system_class.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/1921990522/io_device_class.o: ../../ccNOos/ioDevice/io_device_class.cpp  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1921990522" 
 	@${RM} ${OBJECTDIR}/_ext/1921990522/io_device_class.o.d 
 	@${RM} ${OBJECTDIR}/_ext/1921990522/io_device_class.o 
-	${MP_CPPC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -MMD -MF "${OBJECTDIR}/_ext/1921990522/io_device_class.o.d" -o ${OBJECTDIR}/_ext/1921990522/io_device_class.o ../../ccNOos/ioDevice/io_device_class.cpp   -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	${MP_CPPC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -MMD -MF "${OBJECTDIR}/_ext/1921990522/io_device_class.o.d" -o ${OBJECTDIR}/_ext/1921990522/io_device_class.o ../../ccNOos/ioDevice/io_device_class.cpp   -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -DUSING_STDINT -DUSING_CSTDINT -mdfp="${DFP_DIR}"  
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1921990522/io_device_class.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/1571702537/ccNOos_tests_class.o: ../../ccNOos/tests/ccNOos_tests_class.cpp  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1571702537" 
 	@${RM} ${OBJECTDIR}/_ext/1571702537/ccNOos_tests_class.o.d 
 	@${RM} ${OBJECTDIR}/_ext/1571702537/ccNOos_tests_class.o 
-	${MP_CPPC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -MMD -MF "${OBJECTDIR}/_ext/1571702537/ccNOos_tests_class.o.d" -o ${OBJECTDIR}/_ext/1571702537/ccNOos_tests_class.o ../../ccNOos/tests/ccNOos_tests_class.cpp   -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	${MP_CPPC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -MMD -MF "${OBJECTDIR}/_ext/1571702537/ccNOos_tests_class.o.d" -o ${OBJECTDIR}/_ext/1571702537/ccNOos_tests_class.o ../../ccNOos/tests/ccNOos_tests_class.cpp   -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -DUSING_STDINT -DUSING_CSTDINT -mdfp="${DFP_DIR}"  
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1571702537/ccNOos_tests_class.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/PIC32MZ_Tests.o: PIC32MZ_Tests.cpp  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/PIC32MZ_Tests.o.d 
 	@${RM} ${OBJECTDIR}/PIC32MZ_Tests.o 
-	${MP_CPPC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -MMD -MF "${OBJECTDIR}/PIC32MZ_Tests.o.d" -o ${OBJECTDIR}/PIC32MZ_Tests.o PIC32MZ_Tests.cpp   -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	${MP_CPPC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -MMD -MF "${OBJECTDIR}/PIC32MZ_Tests.o.d" -o ${OBJECTDIR}/PIC32MZ_Tests.o PIC32MZ_Tests.cpp   -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -DUSING_STDINT -DUSING_CSTDINT -mdfp="${DFP_DIR}"  
 	@${FIXDEPS} "${OBJECTDIR}/PIC32MZ_Tests.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ 
 	
 else
@@ -160,42 +160,42 @@ ${OBJECTDIR}/_ext/906818983/compute_module_class.o: ../../ccNOos/computeModule/c
 	@${MKDIR} "${OBJECTDIR}/_ext/906818983" 
 	@${RM} ${OBJECTDIR}/_ext/906818983/compute_module_class.o.d 
 	@${RM} ${OBJECTDIR}/_ext/906818983/compute_module_class.o 
-	${MP_CPPC} $(MP_EXTRA_CC_PRE)  -g -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -MMD -MF "${OBJECTDIR}/_ext/906818983/compute_module_class.o.d" -o ${OBJECTDIR}/_ext/906818983/compute_module_class.o ../../ccNOos/computeModule/compute_module_class.cpp   -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	${MP_CPPC} $(MP_EXTRA_CC_PRE)  -g -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -MMD -MF "${OBJECTDIR}/_ext/906818983/compute_module_class.o.d" -o ${OBJECTDIR}/_ext/906818983/compute_module_class.o ../../ccNOos/computeModule/compute_module_class.cpp   -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -DUSING_STDINT -DUSING_CSTDINT -mdfp="${DFP_DIR}"  
 	@${FIXDEPS} "${OBJECTDIR}/_ext/906818983/compute_module_class.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/1423417940/console_menu_class.o: ../../ccNOos/consoleMenu/console_menu_class.cpp  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1423417940" 
 	@${RM} ${OBJECTDIR}/_ext/1423417940/console_menu_class.o.d 
 	@${RM} ${OBJECTDIR}/_ext/1423417940/console_menu_class.o 
-	${MP_CPPC} $(MP_EXTRA_CC_PRE)  -g -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -MMD -MF "${OBJECTDIR}/_ext/1423417940/console_menu_class.o.d" -o ${OBJECTDIR}/_ext/1423417940/console_menu_class.o ../../ccNOos/consoleMenu/console_menu_class.cpp   -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	${MP_CPPC} $(MP_EXTRA_CC_PRE)  -g -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -MMD -MF "${OBJECTDIR}/_ext/1423417940/console_menu_class.o.d" -o ${OBJECTDIR}/_ext/1423417940/console_menu_class.o ../../ccNOos/consoleMenu/console_menu_class.cpp   -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -DUSING_STDINT -DUSING_CSTDINT -mdfp="${DFP_DIR}"  
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1423417940/console_menu_class.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/1324609859/execution_system_class.o: ../../ccNOos/executionSystem/execution_system_class.cpp  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1324609859" 
 	@${RM} ${OBJECTDIR}/_ext/1324609859/execution_system_class.o.d 
 	@${RM} ${OBJECTDIR}/_ext/1324609859/execution_system_class.o 
-	${MP_CPPC} $(MP_EXTRA_CC_PRE)  -g -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -MMD -MF "${OBJECTDIR}/_ext/1324609859/execution_system_class.o.d" -o ${OBJECTDIR}/_ext/1324609859/execution_system_class.o ../../ccNOos/executionSystem/execution_system_class.cpp   -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	${MP_CPPC} $(MP_EXTRA_CC_PRE)  -g -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -MMD -MF "${OBJECTDIR}/_ext/1324609859/execution_system_class.o.d" -o ${OBJECTDIR}/_ext/1324609859/execution_system_class.o ../../ccNOos/executionSystem/execution_system_class.cpp   -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -DUSING_STDINT -DUSING_CSTDINT -mdfp="${DFP_DIR}"  
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1324609859/execution_system_class.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/1921990522/io_device_class.o: ../../ccNOos/ioDevice/io_device_class.cpp  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1921990522" 
 	@${RM} ${OBJECTDIR}/_ext/1921990522/io_device_class.o.d 
 	@${RM} ${OBJECTDIR}/_ext/1921990522/io_device_class.o 
-	${MP_CPPC} $(MP_EXTRA_CC_PRE)  -g -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -MMD -MF "${OBJECTDIR}/_ext/1921990522/io_device_class.o.d" -o ${OBJECTDIR}/_ext/1921990522/io_device_class.o ../../ccNOos/ioDevice/io_device_class.cpp   -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	${MP_CPPC} $(MP_EXTRA_CC_PRE)  -g -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -MMD -MF "${OBJECTDIR}/_ext/1921990522/io_device_class.o.d" -o ${OBJECTDIR}/_ext/1921990522/io_device_class.o ../../ccNOos/ioDevice/io_device_class.cpp   -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -DUSING_STDINT -DUSING_CSTDINT -mdfp="${DFP_DIR}"  
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1921990522/io_device_class.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/1571702537/ccNOos_tests_class.o: ../../ccNOos/tests/ccNOos_tests_class.cpp  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1571702537" 
 	@${RM} ${OBJECTDIR}/_ext/1571702537/ccNOos_tests_class.o.d 
 	@${RM} ${OBJECTDIR}/_ext/1571702537/ccNOos_tests_class.o 
-	${MP_CPPC} $(MP_EXTRA_CC_PRE)  -g -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -MMD -MF "${OBJECTDIR}/_ext/1571702537/ccNOos_tests_class.o.d" -o ${OBJECTDIR}/_ext/1571702537/ccNOos_tests_class.o ../../ccNOos/tests/ccNOos_tests_class.cpp   -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	${MP_CPPC} $(MP_EXTRA_CC_PRE)  -g -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -MMD -MF "${OBJECTDIR}/_ext/1571702537/ccNOos_tests_class.o.d" -o ${OBJECTDIR}/_ext/1571702537/ccNOos_tests_class.o ../../ccNOos/tests/ccNOos_tests_class.cpp   -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -DUSING_STDINT -DUSING_CSTDINT -mdfp="${DFP_DIR}"  
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1571702537/ccNOos_tests_class.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/PIC32MZ_Tests.o: PIC32MZ_Tests.cpp  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/PIC32MZ_Tests.o.d 
 	@${RM} ${OBJECTDIR}/PIC32MZ_Tests.o 
-	${MP_CPPC} $(MP_EXTRA_CC_PRE)  -g -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -MMD -MF "${OBJECTDIR}/PIC32MZ_Tests.o.d" -o ${OBJECTDIR}/PIC32MZ_Tests.o PIC32MZ_Tests.cpp   -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	${MP_CPPC} $(MP_EXTRA_CC_PRE)  -g -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -MMD -MF "${OBJECTDIR}/PIC32MZ_Tests.o.d" -o ${OBJECTDIR}/PIC32MZ_Tests.o PIC32MZ_Tests.cpp   -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -DUSING_STDINT -DUSING_CSTDINT -mdfp="${DFP_DIR}"  
 	@${FIXDEPS} "${OBJECTDIR}/PIC32MZ_Tests.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ 
 	
 endif
@@ -205,7 +205,7 @@ endif
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 dist/${CND_CONF}/${IMAGE_TYPE}/PIC32MZ_Tests.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CPPC} $(MP_EXTRA_LD_PRE) -g   -mprocessor=$(MP_PROCESSOR_OPTION)  -o dist/${CND_CONF}/${IMAGE_TYPE}/PIC32MZ_Tests.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}          -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)      -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,-D=__DEBUG_D,--no-code-in-dinit,--no-dinit-in-serial-mem,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--memorysummary,dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -mdfp="${DFP_DIR}"
+	${MP_CPPC} $(MP_EXTRA_LD_PRE) -g -mdebugger -D__MPLAB_DEBUGGER_PK3=1 -mprocessor=$(MP_PROCESSOR_OPTION)  -o dist/${CND_CONF}/${IMAGE_TYPE}/PIC32MZ_Tests.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}          -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)   -mreserve=data@0x0:0x37F   -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,-D=__DEBUG_D,--defsym=__MPLAB_DEBUGGER_PK3=1,--no-code-in-dinit,--no-dinit-in-serial-mem,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--memorysummary,dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -mdfp="${DFP_DIR}"
 	
 else
 dist/${CND_CONF}/${IMAGE_TYPE}/PIC32MZ_Tests.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   

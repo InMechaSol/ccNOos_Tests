@@ -18,3 +18,10 @@
 /PSoC/ccNOos_lib.cylib/CortexM0/ARM_GCC_541/Debug
 /PSoC/ccNOos_lib.cylib/CortexM3/ARM_GCC_541/Debug
 /PSoC/ccNOos_lib.cylib/ccNOos_lib.cyprj.geades
+/GenerateArduinoLib/bin
+/GenerateArduinoLib/obj
+/WIN32_Console/.vs
+/WIN32_Console/Release
+/WIN32_Console/Debug
+/GenerateArduinoLib/.vs/GenerateArduinoLib/v16
+/WIN32_Console/GenerateArduinoLib.exe
