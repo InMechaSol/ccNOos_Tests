@@ -59,95 +59,19 @@ Notes:
 #ifdef __NOEXCEPTIONS
 #error Must not compile with -D__NOEXCEPTIONS on WIN32
 #endif // !__NOEXCEPTIONS
-//</platformConfigChecks>
 
-//<platformIncludes>
-#include <iostream>
-#include <cstdio>
-#include <cmath>
+
 #include <ctime>
 #include <thread>
+#define uSEC_PER_CLOCK (1000000/CLOCKS_PER_SEC)
 #include "../ccNOos/tests/ccNOos_tests.h"
-//</platformIncludes>
-
-//<platformAppDefines>
-#define LIGHT_OFF (0u)      // 1-PSoC4, 0-most others
-//</platformAppDefines>
-
 /* Function Prototype for systick isr callback function */
-//void SysTickISRCallback(void);
+//void SysTickISRCallback(void); // not using on WIN32
+//</platformConfigChecks>
 
 
-#define USEC_PER_TICK (1000u)
 
-class PIC32MZ_SysTickApplication
-{
-public:
-    linkedEntryPointClass setupListHead;
-    linkedEntryPointClass loopListHead;
-    linkedEntryPointClass systickListHead;
-    linkedEntryPointClass exceptionListHead;
-    SysTickExample_class sysTickCompMod;
-    executionSystemClass SysTickExecutionSystem;
-    PIC32MZ_SysTickApplication() :
-        sysTickCompMod(LIGHT_OFF),
-        setupListHead(&sysTickCompMod, nullptr),
-        loopListHead(&sysTickCompMod, nullptr),
-        systickListHead(nullptr, nullptr),
-        exceptionListHead(&sysTickCompMod, nullptr),
-        SysTickExecutionSystem(
-            &setupListHead,
-            &loopListHead,
-            &systickListHead,
-            &exceptionListHead,
-            USEC_PER_TICK
-        )
-    {
-        ;
-    }
-};
-
-PIC32MZ_SysTickApplication theSysTickExample;
-
-//////////////////////////////////////////////////
-// IO Devices Require Platform Implementations of
-// of open,close,read,write
-// This SysTick Example Application only uses write
-// for each of its three application devices
-// 1) Minute LED Device Write
-void WriteMinLED(struct SysTickStruct* sysTickDataPtr)
-{
-    //<writeMinLEDdevice>
-    //LED_Min_Write(sysTickDataPtr->MinLEDvalue); 
-    //</writeMinLEDdevice>
-}
-// 2) Second LED Device Write
-void WriteSecLED(struct SysTickStruct* sysTickDataPtr)
-{
-    //<writeSecLEDdevice>
-    //LED_Sec_Write(sysTickDataPtr->SecLEDvalue);
-    //</writeSecLEDdevice>
-}
-// 3) Serial Device Write
-void WriteTimeSerial(struct SysTickStruct* sysTickDataPtr)
-{
-    //<writeSerialdevice>
-
-    std::cout << sysTickDataPtr->time;// << std::fflush;
-    //UART_PutString(sysTickDataPtr->time); 
-    //</writeSerialdevice>
-}
-// 4) Serialization of Time String
-void SerializeTimeString(struct SysTickStruct* sysTickDataPtr)
-{
-    int retval = sprintf_s(sysTickDataPtr->time, "\r%02u:%02u:%02u",
-        (int)(sysTickDataPtr->hrCount % 100),
-        (int)(sysTickDataPtr->minCount % TIME_MIN_PER_HR),
-        (int)(sysTickDataPtr->secCount % TIME_SEC_PER_MIN)
-    );
-    //sysTickDataPtr->time[retval] = 0x00;
-}
-
+//<moduleAPIFunctions>
 ////////////////////////////////////////////////////////////
 // An Execution System Requires Platform Implementations of:
 // 1) Platform Configure Function
@@ -169,29 +93,219 @@ void platformLoopDelay()
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
     //</platformLoopDelay>
 }
+
+
+executionSystemClass WIN32exeSystem(uSEC_PER_CLOCK);
+
+
+
 ////////////////////////////////////////////////////////////////////////////////
 // and 4) Module API Functions
 uint32_t getuSecTicks()
 {
-    return theSysTickExample.SysTickExecutionSystem.getExeDataPtr()->uSecTicks;
+    return WIN32exeSystem.getExeDataPtr()->uSecTicks;
 }
 uint32_t getHourTicks()
 {
-    return theSysTickExample.SysTickExecutionSystem.getExeDataPtr()->hourTicks;
+    return WIN32exeSystem.getExeDataPtr()->hourTicks;
 }
+//</moduleAPIFunctions>
+
+
+
+
+///////////////////////////////////////////////////////////////////////
+// SysTick Example - Device Module Configuration
+///////////////////////////////////////////////////////////////////////
+#ifdef EXAMPLE_SYSTICK
+
+
+//<applicationIncludes>
+#include <iostream>
+#include <cstdio>
+#include <cmath>
+//</applicationIncludes>
+
+//<applicationDefines>
+#define LIGHT_OFF (0u)      // 1-PSoC4, 0-most others
+//</applicationDefines>
+
+//<applicationClass>
+class WIN32_Application
+{
+public:
+    linkedEntryPointClass setupListHead;
+    linkedEntryPointClass loopListHead;
+    linkedEntryPointClass systickListHead;
+    linkedEntryPointClass exceptionListHead;
+    MODCLASS_NAME(MODULENAME) sysTickCompMod;
+    executionSystemClass* SysTickExecutionSystemPtr;
+    WIN32_Application() :
+        sysTickCompMod(LIGHT_OFF),
+        setupListHead(&sysTickCompMod, nullptr),
+        loopListHead(&sysTickCompMod, nullptr),
+        systickListHead(nullptr, nullptr),
+        exceptionListHead(&sysTickCompMod, nullptr)            
+    {
+        SysTickExecutionSystemPtr = &WIN32exeSystem;
+        SysTickExecutionSystemPtr->LinkTheListsHead(
+            &setupListHead,
+            &loopListHead,
+            &systickListHead,
+            &exceptionListHead
+        );// the global WIN32 Execution system is now linked to systick example
+    }
+};
+
+//</applicationClass>
+
+//<moduleIOFunctions>
+//////////////////////////////////////////////////
+// IO Devices Require Platform Implementations of
+// of open,close,read,write
+// This SysTick Example Application only uses write
+// for each of its three application devices
+// 1) Minute LED Device Write
+void WriteMinLED(MODSTRUCTPTR_IN(SysTickClock))
+{
+    //<writeMinLEDdevice>
+    //LED_Min_Write(sysTickDataPtr->MinLEDvalue); 
+    //</writeMinLEDdevice>
+}
+// 2) Second LED Device Write
+void WriteSecLED(MODSTRUCTPTR_IN(SysTickClock))
+{
+    //<writeSecLEDdevice>
+    //LED_Sec_Write(sysTickDataPtr->SecLEDvalue);
+    //</writeSecLEDdevice>
+}
+// 3) Serial Device Write
+void WriteTimeSerial(MODSTRUCTPTR_IN(SysTickClock))
+{
+    //<writeSerialdevice>
+
+    std::cout << SysTickClockDataPtrIn->time;// << std::fflush;
+    //UART_PutString(sysTickDataPtr->time); 
+    //</writeSerialdevice>
+}
+//</moduleIOFunctions>
+
+
+//<moduleSerializationFunctions>
+// 4) Serialization of Time String
+void SerializeTimeString(MODSTRUCTPTR_IN(SysTickClock))
+{
+    int retval = sprintf_s(SysTickClockDataPtrIn->time, "\r%02u:%02u:%02u",
+        (int)(SysTickClockDataPtrIn->hrCount % 100),
+        (int)(SysTickClockDataPtrIn->minCount % TIME_MIN_PER_HR),
+        (int)(SysTickClockDataPtrIn->secCount % TIME_SEC_PER_MIN)
+    );
+    //sysTickDataPtr->time[retval] = 0x00;
+}
+//</moduleSerializationFunctions>
+
+#endif //!EXAMPLE_SYSTICK
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////
+// Attenuators UI Example
+///////////////////////////////////////////////////////////////////////
+#ifdef EXAMPLE_ATTEN_UI
+
+
+//<applicationIncludes>
+#include <iostream>
+#include <cstdio>
+#include <cmath>
+//</applicationIncludes>
+
+//<applicationDefines>
+#define LIGHT_OFF (0u)      // 1-PSoC4, 0-most others
+//</applicationDefines>
+
+//<applicationClass>
+class WIN32_Application
+{
+public:
+    linkedEntryPointClass setupListHead;
+    linkedEntryPointClass loopListHead;
+    linkedEntryPointClass systickListHead;
+    linkedEntryPointClass exceptionListHead;
+    MODCLASS_NAME(MODULENAME) attenUICompMod;
+    executionSystemClass* ExecutionSystemPtr;
+    WIN32_Application() :
+        attenUICompMod(),
+        setupListHead(&attenUICompMod, nullptr),
+        loopListHead(&attenUICompMod, nullptr),
+        systickListHead(nullptr, nullptr),
+        exceptionListHead(&attenUICompMod, nullptr)
+    {
+        ExecutionSystemPtr = &WIN32exeSystem;
+        ExecutionSystemPtr->LinkTheListsHead(
+            &setupListHead,
+            &loopListHead,
+            &systickListHead,
+            &exceptionListHead
+        );// the global WIN32 Execution system is now linked to atten ui example
+    }
+};
+
+//</applicationClass>
+
+//<moduleIOFunctions>
+// platform and application specific io device functions
+void WriteAttenuators(MODSTRUCTPTR_IN(MODULENAME))
+{
+
+}
+void ReadUserInput(MODSTRUCTPTR_IN(MODULENAME))
+{
+
+}
+//</moduleIOFunctions>
+
+
+//<moduleSerializationFunctions>
+// platform and application specific menu line serialization
+void SerializeMenuLine(MODSTRUCTPTR_IN(MODULENAME))
+{
+
+}
+void ParseAPIString(MODSTRUCTPTR_IN(MODULENAME))
+{
+
+}
+//</moduleSerializationFunctions>
+
+#endif //!EXAMPLE_ATTEN_UI
+
+
+
+
+
+
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // Finally, an applications entry points call the execution system entry points
 // 1) The Main Entry Point
-#define uSEC_PER_CLOCK (1000000/CLOCKS_PER_SEC)
-
+WIN32_Application theApplicationExample;
 int main(int argc, char** argv)
 {
     clock_t tlast = clock();
     clock_t tnow, tdelta;
-    uint32_t* uSecTicksPtr = &theSysTickExample.SysTickExecutionSystem.getExeDataPtr()->uSecTicks;
-    uint32_t* hourTicksPtr = &theSysTickExample.SysTickExecutionSystem.getExeDataPtr()->hourTicks;
-    theSysTickExample.SysTickExecutionSystem.ExecuteSetup();
+
+    uint32_t* uSecTicksPtr = &WIN32exeSystem.getExeDataPtr()->uSecTicks;
+    uint32_t* hourTicksPtr = &WIN32exeSystem.getExeDataPtr()->hourTicks;
+
+    WIN32exeSystem.ExecuteSetup();
+
     for (;;)
     {
         tnow = clock();
@@ -208,7 +322,7 @@ int main(int argc, char** argv)
             (*hourTicksPtr)++;
         }
                 
-        theSysTickExample.SysTickExecutionSystem.ExecuteLoop();
+        WIN32exeSystem.ExecuteLoop();
     }
     return RETURN_ERROR;
 }
