@@ -25,3 +25,4 @@
 /WIN32_Console/Debug
 /GenerateArduinoLib/.vs/GenerateArduinoLib/v16
 /WIN32_Console/GenerateArduinoLib.exe
+/Arduino/libraries/ccNOos/src
