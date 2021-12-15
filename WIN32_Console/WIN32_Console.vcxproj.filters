@@ -60,6 +60,12 @@
     <ClCompile Include="..\ccNOos\computeModule\compute_module_class.cpp">
       <Filter>Source Files\computeModule</Filter>
     </ClCompile>
+    <ClCompile Include="..\ccNOos\tests\SysTickExample.cpp">
+      <Filter>Source Files\tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ccNOos\tests\AttensUIExample.cpp">
+      <Filter>Source Files\tests</Filter>
+    </ClCompile>
     <ClCompile Include="..\ccNOos\tests\ccNOos_tests_class.cpp">
       <Filter>Source Files\tests</Filter>
     </ClCompile>
@@ -100,6 +106,15 @@
     </ClInclude>
     <ClInclude Include="..\ccNOos\executionSystem\execution_system.c">
       <Filter>Source Files\executionSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ccNOos\tests\SysTickExample.h">
+      <Filter>Header Files\tests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ccNOos\tests\AttensUIExample.h">
+      <Filter>Header Files\tests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ccNOos\tests\AttensUIExample.c">
+      <Filter>Source Files\tests</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

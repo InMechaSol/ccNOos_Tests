@@ -1,5 +1,5 @@
 /** \file WIN32_Console.cpp
-*   \brief WIN32 Console Implementation of SysTick Example in c++
+*   \brief WIN32 Console Implementation of ccNOos_Tests in c++
 
    Copyright 2021 InMechaSol, Inc
 
@@ -38,8 +38,9 @@ Notes:
    <platformLoopDelay> - Define "rest" between main loop cycles
 
 */
-
 //<platformConfigChecks>
+#define PLATFORM_NAME Win32
+
 #ifndef USING_STDINT
 #error Must compile with -DUSING_STDINT on WIN32
 #endif // !USING_STDINT
@@ -60,16 +61,16 @@ Notes:
 #error Must not compile with -D__NOEXCEPTIONS on WIN32
 #endif // !__NOEXCEPTIONS
 
-
+//#include <cstring>
 #include <ctime>
 #include <thread>
+#include <cstdarg>
 #define uSEC_PER_CLOCK (1000000/CLOCKS_PER_SEC)
-#include "../ccNOos/tests/ccNOos_tests.h"
+
 /* Function Prototype for systick isr callback function */
 //void SysTickISRCallback(void); // not using on WIN32
 //</platformConfigChecks>
-
-
+#include "../ccNOos/tests/ccNOos_tests.h"
 
 //<moduleAPIFunctions>
 ////////////////////////////////////////////////////////////
@@ -94,31 +95,138 @@ void platformLoopDelay()
     //</platformLoopDelay>
 }
 
-
-executionSystemClass WIN32exeSystem(uSEC_PER_CLOCK);
-
-
-
-////////////////////////////////////////////////////////////////////////////////
+// Global Execution System Instance
+executionSystemClass PLATFORM_EXESYS_NAME(PLATFORM_NAME)(uSEC_PER_CLOCK);
 // and 4) Module API Functions
 uint32_t getuSecTicks()
 {
-    return WIN32exeSystem.getExeDataPtr()->uSecTicks;
+    return PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->uSecTicks;
 }
 uint32_t getHourTicks()
 {
-    return WIN32exeSystem.getExeDataPtr()->hourTicks;
+    return PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->hourTicks;
+}
+int SN_PrintF(char* str, unsigned int size, const char* format, ...)
+{
+    va_list argptr;
+    va_start(argptr, format);
+    int chars = vsnprintf(str, size, format, argptr);
+    va_end(argptr);
+    return chars;
+}
+bool ATO_F(const char* str, float* val)
+{
+    if (isNumberString((char*)str))
+    {
+        *val = (float)atof(str);
+        return true;
+    }
+    else
+        return false;
+}
+bool ATO_D(const char* str, double* val)
+{
+    if (isNumberString((char*)str))
+    {
+        *val = atof(str);
+        return true;
+    }
+    else
+        return false;
+}
+bool ATO_I8(const char* str, int8_t* val)
+{
+    if (isIntegerString((char*)str))
+    {
+        *val = (int8_t)atoi(str);
+        return true;
+    }
+    else
+        return false;
+}
+bool ATO_I16(const char* str, int16_t* val)
+{
+    if (isIntegerString((char*)str))
+    {
+        *val = (int16_t)atoi(str);
+        return true;
+    }
+    else
+        return false;
+}
+bool ATO_I32(const char* str, int32_t* val)
+{
+    if (isIntegerString((char*)str))
+    {
+        *val = (int32_t)atoll(str);
+        return true;
+    }
+    else
+        return false;
+}
+bool ATO_I64(const char* str, int64_t* val)
+{
+    if (isIntegerString((char*)str))
+    {
+        *val = (int64_t)atoll(str);
+        return true;
+    }
+    else
+        return false;
+}
+bool ATO_U8(const char* str, uint8_t* val)
+{
+    if (isUnsignedIntegerString((char*)str))
+    {
+        *val = (uint8_t)atoll(str);
+        return true;
+    }
+    else
+        return false;
+}
+bool ATO_U16(const char* str, uint16_t* val)
+{
+    if (isUnsignedIntegerString((char*)str))
+    {
+        *val = (uint16_t)atoll(str);
+        return true;
+    }
+    else
+        return false;
+}
+bool ATO_U32(const char* str, uint32_t* val)
+{
+    if (isUnsignedIntegerString((char*)str))
+    {
+        *val = (uint32_t)atoll(str);
+        return true;
+    }
+    else
+        return false;
+}
+bool ATO_U64(const char* str, uint64_t* val)
+{
+    if (isUnsignedIntegerString((char*)str))
+    {
+        *val = (uint64_t)atoll(str);
+        return true;
+    }
+    else
+        return false;
 }
 //</moduleAPIFunctions>
 
 
+#ifdef COMPILE_TESTS
 
+PLATFORM_APP_CLASS_ccNOosTests(PLATFORM_NAME, MODULENAME);
+
+#else
 
 ///////////////////////////////////////////////////////////////////////
-// SysTick Example - Device Module Configuration
+// SysTick Example
 ///////////////////////////////////////////////////////////////////////
 #ifdef EXAMPLE_SYSTICK
-
 
 //<applicationIncludes>
 #include <iostream>
@@ -131,32 +239,7 @@ uint32_t getHourTicks()
 //</applicationDefines>
 
 //<applicationClass>
-class WIN32_Application
-{
-public:
-    linkedEntryPointClass setupListHead;
-    linkedEntryPointClass loopListHead;
-    linkedEntryPointClass systickListHead;
-    linkedEntryPointClass exceptionListHead;
-    MODCLASS_NAME(MODULENAME) sysTickCompMod;
-    executionSystemClass* SysTickExecutionSystemPtr;
-    WIN32_Application() :
-        sysTickCompMod(LIGHT_OFF),
-        setupListHead(&sysTickCompMod, nullptr),
-        loopListHead(&sysTickCompMod, nullptr),
-        systickListHead(nullptr, nullptr),
-        exceptionListHead(&sysTickCompMod, nullptr)            
-    {
-        SysTickExecutionSystemPtr = &WIN32exeSystem;
-        SysTickExecutionSystemPtr->LinkTheListsHead(
-            &setupListHead,
-            &loopListHead,
-            &systickListHead,
-            &exceptionListHead
-        );// the global WIN32 Execution system is now linked to systick example
-    }
-};
-
+PLATFORM_APP_CLASS_SYSTICK(PLATFORM_NAME, MODULENAME);
 //</applicationClass>
 
 //<moduleIOFunctions>
@@ -166,21 +249,21 @@ public:
 // This SysTick Example Application only uses write
 // for each of its three application devices
 // 1) Minute LED Device Write
-void WriteMinLED(MODSTRUCTPTR_IN(SysTickClock))
+void WriteMinLED(MODSTRUCTPTR_IN(MODULENAME))
 {
     //<writeMinLEDdevice>
     //LED_Min_Write(sysTickDataPtr->MinLEDvalue); 
     //</writeMinLEDdevice>
 }
 // 2) Second LED Device Write
-void WriteSecLED(MODSTRUCTPTR_IN(SysTickClock))
+void WriteSecLED(MODSTRUCTPTR_IN(MODULENAME))
 {
     //<writeSecLEDdevice>
     //LED_Sec_Write(sysTickDataPtr->SecLEDvalue);
     //</writeSecLEDdevice>
 }
 // 3) Serial Device Write
-void WriteTimeSerial(MODSTRUCTPTR_IN(SysTickClock))
+void WriteTimeSerial(MODSTRUCTPTR_IN(MODULENAME))
 {
     //<writeSerialdevice>
 
@@ -193,7 +276,7 @@ void WriteTimeSerial(MODSTRUCTPTR_IN(SysTickClock))
 
 //<moduleSerializationFunctions>
 // 4) Serialization of Time String
-void SerializeTimeString(MODSTRUCTPTR_IN(SysTickClock))
+void SerializeTimeString(MODSTRUCTPTR_IN(MODULENAME))
 {
     int retval = sprintf_s(SysTickClockDataPtrIn->time, "\r%02u:%02u:%02u",
         (int)(SysTickClockDataPtrIn->hrCount % 100),
@@ -205,10 +288,6 @@ void SerializeTimeString(MODSTRUCTPTR_IN(SysTickClock))
 //</moduleSerializationFunctions>
 
 #endif //!EXAMPLE_SYSTICK
-
-
-
-
 
 
 
@@ -225,89 +304,75 @@ void SerializeTimeString(MODSTRUCTPTR_IN(SysTickClock))
 //</applicationIncludes>
 
 //<applicationDefines>
-#define LIGHT_OFF (0u)      // 1-PSoC4, 0-most others
 //</applicationDefines>
 
 //<applicationClass>
-class WIN32_Application
-{
-public:
-    linkedEntryPointClass setupListHead;
-    linkedEntryPointClass loopListHead;
-    linkedEntryPointClass systickListHead;
-    linkedEntryPointClass exceptionListHead;
-    MODCLASS_NAME(MODULENAME) attenUICompMod;
-    executionSystemClass* ExecutionSystemPtr;
-    WIN32_Application() :
-        attenUICompMod(),
-        setupListHead(&attenUICompMod, nullptr),
-        loopListHead(&attenUICompMod, nullptr),
-        systickListHead(nullptr, nullptr),
-        exceptionListHead(&attenUICompMod, nullptr)
-    {
-        ExecutionSystemPtr = &WIN32exeSystem;
-        ExecutionSystemPtr->LinkTheListsHead(
-            &setupListHead,
-            &loopListHead,
-            &systickListHead,
-            &exceptionListHead
-        );// the global WIN32 Execution system is now linked to atten ui example
-    }
-};
-
+PLATFORM_APP_CLASS_ATTEN_UI(PLATFORM_NAME, MODULENAME);
 //</applicationClass>
+
+float ModuloFloat(float floatValue, float* intPartPtr)
+{
+    return modf(floatValue, intPartPtr);
+}
 
 //<moduleIOFunctions>
 // platform and application specific io device functions
 void WriteAttenuators(MODSTRUCTPTR_IN(MODULENAME))
 {
-
+#define bit16   ( (0b10000000 & AttenUIDataPtrIn->CMD_AttenuatorBits) >> 7 )
+#define bit8    ( (0b01000000 & AttenUIDataPtrIn->CMD_AttenuatorBits) >> 6 )
+#define bit4    ( (0b00100000 & AttenUIDataPtrIn->CMD_AttenuatorBits) >> 5 )
+#define bit2    ( (0b00010000 & AttenUIDataPtrIn->CMD_AttenuatorBits) >> 4 )
+#define bit1    ( (0b00001000 & AttenUIDataPtrIn->CMD_AttenuatorBits) >> 3 )
+#define bit0_25 ( (0b00000100 & AttenUIDataPtrIn->CMD_AttenuatorBits) >> 2 )
+#define bit0_50 ( (0b00000010 & AttenUIDataPtrIn->CMD_AttenuatorBits) >> 1 )
+    //float fracPart = (16.0 * bit16) + (8.0 * bit8) + (4.0 * bit4) + (2.0 * bit2) + (1.0 * bit1) + (0.25 * bit0_25) + (0.50 * bit0_50);
+    //std::cout << fracPart;
+#undef bit16  
+#undef bit8
+#undef bit4
+#undef bit2
+#undef bit1
+#undef bit0_25 
+#undef bit0_50 
 }
 void ReadUserInput(MODSTRUCTPTR_IN(MODULENAME))
 {
-
+    std::cin >> AttenUIDataPtrIn->apiLine;
+    AttenUIDataPtrIn->charsRead++;
+}
+void WriteMenuLine(MODSTRUCTPTR_IN(MODULENAME))
+{
+    std::cout << AttenUIDataPtrIn->consoleLine;
 }
 //</moduleIOFunctions>
 
 
-//<moduleSerializationFunctions>
-// platform and application specific menu line serialization
-void SerializeMenuLine(MODSTRUCTPTR_IN(MODULENAME))
-{
-
-}
-void ParseAPIString(MODSTRUCTPTR_IN(MODULENAME))
-{
-
-}
-//</moduleSerializationFunctions>
-
 #endif //!EXAMPLE_ATTEN_UI
 
 
-
-
-
-
-
+#endif // !COMPILE_TESTS
 
 
 ////////////////////////////////////////////////////////////////////////////////
 // Finally, an applications entry points call the execution system entry points
 // 1) The Main Entry Point
-WIN32_Application theApplicationExample;
+PLATFORM_APP_NAME(PLATFORM_NAME) theApplicationExample;
 int main(int argc, char** argv)
-{
+{    
     clock_t tlast = clock();
     clock_t tnow, tdelta;
 
-    uint32_t* uSecTicksPtr = &WIN32exeSystem.getExeDataPtr()->uSecTicks;
-    uint32_t* hourTicksPtr = &WIN32exeSystem.getExeDataPtr()->hourTicks;
+    uint32_t* uSecTicksPtr = &PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->uSecTicks;
+    uint32_t* hourTicksPtr = &PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->hourTicks;
 
-    WIN32exeSystem.ExecuteSetup();
+    PLATFORM_EXESYS_NAME(PLATFORM_NAME).ExecuteSetup();
 
     for (;;)
     {
+        // WIN32 platfrom doesn't use systick (the OS gets that IRQ)
+        // So the exesystem clock must be maintained here
+        // and rely on the ctime standard library
         tnow = clock();
         if (tnow >= tlast)
             tdelta = tnow - tlast;
@@ -322,7 +387,7 @@ int main(int argc, char** argv)
             (*hourTicksPtr)++;
         }
                 
-        WIN32exeSystem.ExecuteLoop();
+        PLATFORM_EXESYS_NAME(PLATFORM_NAME).ExecuteLoop();
     }
     return RETURN_ERROR;
 }

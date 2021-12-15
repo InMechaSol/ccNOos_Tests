@@ -40,6 +40,8 @@ Notes:
 */
 
 //<platformConfigChecks>
+#define PLATFORM_NAME Pic32mz_
+
 #ifndef USING_STDINT
 #error Must compile with -DUSING_STDINT on PIC32MZ
 #endif // !USING_STDINT
@@ -62,89 +64,22 @@ Notes:
 
 //<platformIncludes>
 #include <xc.h>
-#include "../../ccNOos/tests/ccNOos_tests.h"    // all things ccNOos w/tests
 #include <cstdio>
 #include <cmath>
+#include <cstdarg>
+#define uSEC_PER_CLOCK (1000u)
 //</platformIncludes>
-
-//<platformAppDefines>
-#define LIGHT_OFF (0u)      // 1-PSoC4, 0-most others
-//</platformAppDefines>
 
 /* Function Prototype for systick isr callback function */
 void SysTickISRCallback(void);
+#include "../../ccNOos/tests/ccNOos_tests.h"    // all things ccNOos w/tests
 
-
-#define USEC_PER_TICK (1000u)
-
-class PIC32MZ_SysTickApplication
-{  
-public:   
-    linkedEntryPointClass setupListHead;
-    linkedEntryPointClass loopListHead;
-    linkedEntryPointClass systickListHead;
-    linkedEntryPointClass exceptionListHead;
-    SysTickExample_class sysTickCompMod;
-    executionSystemClass SysTickExecutionSystem;
-    PIC32MZ_SysTickApplication():
-    sysTickCompMod(LIGHT_OFF),
-    setupListHead(&sysTickCompMod, nullptr),
-    loopListHead(&sysTickCompMod, nullptr),
-    systickListHead(nullptr, nullptr),
-    exceptionListHead(&sysTickCompMod, nullptr),
-    SysTickExecutionSystem(
-        &setupListHead,
-        &loopListHead,
-        &systickListHead,
-        &exceptionListHead,
-        USEC_PER_TICK
-        )
-    {;}
-};
-
-PIC32MZ_SysTickApplication theSysTickExample;
-
-//////////////////////////////////////////////////
-// IO Devices Require Platform Implementations of
-// of open,close,read,write
-// This SysTick Example Application only uses write
-// for each of its three application devices
-// 1) Minute LED Device Write
-void WriteMinLED(struct SysTickStruct* sysTickDataPtr)
-{
-    //<writeMinLEDdevice>
-    //LED_Min_Write(sysTickDataPtr->MinLEDvalue); 
-    //</writeMinLEDdevice>
-}
-// 2) Second LED Device Write
-void WriteSecLED(struct SysTickStruct* sysTickDataPtr)
-{
-    //<writeSecLEDdevice>
-    //LED_Sec_Write(sysTickDataPtr->SecLEDvalue);
-    //</writeSecLEDdevice>
-}
-// 3) Serial Device Write
-void WriteTimeSerial(struct SysTickStruct* sysTickDataPtr)
-{
-    //<writeSerialdevice>
-    //UART_PutString(sysTickDataPtr->time); 
-    //</writeSerialdevice>
-}
-// 4) Serialization of Time String
-void SerializeTimeString(struct SysTickStruct* sysTickDataPtr)
-{
-    sprintf(sysTickDataPtr->time, "\r%02u:%02u:%02u", 
-                    (int)(sysTickDataPtr->hrCount % 100), 
-                    (int)(sysTickDataPtr->minCount % TIME_MIN_PER_HR),
-                    (int)(sysTickDataPtr->secCount % TIME_SEC_PER_MIN)
-                    );
-}
-
+//<moduleAPIFunctions>
 ////////////////////////////////////////////////////////////
 // An Execution System Requires Platform Implementations of:
 // 1) Platform Configure Function
 void platformSetup()
-{      
+{
     //<platformSetup>
     //</platformSetup>
 }
@@ -156,34 +91,145 @@ void platformStart()
 }
 // 3) Platform Loop Delay Function
 void platformLoopDelay()
-{    
+{
     //<platformLoopDelay>
-    //CyDelay(1);   // on PSoc, only if desired
-    ;               // let it run full throttle, its a machine after all...
     //</platformLoopDelay>
 }
-////////////////////////////////////////////////////////////////////////////////
+
+// Global Execution System Instance
+executionSystemClass PLATFORM_EXESYS_NAME(PLATFORM_NAME)(uSEC_PER_CLOCK);
 // and 4) Module API Functions
 uint32_t getuSecTicks()
 {
-    return theSysTickExample.SysTickExecutionSystem.getExeDataPtr()->uSecTicks;
+    return PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->uSecTicks;
 }
 uint32_t getHourTicks()
 {
-    return theSysTickExample.SysTickExecutionSystem.getExeDataPtr()->hourTicks;
+    return PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->hourTicks;
 }
+int SN_PrintF(char* str, unsigned int size, const char* format, ...)
+{
+    va_list argptr;
+    va_start(argptr, format);
+    int chars = vsnprintf(str, size, format, argptr);
+    va_end(argptr);
+    return chars;
+}
+bool ATO_F(const char* str, float* val)
+{
+    if (isNumberString((char*)str))
+    {
+        *val = (float)atof(str);
+        return true;
+    }
+    else
+        return false;
+}
+bool ATO_D(const char* str, double* val)
+{
+    if (isNumberString((char*)str))
+    {
+        *val = atof(str);
+        return true;
+    }
+    else
+        return false;
+}
+bool ATO_I8(const char* str, int8_t* val)
+{
+    if (isIntegerString((char*)str))
+    {
+        *val = (int8_t)atoi(str);
+        return true;
+    }
+    else
+        return false;
+}
+bool ATO_I16(const char* str, int16_t* val)
+{
+    if (isIntegerString((char*)str))
+    {
+        *val = (int16_t)atoi(str);
+        return true;
+    }
+    else
+        return false;
+}
+bool ATO_I32(const char* str, int32_t* val)
+{
+    if (isIntegerString((char*)str))
+    {
+        *val = (int32_t)atoll(str);
+        return true;
+    }
+    else
+        return false;
+}
+bool ATO_I64(const char* str, int64_t* val)
+{
+    if (isIntegerString((char*)str))
+    {
+        *val = (int64_t)atoll(str);
+        return true;
+    }
+    else
+        return false;
+}
+bool ATO_U8(const char* str, uint8_t* val)
+{
+    if (isUnsignedIntegerString((char*)str))
+    {
+        *val = (uint8_t)atoll(str);
+        return true;
+    }
+    else
+        return false;
+}
+bool ATO_U16(const char* str, uint16_t* val)
+{
+    if (isUnsignedIntegerString((char*)str))
+    {
+        *val = (uint16_t)atoll(str);
+        return true;
+    }
+    else
+        return false;
+}
+bool ATO_U32(const char* str, uint32_t* val)
+{
+    if (isUnsignedIntegerString((char*)str))
+    {
+        *val = (uint32_t)atoll(str);
+        return true;
+    }
+    else
+        return false;
+}
+bool ATO_U64(const char* str, uint64_t* val)
+{
+    if (isUnsignedIntegerString((char*)str))
+    {
+        *val = (uint64_t)atoll(str);
+        return true;
+    }
+    else
+        return false;
+}
+//</moduleAPIFunctions>
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // Finally, an applications entry points call the execution system entry points
 // 1) The Main Entry Point
+PLATFORM_APP_NAME(PLATFORM_NAME) theApplicationExample;
 int main(int argc, char** argv)
 {    
-    return theSysTickExample.SysTickExecutionSystem.ExecuteMain();
+    return PLATFORM_EXESYS_NAME(PLATFORM_NAME).ExecuteMain();
 }
 // 2) The SysTick Entry Point
 void SysTickISRCallback(void)
 {
-    theSysTickExample.SysTickExecutionSystem.ExecuteSysTick();
+    PLATFORM_EXESYS_NAME(PLATFORM_NAME).ExecuteSysTick();
 }
 /* [] END OF FILE */
 
