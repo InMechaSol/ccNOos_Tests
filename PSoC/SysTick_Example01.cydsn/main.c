@@ -179,6 +179,7 @@ uint32_t getHourTicks()
     return SysTickExecutionSystem.hourTicks;
 }
 
+
 ////////////////////////////////////////////////////////////
 // and the SysTick Example Application Requires:
 // 1) Application EntryPoint Structures

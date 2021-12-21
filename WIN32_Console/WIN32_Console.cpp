@@ -65,6 +65,10 @@ Notes:
 #include <ctime>
 #include <thread>
 #include <cstdarg>
+#include <cstdio>
+#include <iostream>
+#include <fstream>
+#include <Windows.h>
 #define uSEC_PER_CLOCK (1000000/CLOCKS_PER_SEC)
 
 /* Function Prototype for systick isr callback function */
@@ -76,9 +80,20 @@ Notes:
 ////////////////////////////////////////////////////////////
 // An Execution System Requires Platform Implementations of:
 // 1) Platform Configure Function
+std::ifstream configFile;
+std::ofstream LogFile;
 void platformSetup()
 {
     //<platformSetup>
+    // 
+    // open config device
+    configFile.open("conFile.json");
+    LogFile.open("logFile.json");
+    // read config string?? 
+    // 
+    // open log device
+    // wrtie log string??
+    // 
     //</platformSetup>
 }
 // 2) Platform Start Function
@@ -93,6 +108,36 @@ void platformLoopDelay()
     //<platformLoopDelay>
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
     //</platformLoopDelay>
+}
+void GetMenuChars(char* inStringPtr)
+{
+    std::cin >> inStringPtr;
+}
+void WriteMenuLine(char* outStringPtr)
+{
+    std::cout << outStringPtr;
+}
+#define MAXLINELENGTH (80)
+void WriteLogLine(char* outStringPtr)
+{
+    int logLineLen = -1;
+    while (logLineLen < MAXLINELENGTH)
+        if (outStringPtr[++logLineLen] == 0x00)
+            break;
+    if(logLineLen>0)
+        LogFile.write(outStringPtr, logLineLen);
+}
+void ReadConfigLine(char* inStringPtr)
+{
+    int confLineLen = 0;
+    while (confLineLen < MAXLINELENGTH)
+    {
+        if (0 < configFile.peek())
+            configFile.read(&inStringPtr[confLineLen++], 1);
+        else
+            break;
+    }
+    
 }
 
 // Global Execution System Instance
@@ -229,7 +274,6 @@ PLATFORM_APP_CLASS_ccNOosTests(PLATFORM_NAME, MODULENAME);
 #ifdef EXAMPLE_SYSTICK
 
 //<applicationIncludes>
-#include <iostream>
 #include <cstdio>
 #include <cmath>
 //</applicationIncludes>
@@ -239,7 +283,7 @@ PLATFORM_APP_CLASS_ccNOosTests(PLATFORM_NAME, MODULENAME);
 //</applicationDefines>
 
 //<applicationClass>
-PLATFORM_APP_CLASS_SYSTICK(PLATFORM_NAME, MODULENAME);
+PLATFORM_APP_CLASS(PLATFORM_NAME, Mn);
 //</applicationClass>
 
 //<moduleIOFunctions>
@@ -249,26 +293,26 @@ PLATFORM_APP_CLASS_SYSTICK(PLATFORM_NAME, MODULENAME);
 // This SysTick Example Application only uses write
 // for each of its three application devices
 // 1) Minute LED Device Write
-void WriteMinLED(MODSTRUCTPTR_IN(MODULENAME))
+void WriteMinLED(MODdeclarePTRIN(Mn))
 {
     //<writeMinLEDdevice>
     //LED_Min_Write(sysTickDataPtr->MinLEDvalue); 
     //</writeMinLEDdevice>
 }
 // 2) Second LED Device Write
-void WriteSecLED(MODSTRUCTPTR_IN(MODULENAME))
+void WriteSecLED(MODdeclarePTRIN(Mn))
 {
     //<writeSecLEDdevice>
-    //LED_Sec_Write(sysTickDataPtr->SecLEDvalue);
+    //LED_Sec_Write(MODdataPTR(Mn)->SecLEDvalue);
     //</writeSecLEDdevice>
 }
 // 3) Serial Device Write
-void WriteTimeSerial(MODSTRUCTPTR_IN(MODULENAME))
+void WriteTimeSerial(MODdeclarePTRIN(Mn))
 {
     //<writeSerialdevice>
 
-    std::cout << SysTickClockDataPtrIn->time;// << std::fflush;
-    //UART_PutString(sysTickDataPtr->time); 
+    std::cout << MODdataPTR(Mn)->time;// << std::fflush;
+    //UART_PutString(MODdataPTR(Mn)->time); 
     //</writeSerialdevice>
 }
 //</moduleIOFunctions>
@@ -276,12 +320,12 @@ void WriteTimeSerial(MODSTRUCTPTR_IN(MODULENAME))
 
 //<moduleSerializationFunctions>
 // 4) Serialization of Time String
-void SerializeTimeString(MODSTRUCTPTR_IN(MODULENAME))
+void SerializeTimeString(MODdeclarePTRIN(Mn))
 {
-    int retval = sprintf_s(SysTickClockDataPtrIn->time, "\r%02u:%02u:%02u",
-        (int)(SysTickClockDataPtrIn->hrCount % 100),
-        (int)(SysTickClockDataPtrIn->minCount % TIME_MIN_PER_HR),
-        (int)(SysTickClockDataPtrIn->secCount % TIME_SEC_PER_MIN)
+    int retval = sprintf_s(MODdataPTR(Mn)->time, "\r%02u:%02u:%02u",
+        (int)(MODdataPTR(Mn)->hrCount % 100),
+        (int)(MODdataPTR(Mn)->minCount % TIME_MIN_PER_HR),
+        (int)(MODdataPTR(Mn)->secCount % TIME_SEC_PER_MIN)
     );
     //sysTickDataPtr->time[retval] = 0x00;
 }
@@ -298,7 +342,6 @@ void SerializeTimeString(MODSTRUCTPTR_IN(MODULENAME))
 
 
 //<applicationIncludes>
-#include <iostream>
 #include <cstdio>
 #include <cmath>
 //</applicationIncludes>
@@ -336,62 +379,55 @@ void WriteAttenuators(MODSTRUCTPTR_IN(MODULENAME))
 #undef bit0_25 
 #undef bit0_50 
 }
+
+
 void ReadUserInput(MODSTRUCTPTR_IN(MODULENAME))
 {
-    std::cin >> AttenUIDataPtrIn->apiLine;
+    GetMenuChars(&AttenUIDataPtrIn->apiLine[0]);
     AttenUIDataPtrIn->charsRead++;
 }
-void WriteMenuLine(MODSTRUCTPTR_IN(MODULENAME))
-{
-    std::cout << AttenUIDataPtrIn->consoleLine;
-}
+
 //</moduleIOFunctions>
 
 
 #endif //!EXAMPLE_ATTEN_UI
 
 
+///////////////////////////////////////////////////////////////////////
+// SatCom ACS Example
+///////////////////////////////////////////////////////////////////////
+#ifdef EXAMPLE_SATCOM_ACS
+
+
+//<applicationIncludes>
+#include <cstdio>
+#include <cmath>
+//</applicationIncludes>
+
+//<applicationDefines>
+//</applicationDefines>
+
+//<applicationClass>
+PLATFORM_APP_CLASS_SATCOM_ACS(PLATFORM_NAME, MODULENAME);
+//</applicationClass>
+
+//<moduleIOFunctions>
+// platform and application specific io device functions
+
+//</moduleIOFunctions>
+
+
+#endif //!EXAMPLE_SATCOM_ACS
+
 #endif // !COMPILE_TESTS
 
 
 ////////////////////////////////////////////////////////////////////////////////
 // Finally, an applications entry points call the execution system entry points
-// 1) The Main Entry Point
 PLATFORM_APP_NAME(PLATFORM_NAME) theApplicationExample;
-int main(int argc, char** argv)
-{    
-    clock_t tlast = clock();
-    clock_t tnow, tdelta;
 
-    uint32_t* uSecTicksPtr = &PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->uSecTicks;
-    uint32_t* hourTicksPtr = &PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->hourTicks;
+CPP_OS_MAIN_TEMPLATE(PLATFORM_NAME)
 
-    PLATFORM_EXESYS_NAME(PLATFORM_NAME).ExecuteSetup();
-
-    for (;;)
-    {
-        // WIN32 platfrom doesn't use systick (the OS gets that IRQ)
-        // So the exesystem clock must be maintained here
-        // and rely on the ctime standard library
-        tnow = clock();
-        if (tnow >= tlast)
-            tdelta = tnow - tlast;
-        else
-            tdelta = tnow + (LONG_MAX - tlast);
-        tlast = tnow;
-                
-        (*uSecTicksPtr) += tdelta * uSEC_PER_CLOCK;
-        if ((*uSecTicksPtr) >= TIME_uS_PER_HR)
-        {
-            (*uSecTicksPtr) = 0u;
-            (*hourTicksPtr)++;
-        }
-                
-        PLATFORM_EXESYS_NAME(PLATFORM_NAME).ExecuteLoop();
-    }
-    return RETURN_ERROR;
-}
-// 2) The SysTick Entry Point
 
 /* [] END OF FILE */
 
