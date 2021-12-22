@@ -264,7 +264,7 @@ bool ATO_U64(const char* str, uint64_t* val)
 
 #ifdef COMPILE_TESTS
 
-PLATFORM_APP_CLASS_ccNOosTests(PLATFORM_NAME, MODULENAME);
+PLATFORM_APP_CLASS(PLATFORM_NAME, MODULENAME);
 
 #else
 
@@ -350,7 +350,7 @@ void SerializeTimeString(MODdeclarePTRIN(Mn))
 //</applicationDefines>
 
 //<applicationClass>
-PLATFORM_APP_CLASS_ATTEN_UI(PLATFORM_NAME, MODULENAME);
+PLATFORM_APP_CLASS(PLATFORM_NAME, Mn);
 //</applicationClass>
 
 float ModuloFloat(float floatValue, float* intPartPtr)
@@ -360,7 +360,7 @@ float ModuloFloat(float floatValue, float* intPartPtr)
 
 //<moduleIOFunctions>
 // platform and application specific io device functions
-void WriteAttenuators(MODSTRUCTPTR_IN(MODULENAME))
+void WriteAttenuators(MODdeclarePTRIN(Mn))
 {
 #define bit16   ( (0b10000000 & AttenUIDataPtrIn->CMD_AttenuatorBits) >> 7 )
 #define bit8    ( (0b01000000 & AttenUIDataPtrIn->CMD_AttenuatorBits) >> 6 )
@@ -381,7 +381,7 @@ void WriteAttenuators(MODSTRUCTPTR_IN(MODULENAME))
 }
 
 
-void ReadUserInput(MODSTRUCTPTR_IN(MODULENAME))
+void ReadUserInput(MODdeclarePTRIN(Mn))
 {
     GetMenuChars(&AttenUIDataPtrIn->apiLine[0]);
     AttenUIDataPtrIn->charsRead++;

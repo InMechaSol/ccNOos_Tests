@@ -6,7 +6,7 @@ CONFIG -= qt
 DEFINES += \
     USING_STDINT \
     USING_CSTDINT \
-    EXAMPLE_SYSTICK
+    EXAMPLE_ATTEN_UI
 
 SOURCES += \
     ../ccNOos/computeModule/compute_module.c \

@@ -68,11 +68,23 @@ void platformLoopDelay()
 }
 void GetMenuChars(char* inStringPtr)
 {
-
+    int ch = 0;
+    int retVal = 1;
+    while(ch < MAXLINELENGTH)
+    {
+        retVal = read(STDIN_FILENO, &inStringPtr[ch], 1);
+        ch++;
+        if  (
+            inStringPtr[ch-1] == '\n' ||
+            retVal < 1
+            )
+            break;
+    }
+    inStringPtr[ch] = 0x00;
 }
 void WriteMenuLine(char* outStringPtr)
 {
-
+    int retVal = printf(outStringPtr);
 }
 
 void WriteLogLine(char* outStringPtr)
@@ -277,6 +289,69 @@ void SerializeTimeString(MODdeclarePTRIN(Mn))
 PLATFORM_APP_CTEMPLATE(PLATFORM_NAME,Mn)
 
 #endif //!EXAMPLE_SYSTICK
+
+///////////////////////////////////////////////////////////////////////
+// Attenuators UI Example
+///////////////////////////////////////////////////////////////////////
+#ifdef EXAMPLE_ATTEN_UI
+
+
+//<applicationIncludes>
+#include <stdio.h>
+#include <math.h>
+//</applicationIncludes>
+
+//<applicationDefines>
+//</applicationDefines>
+
+//<applicationClass>
+MODdeclareDATA(Mn);
+//</applicationClass>
+
+float ModuloFloat(float floatValue, float* intPartPtr)
+{
+    double retVal;
+    double dblValue = floatValue;
+    double intPartPtrDb;
+    retVal =  modf(dblValue, &intPartPtrDb);
+    *intPartPtr = (float)(intPartPtrDb);
+    return (float)retVal;
+}
+
+//<moduleIOFunctions>
+// platform and application specific io device functions
+void WriteAttenuators(MODdeclarePTRIN(Mn))
+{
+#define bit16   ( (0b10000000 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 7 )
+#define bit8    ( (0b01000000 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 6 )
+#define bit4    ( (0b00100000 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 5 )
+#define bit2    ( (0b00010000 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 4 )
+#define bit1    ( (0b00001000 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 3 )
+#define bit0_25 ( (0b00000100 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 2 )
+#define bit0_50 ( (0b00000010 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 1 )
+    //float fracPart = (16.0 * bit16) + (8.0 * bit8) + (4.0 * bit4) + (2.0 * bit2) + (1.0 * bit1) + (0.25 * bit0_25) + (0.50 * bit0_50);
+    //std::cout << fracPart;
+#undef bit16
+#undef bit8
+#undef bit4
+#undef bit2
+#undef bit1
+#undef bit0_25
+#undef bit0_50
+}
+
+
+void ReadUserInput(MODdeclarePTRIN(Mn))
+{
+    GetMenuChars(&MODdataPTR(Mn)->apiLine[0]);
+    MODdataPTR(Mn)->charsRead++;
+}
+
+//</moduleIOFunctions>
+
+PLATFORM_APP_CTEMPLATE(PLATFORM_NAME,Mn)
+
+#endif //!EXAMPLE_ATTEN_UI
 
 #endif // !COMPILE_TESTS
 
