@@ -45,190 +45,13 @@ Notes:
 
 */
 
-//<platformConfigChecks>
-#define PLATFORM_NAME Arduino
+#include "Platform_Arduino.h"
 
-#ifndef USING_STDINT
-#error Must compile with -DUSING_STDINT on Arduino platforms (maybe others, need to test)
-#endif // !USING_STDINT
-#ifndef __NOEXCEPTIONS
-#error Must compile with -D__NOEXCEPTIONS on Aduino ATMega (maybe others, need to test)
-#endif // !__NOEXCEPTIONS
-#ifdef USING_CSTDINT
-#error Must not compile with -DUSING_CSTDINT on Aduino ATMega (maybe others, need to test)
-#endif // !USING_CSTDINT
-#ifdef USING_NONSTDINT_SHORTER
-#error Must not compile with -DUSING_NONSTDINT_SHORTER on Aduino ATMega (maybe others, need to test)
-#endif // !USING_NONSTDINT_SHORTER
-#ifdef USING_NONSTDINT_LONGER
-#error Must not compile with -DUSING_NONSTDINT_LONGER on Aduino ATMega (maybe others, need to test)
-#endif // !USING_NONSTDINT_LONGER
-#ifdef REDEFINE_NULLPTR
-#error Must not compile with -DREDEFINE_NULLPTR on Aduino ATMega (maybe others, need to test)
-#endif // !REDEFINE_NULLPTR
-//</platformConfigChecks>
+#ifdef COMPILE_TESTS
 
+PLATFORM_APP_CLASS(PLATFORM_NAME, MODULENAME);
 
-//<platformIncludes>
-#include <Arduino.h>
-#include <Adafruit_MCP23017.h>
-#include <ccNOos_tests_arduino.h>
-/* Function Prototype for systick isr callback function */
-//void SysTickISRCallback(void);
-#define uSEC_PER_CLOCK (1000u)
-
-//</platformIncludes>
-
-////////////////////////////////////////////////////////////
-// An Execution System Requires Platform Implementations of:
-// 1) Platform Configure Function
-
-void platformSetup()
-{
-    //<platformSetup>
-    Serial.begin(115200);
-    Wire.begin();
-    
-    while (!Serial) {
-        ; // wait for serial port to connect. Needed for native USB port only
-    }
-    //</platformSetup>
-}
-// 2) Platform Start Function
-void platformStart()
-{
-    //<platformStart>
-    //</platformStart>
-}
-// 3) Platform Loop Delay Function
-void platformLoopDelay()
-{
-    //<platformLoopDelay>
-    ;
-    //</platformLoopDelay>
-}
-
-// Global Execution System Instance
-executionSystemClass PLATFORM_EXESYS_NAME(PLATFORM_NAME)(uSEC_PER_CLOCK);
-// and 4) Module API Functions
-uint32_t getuSecTicks()
-{
-    return PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->uSecTicks;
-}
-uint32_t getHourTicks()
-{
-    return PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->hourTicks;
-}
-int SN_PrintF(char* str, unsigned int size, const char* format, ...)
-{
-    va_list argptr;
-    va_start(argptr, format);
-    int chars = vsnprintf(str, size, format, argptr);
-    va_end(argptr);
-    return chars;
-}
-bool ATO_F(const char* str, float* val)
-{
-    if (isNumberString((char*)str))
-    {
-        *val = (float)atof(str);
-        return true;
-    }
-    else
-        return false;
-}
-bool ATO_D(const char* str, double* val)
-{
-    if (isNumberString((char*)str))
-    {
-        *val = atof(str);
-        return true;
-    }
-    else
-        return false;
-}
-bool ATO_I8(const char* str, int8_t* val)
-{
-    if (isIntegerString((char*)str))
-    {
-        *val = (int8_t)atoi(str);
-        return true;
-    }
-    else
-        return false;
-}
-bool ATO_I16(const char* str, int16_t* val)
-{
-    if (isIntegerString((char*)str))
-    {
-        *val = (int16_t)atoi(str);
-        return true;
-    }
-    else
-        return false;
-}
-bool ATO_I32(const char* str, int32_t* val)
-{
-    if (isIntegerString((char*)str))
-    {
-        *val = (int32_t)atol(str);
-        return true;
-    }
-    else
-        return false;
-}
-bool ATO_I64(const char* str, int64_t* val)
-{
-    if (isIntegerString((char*)str))
-    {
-        *val = (int64_t)atol(str);
-        return true;
-    }
-    else
-        return false;
-}
-bool ATO_U8(const char* str, uint8_t* val)
-{
-    if (isUnsignedIntegerString((char*)str))
-    {
-        *val = (uint8_t)atol(str);
-        return true;
-    }
-    else
-        return false;
-}
-bool ATO_U16(const char* str, uint16_t* val)
-{
-    if (isUnsignedIntegerString((char*)str))
-    {
-        *val = (uint16_t)atol(str);
-        return true;
-    }
-    else
-        return false;
-}
-bool ATO_U32(const char* str, uint32_t* val)
-{
-    if (isUnsignedIntegerString((char*)str))
-    {
-        *val = (uint32_t)atol(str);
-        return true;
-    }
-    else
-        return false;
-}
-bool ATO_U64(const char* str, uint64_t* val)
-{
-    if (isUnsignedIntegerString((char*)str))
-    {
-        *val = (uint64_t)atol(str);
-        return true;
-    }
-    else
-        return false;
-}
-
-
+#else
 
 ///////////////////////////////////////////////////////////////////////
 // SysTick Example
@@ -454,12 +277,29 @@ void WriteMenuLine(MODSTRUCTPTR_IN(MODULENAME))
 
 #endif //!EXAMPLE_ATTEN_UI
 
+///////////////////////////////////////////////////////////////////////
+// Application Data Instances are Created here (Platform Specific)
+#ifdef __cplusplus
+PLATFORM_APP_CPPTEMPLATE(PLATFORM_NAME)
+#else
+PLATFORM_APP_CTEMPLATE(PLATFORM_NAME, Mn)
+#endif
 
+////////////////////////////////////////////////////////////////////////////////
+// Finally, Application Entry Points call ExeSys Entry Points
+#ifdef MAIN_C_NOos_Wsystick
+C_NOos_MAINnSYSTICK_TEMPLATE(PLATFORM_NAME)
+#endif
+#ifdef MAIN_CPP_NOos_NOsystick
+CPP_OS_MAIN_TEMPLATE(PLATFORM_NAME)
+#endif
+#ifdef MAIN_C_NOos_NOsystick
+C_OS_MAIN_TEMPLATE(PLATFORM_NAME)
+#endif
 
 ////////////////////////////////////////////////////////////////////////////////
 // Finally, an applications entry points call the execution system entry points
 // 1) The Main Entry Points (setup and loop)
-PLATFORM_APP_NAME(PLATFORM_NAME) theApplicationExample;
 unsigned long tlast;
 unsigned long tnow, tdelta;
 uint32_t* uSecTicksPtr;
@@ -472,7 +312,6 @@ void setup() {
     uSecTicksPtr = &PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->uSecTicks;
     hourTicksPtr = &PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->hourTicks;
     PLATFORM_EXESYS_NAME(PLATFORM_NAME).ExecuteSetup();
-
 }
 
 void loop() 

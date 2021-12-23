@@ -16,6 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Platform Application Implem
 		..\PIC\dsPIC33F_Tests.X\dsPIC33F_Tests.c = ..\PIC\dsPIC33F_Tests.X\dsPIC33F_Tests.c
 		..\PSoC\SysTick_Example01.cydsn\main.c = ..\PSoC\SysTick_Example01.cydsn\main.c
 		..\PIC\PIC32MZ_Tests.X\PIC32MZ_Tests.cpp = ..\PIC\PIC32MZ_Tests.X\PIC32MZ_Tests.cpp
+		..\Arduino\ccNOos_Tests\Platform_Arduino.h = ..\Arduino\ccNOos_Tests\Platform_Arduino.h
 		WIN32_Console.cpp = WIN32_Console.cpp
 	EndProjectSection
 EndProject

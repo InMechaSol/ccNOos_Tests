@@ -4,9 +4,9 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 DEFINES += \
-    USING_STDINT \
-    USING_CSTDINT \
-    EXAMPLE_ATTEN_UI
+    PLATFORM_QTCreatorC \
+    EXAMPLE_SYSTICK
+
 
 SOURCES += \
     ../ccNOos/computeModule/compute_module.c \
@@ -28,4 +28,5 @@ HEADERS += \
     ../ccNOos/tests/AttensUIExample.h \
     ../ccNOos/tests/SatComACSExample.h \
     ../ccNOos/tests/SysTickExample.h \
-    ../ccNOos/tests/ccNOos_tests.h
+    ../ccNOos/tests/ccNOos_tests.h \
+    Platform_QTCreatorC.h

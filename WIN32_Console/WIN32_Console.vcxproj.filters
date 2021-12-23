@@ -125,5 +125,8 @@
     <ClInclude Include="..\ccNOos\tests\SatComACSExample.c">
       <Filter>Source Files\tests</Filter>
     </ClInclude>
+    <ClInclude Include="Platform_Win32.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,232 +1,21 @@
-//<platformConfigChecks>
-#define PLATFORM_NAME QTCreatorC
-
-#ifndef USING_STDINT
-#error Must compile with -DUSING_STDINT on QTCreatorC
-#endif // !USING_STDINT
-#ifndef USING_CSTDINT
-#error Must compile with -DUSING_CSTDINT on QTCreatorC
-#endif // !USING_CSTDINT
-#ifdef USING_NONSTDINT_SHORTER
-#error Must not compile with -DUSING_NONSTDINT_SHORTER on QTCreatorC
-#error Must not compile with -DUSING_NONSTDINT_SHORTER on QTCreatorC
-#endif // !USING_NONSTDINT_SHORTER
-#ifdef USING_NONSTDINT_LONGER
-#error Must not compile with -DUSING_NONSTDINT_LONGER on QTCreatorC
-#endif // !USING_NONSTDINT_LONGER
-#ifdef REDEFINE_NULLPTR
-#error Must not compile with -DREDEFINE_NULLPTR on QTCreatorC
-#endif // !REDEFINE_NULLPTR
-#ifdef __NOEXCEPTIONS
-#error Must not compile with -D__NOEXCEPTIONS on QTCreatorC
-#endif // !__NOEXCEPTIONS
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <unistd.h>
-#include <stdarg.h>
-#define uSEC_PER_CLOCK (1000000/CLOCKS_PER_SEC)
-#define MAXLINELENGTH (80)
-
-/* Function Prototype for systick isr callback function */
-//void SysTickISRCallback(void); // not using on QTCreatorC
-//</platformConfigChecks>
-#include "../ccNOos/tests/ccNOos_tests.h"
-
-//<moduleAPIFunctions>
-////////////////////////////////////////////////////////////
-// An Execution System Requires Platform Implementations of:
-// 1) Platform Configure Function
-
-void platformSetup()
-{
-    //<platformSetup>
-    //
-    // open config device
-
-
-    // read config string??
-    //
-    // open log device
-    // wrtie log string??
-    //
-    //</platformSetup>
-}
-// 2) Platform Start Function
-void platformStart()
-{
-    //<platformStart>
-    //</platformStart>
-}
-// 3) Platform Loop Delay Function
-void platformLoopDelay()
-{
-    //<platformLoopDelay>
-    usleep(100000);
-    //</platformLoopDelay>
-}
-void GetMenuChars(char* inStringPtr)
-{
-    int ch = 0;
-    int retVal = 1;
-    while(ch < MAXLINELENGTH)
-    {
-        retVal = read(STDIN_FILENO, &inStringPtr[ch], 1);
-        ch++;
-        if  (
-            inStringPtr[ch-1] == '\n' ||
-            retVal < 1
-            )
-            break;
-    }
-    inStringPtr[ch] = 0x00;
-}
-void WriteMenuLine(char* outStringPtr)
-{
-    int retVal = printf(outStringPtr);
-}
-
-void WriteLogLine(char* outStringPtr)
-{
-
-}
-void ReadConfigLine(char* inStringPtr)
-{
-
-
-}
-int SN_PrintF(char* str, unsigned int size, const char* format, ...)
-{
-    va_list argptr;
-    va_start(argptr, format);
-    int chars = vsnprintf(str, size, format, argptr);
-    va_end(argptr);
-    return chars;
-}
-bool ATO_F(const char* str, float* val)
-{
-    if (isNumberString((char*)str))
-    {
-        *val = (float)atof(str);
-        return true;
-    }
-    else
-        return false;
-}
-bool ATO_D(const char* str, double* val)
-{
-    if (isNumberString((char*)str))
-    {
-        *val = atof(str);
-        return true;
-    }
-    else
-        return false;
-}
-bool ATO_I8(const char* str, int8_t* val)
-{
-    if (isIntegerString((char*)str))
-    {
-        *val = (int8_t)atoi(str);
-        return true;
-    }
-    else
-        return false;
-}
-bool ATO_I16(const char* str, int16_t* val)
-{
-    if (isIntegerString((char*)str))
-    {
-        *val = (int16_t)atoi(str);
-        return true;
-    }
-    else
-        return false;
-}
-bool ATO_I32(const char* str, int32_t* val)
-{
-    if (isIntegerString((char*)str))
-    {
-        *val = (int32_t)atoll(str);
-        return true;
-    }
-    else
-        return false;
-}
-bool ATO_I64(const char* str, int64_t* val)
-{
-    if (isIntegerString((char*)str))
-    {
-        *val = (int64_t)atoll(str);
-        return true;
-    }
-    else
-        return false;
-}
-bool ATO_U8(const char* str, uint8_t* val)
-{
-    if (isUnsignedIntegerString((char*)str))
-    {
-        *val = (uint8_t)atoll(str);
-        return true;
-    }
-    else
-        return false;
-}
-bool ATO_U16(const char* str, uint16_t* val)
-{
-    if (isUnsignedIntegerString((char*)str))
-    {
-        *val = (uint16_t)atoll(str);
-        return true;
-    }
-    else
-        return false;
-}
-bool ATO_U32(const char* str, uint32_t* val)
-{
-    if (isUnsignedIntegerString((char*)str))
-    {
-        *val = (uint32_t)atoll(str);
-        return true;
-    }
-    else
-        return false;
-}
-bool ATO_U64(const char* str, uint64_t* val)
-{
-    if (isUnsignedIntegerString((char*)str))
-    {
-        *val = (uint64_t)atoll(str);
-        return true;
-    }
-    else
-        return false;
-}
-
-PLATFORM_EXESYS_DECLARE(PLATFORM_NAME);
-
-// and 4) Module API Functions
-uint32_t getuSecTicks()
-{
-    return PLATFORM_EXESYS_NAME(PLATFORM_NAME).uSecTicks;
-}
-uint32_t getHourTicks()
-{
-    return PLATFORM_EXESYS_NAME(PLATFORM_NAME).hourTicks;
-}
-//</moduleAPIFunctions>
-
+/////////////////////////////////////////////////////////////////////////
+// A main.c file under ccNOos Tests Philosophy will
+// 1) include its platform support header
+#include <Platform_QTCreatorC.h>
+// 2) double check the validity of the platform support header
+#ifndef PLATFORM_NAME
+    #error PLATFORM_NAME must be defined, see examples
+#endif
+// 3) a Compile Switch for Running Examples vs Automated Tests
 #ifdef COMPILE_TESTS
-
+// 4) all of the ccNOos Tests Automated Tests
 #else
-
+// 5) all of the ccNOos Tests Example Applications
+#ifdef EXAMPLE_SYSTICK
 ///////////////////////////////////////////////////////////////////////
 // SysTick Example
 ///////////////////////////////////////////////////////////////////////
-#ifdef EXAMPLE_SYSTICK
-
+///
 //<applicationIncludes>
 #include <math.h>
 //</applicationIncludes>
@@ -237,8 +26,6 @@ uint32_t getHourTicks()
 
 //<applicationClass>
 MODdeclareDATA(Mn);
-//MODSTRUCT(Mn) SysTickClockData;
-//PLATFORM_APP_CLASS_SYSTICK(PLATFORM_NAME, Mn);
 //</applicationClass>
 
 //<moduleIOFunctions>
@@ -286,15 +73,11 @@ void SerializeTimeString(MODdeclarePTRIN(Mn))
 }
 //</moduleSerializationFunctions>
 
-PLATFORM_APP_CTEMPLATE(PLATFORM_NAME,Mn)
-
 #endif //!EXAMPLE_SYSTICK
-
+#ifdef EXAMPLE_ATTEN_UI
 ///////////////////////////////////////////////////////////////////////
 // Attenuators UI Example
 ///////////////////////////////////////////////////////////////////////
-#ifdef EXAMPLE_ATTEN_UI
-
 
 //<applicationIncludes>
 #include <stdio.h>
@@ -349,13 +132,28 @@ void ReadUserInput(MODdeclarePTRIN(Mn))
 
 //</moduleIOFunctions>
 
-PLATFORM_APP_CTEMPLATE(PLATFORM_NAME,Mn)
+
 
 #endif //!EXAMPLE_ATTEN_UI
 
 #endif // !COMPILE_TESTS
 
-////////////////////////////////////////////////////////////////////////////////
-// Finally, an applications entry points call the execution system entry points
-C_OS_MAIN_TEMPLATE(PLATFORM_NAME)
+///////////////////////////////////////////////////////////////////////
+// Application Data Instances are Created here (Platform Specific)
+#ifdef __cplusplus
+PLATFORM_APP_CPPTEMPLATE(PLATFORM_NAME)
+#else
+PLATFORM_APP_CTEMPLATE(PLATFORM_NAME, Mn)
+#endif
 
+////////////////////////////////////////////////////////////////////////////////
+// Finally, Application Entry Points call ExeSys Entry Points
+#ifdef MAIN_C_NOos_Wsystick
+C_NOos_MAINnSYSTICK_TEMPLATE(PLATFORM_NAME)
+#endif
+#ifdef MAIN_CPP_NOos_NOsystick
+CPP_OS_MAIN_TEMPLATE(PLATFORM_NAME)
+#endif
+#ifdef MAIN_C_NOos_NOsystick
+C_OS_MAIN_TEMPLATE(PLATFORM_NAME)
+#endif
