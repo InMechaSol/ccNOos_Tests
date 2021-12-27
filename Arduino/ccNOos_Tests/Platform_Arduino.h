@@ -1,27 +1,24 @@
-//<platformConfigChecks>
-#define PLATFORM_NAME Arduino
+#if PLATFORM_NAME!=Arduino
+    error PLATFORM_NAME must be Arduino
+#endif
 
 
 #ifdef REDEFINE_NULLPTR
-#error Must not compile with -DREDEFINE_NULLPTR on Aduino ATMega (maybe others, need to test)
+    #error Must not compile with -DREDEFINE_NULLPTR on Aduino ATMega (maybe others, need to test)
 #endif // !REDEFINE_NULLPTR
-//</platformConfigChecks>
+#ifndef __NOEXCEPTIONS
+    #error Must compile with -D__NOEXCEPTIONS on Aduino ATMega (maybe others, need to test)
+#endif // !__NOEXCEPTIONS
 
 
-//<platformIncludes>
 #include <Arduino.h>
 #include <Adafruit_MCP23017.h>
 #include <ccNOos_tests_arduino.h>
-/* Function Prototype for systick isr callback function */
-//void SysTickISRCallback(void);
 #define uSEC_PER_CLOCK (1000u)
+#define MAXLINELENGTH (80)
 
-//</platformIncludes>
-
-////////////////////////////////////////////////////////////
-// An Execution System Requires Platform Implementations of:
-// 1) Platform Configure Function
-
+// 0) (Optional) Platform Config and Log Files/Devices
+// 1) Platform Setup Function
 void platformSetup()
 {
     //<platformSetup>
@@ -46,21 +43,38 @@ void platformLoopDelay()
     ;
     //</platformLoopDelay>
 }
-
-
-// Mostly Language Common, Platform Agnostic and Application Agnostic
-
-// Global Execution System Instance
-executionSystemClass PLATFORM_EXESYS_NAME(PLATFORM_NAME)(uSEC_PER_CLOCK);
-// and 4) Module API Functions
-uint32_t getuSecTicks()
+// 4) Basic ability for user console input
+void GetMenuChars(char* inStringPtr)
 {
-    return PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->uSecTicks;
+    int idx = 0;
+    if (Serial.available() > 0)
+    {
+        do {
+            inStringPtr[idx++] = Serial.read();
+        } while (Serial.available() > 0 && idx < MAXLINELENGTH);
+        delay(1);
+        do {
+            inStringPtr[idx++] = Serial.read();
+        } while (Serial.available() > 0 && idx < MAXLINELENGTH);
+    }
 }
-uint32_t getHourTicks()
+// 5) Basic ability for user console output
+void WriteMenuLine(char* outStringPtr)
 {
-    return PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->hourTicks;
+    Serial.write(outStringPtr);
 }
+// 6) (Optional) Logging Output
+void WriteLogLine(char* outStringPtr)
+{
+    ;
+}
+// 7) (Optional) Config Input
+void ReadConfigLine(char* inStringPtr)
+{
+    ;
+
+}
+// 8) Platform API Functions (From Template?)
 int SN_PrintF(char* str, unsigned int size, const char* format, ...)
 {
     va_list argptr;
@@ -69,103 +83,114 @@ int SN_PrintF(char* str, unsigned int size, const char* format, ...)
     va_end(argptr);
     return chars;
 }
-bool ATO_F(const char* str, float* val)
+UI_8 ATO_F(const char* str, float* val)
 {
     if (isNumberString((char*)str))
     {
         *val = (float)atof(str);
-        return true;
+        return ui8TRUE;
     }
     else
-        return false;
+        return ui8FALSE;
 }
-bool ATO_D(const char* str, double* val)
+UI_8 ATO_D(const char* str, double* val)
 {
     if (isNumberString((char*)str))
     {
         *val = atof(str);
-        return true;
+        return ui8TRUE;
     }
     else
-        return false;
+        return ui8FALSE;
 }
-bool ATO_I8(const char* str, int8_t* val)
+UI_8 ATO_I8(const char* str, I_8* val)
 {
     if (isIntegerString((char*)str))
     {
-        *val = (int8_t)atoi(str);
-        return true;
+        *val = (I_8)atoi(str);
+        return ui8TRUE;
     }
     else
-        return false;
+        return ui8FALSE;
 }
-bool ATO_I16(const char* str, int16_t* val)
+UI_8 ATO_I16(const char* str, I_16* val)
 {
     if (isIntegerString((char*)str))
     {
-        *val = (int16_t)atoi(str);
-        return true;
+        *val = (I_16)atoi(str);
+        return ui8TRUE;
     }
     else
-        return false;
+        return ui8FALSE;
 }
-bool ATO_I32(const char* str, int32_t* val)
+UI_8 ATO_I32(const char* str, I_32* val)
 {
     if (isIntegerString((char*)str))
     {
-        *val = (int32_t)atol(str);
-        return true;
+        *val = (I_32)atol(str);
+        return ui8TRUE;
     }
     else
-        return false;
+        return ui8FALSE;
 }
-bool ATO_I64(const char* str, int64_t* val)
+UI_8 ATO_I64(const char* str, I_64* val)
 {
     if (isIntegerString((char*)str))
     {
-        *val = (int64_t)atol(str);
-        return true;
+        *val = (I_64)atol(str);
+        return ui8TRUE;
     }
     else
-        return false;
+        return ui8FALSE;
 }
-bool ATO_U8(const char* str, uint8_t* val)
+UI_8 ATO_U8(const char* str, UI_8* val)
 {
     if (isUnsignedIntegerString((char*)str))
     {
-        *val = (uint8_t)atol(str);
-        return true;
+        *val = (UI_8)atol(str);
+        return ui8TRUE;
     }
     else
-        return false;
+        return ui8FALSE;
 }
-bool ATO_U16(const char* str, uint16_t* val)
+UI_8 ATO_U16(const char* str, UI_16* val)
 {
     if (isUnsignedIntegerString((char*)str))
     {
-        *val = (uint16_t)atol(str);
-        return true;
+        *val = (UI_16)atol(str);
+        return ui8TRUE;
     }
     else
-        return false;
+        return ui8FALSE;
 }
-bool ATO_U32(const char* str, uint32_t* val)
+UI_8 ATO_U32(const char* str, UI_32* val)
 {
     if (isUnsignedIntegerString((char*)str))
     {
-        *val = (uint32_t)atol(str);
-        return true;
+        *val = (UI_32)atol(str);
+        return ui8TRUE;
     }
     else
-        return false;
+        return ui8FALSE;
 }
-bool ATO_U64(const char* str, uint64_t* val)
+UI_8 ATO_U64(const char* str, UI_64* val)
 {
     if (isUnsignedIntegerString((char*)str))
     {
-        *val = (uint64_t)atol(str);
-        return true;
+        *val = (UI_64)atol(str);
+        return ui8TRUE;
     }
     else
-        return false;
+        return ui8FALSE;
+}
+// 9) Global Execution System Instance
+executionSystemClass PLATFORM_EXESYS_NAME(PLATFORM_NAME)(uSEC_PER_CLOCK);
+// 10) ExeSys API Functions (From Template?)
+UI_32 getuSecTicks()
+{
+    return PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->uSecTicks;
+}
+UI_32 getHourTicks()
+{
+    return PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->hourTicks;
 }

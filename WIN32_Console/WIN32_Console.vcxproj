@@ -86,7 +86,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>PLATFORM_WIN32; EXAMPLE_SYSTICK;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>PLATFORM_WIN32; COMPILE_TESTS; EXAMPLE_ATTEN_UI;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>../ccNOos/computeModule; ../ccNOos/consoleMenu; ../ccNOos/executionSystem; ../ccNOos/ioDevice; ../ccNOos/tests; /</AdditionalIncludeDirectories>
     </ClCompile>
@@ -107,7 +107,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>PLATFORM_WIN32; EXAMPLE_SYSTICK;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>PLATFORM_WIN32; COMPILE_TESTS; EXAMPLE_ATTEN_UI;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>../ccNOos/computeModule; ../ccNOos/consoleMenu; ../ccNOos/executionSystem; ../ccNOos/ioDevice; ../ccNOos/tests; /</AdditionalIncludeDirectories>
     </ClCompile>
@@ -128,7 +128,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>PLATFORM_WIN32; EXAMPLE_SYSTICK;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>PLATFORM_WIN32; COMPILE_TESTS; EXAMPLE_ATTEN_UI;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>../ccNOos/computeModule; ../ccNOos/consoleMenu; ../ccNOos/executionSystem; ../ccNOos/ioDevice; ../ccNOos/tests; /</AdditionalIncludeDirectories>
     </ClCompile>
@@ -149,7 +149,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>PLATFORM_WIN32; EXAMPLE_SYSTICK;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>PLATFORM_WIN32; COMPILE_TESTS; EXAMPLE_ATTEN_UI;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>../ccNOos/computeModule; ../ccNOos/consoleMenu; ../ccNOos/executionSystem; ../ccNOos/ioDevice; ../ccNOos/tests; /</AdditionalIncludeDirectories>
     </ClCompile>

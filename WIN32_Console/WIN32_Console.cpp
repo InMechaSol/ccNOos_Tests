@@ -81,7 +81,7 @@ void WriteTimeSerial(MODdeclarePTRIN(Mn))
 // 4) Serialization of Time String
 void SerializeTimeString(MODdeclarePTRIN(Mn))
 {
-    int retval = sprintf_s(MODdataPTR(Mn)->time, "\r%02u:%02u:%02u",
+    int retval = SN_PrintF(MODdataPTR(Mn)->time, "\r%02u:%02u:%02u",
         (int)(MODdataPTR(Mn)->hrCount % 100),
         (int)(MODdataPTR(Mn)->minCount % TIME_MIN_PER_HR),
         (int)(MODdataPTR(Mn)->secCount % TIME_SEC_PER_MIN)
@@ -119,13 +119,13 @@ float ModuloFloat(float floatValue, float* intPartPtr)
 // platform and application specific io device functions
 void WriteAttenuators(MODdeclarePTRIN(Mn))
 {
-#define bit16   ( (0b10000000 & AttenUIDataPtrIn->CMD_AttenuatorBits) >> 7 )
-#define bit8    ( (0b01000000 & AttenUIDataPtrIn->CMD_AttenuatorBits) >> 6 )
-#define bit4    ( (0b00100000 & AttenUIDataPtrIn->CMD_AttenuatorBits) >> 5 )
-#define bit2    ( (0b00010000 & AttenUIDataPtrIn->CMD_AttenuatorBits) >> 4 )
-#define bit1    ( (0b00001000 & AttenUIDataPtrIn->CMD_AttenuatorBits) >> 3 )
-#define bit0_25 ( (0b00000100 & AttenUIDataPtrIn->CMD_AttenuatorBits) >> 2 )
-#define bit0_50 ( (0b00000010 & AttenUIDataPtrIn->CMD_AttenuatorBits) >> 1 )
+#define bit16   ( (0b10000000 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 7 )
+#define bit8    ( (0b01000000 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 6 )
+#define bit4    ( (0b00100000 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 5 )
+#define bit2    ( (0b00010000 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 4 )
+#define bit1    ( (0b00001000 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 3 )
+#define bit0_25 ( (0b00000100 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 2 )
+#define bit0_50 ( (0b00000010 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 1 )
     //float fracPart = (16.0 * bit16) + (8.0 * bit8) + (4.0 * bit4) + (2.0 * bit2) + (1.0 * bit1) + (0.25 * bit0_25) + (0.50 * bit0_50);
     //std::cout << fracPart;
 #undef bit16  
@@ -140,8 +140,8 @@ void WriteAttenuators(MODdeclarePTRIN(Mn))
 
 void ReadUserInput(MODdeclarePTRIN(Mn))
 {
-    GetMenuChars(&AttenUIDataPtrIn->apiLine[0]);
-    AttenUIDataPtrIn->charsRead++;
+    GetMenuChars(&MODdataPTR(Mn)->apiLine[0]);
+    MODdataPTR(Mn)->charsRead++;
 }
 
 //</moduleIOFunctions>

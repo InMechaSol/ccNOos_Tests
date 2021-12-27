@@ -1,49 +1,31 @@
-/* ========================================
- *
- * Copyright YOUR COMPANY, THE YEAR
- * All Rights Reserved
- * UNPUBLISHED, LICENSED SOFTWARE.
- *
- * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF your company.
- *
- * ========================================
-*/
-//<platformConfigChecks>
-
 #if PLATFORM_NAME!=PSoC4
     error PLATFORM_NAME must be PSoC4 
 #endif
 
+
 #ifdef REDEFINE_NULLPTR
     #error Must not compile with -DREDEFINE_NULLPTR on PSoC4
 #endif // !REDEFINE_NULLPTR
+#ifdef __NOEXCEPTIONS
+    #error Must not compile with -D__NOEXCEPTIONS on PSoC4
+#endif // !__NOEXCEPTIONS
 
-//</platformConfigChecks>
 
-//<platformIncludes>
 #include <project.h>      // for PSoC
-//</platformIncludes>
-
-//<platformAppDefines>
-#define LIGHT_OFF (1u)      // 1-PSoC4, 0-most others
-//</platformAppDefines>
-
-/* Function Prototype for systick isr callback function */
-void SysTickISRCallback(void);
-
-///////////////////////////////////////////////////////////////////////
-// Platform Configuration
-///////////////////////////////////////////////////////////////////////
-#include "../../ccNOos/tests/ccNOos_tests.h"    // all things ccNOos w/tests
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <unistd.h>
 #include <stdarg.h>
+#include "../../ccNOos/tests/ccNOos_tests.h"    // all things ccNOos w/tests
+void SysTickISRCallback();
+#define LIGHT_OFF (1u)      // 1-PSoC4, 0-most others
 #define uSEC_PER_CLOCK (1000000/CLOCKS_PER_SEC)
 #define MAXLINELENGTH (80)
 
+
+// 0) (Optional) Platform Config and Log Files/Devices
+// 1) Platform Setup Function
 void platformSetup()
 {      
     //<platformSetup>
@@ -83,6 +65,8 @@ void platformLoopDelay()
     //</platformLoopDelay>
 }
 
+#ifdef __USINGCONSOLEMENU
+// 4) Basic ability for user console input
 void GetMenuChars(char* inStringPtr)
 {
 //    int ch = 0;
@@ -99,20 +83,23 @@ void GetMenuChars(char* inStringPtr)
 //    }
 //    inStringPtr[ch] = 0x00;
 }
+// 5) Basic ability for user console output
 void WriteMenuLine(char* outStringPtr)
 {
 //    int retVal = printf(outStringPtr);
 }
+// 6) (Optional) Logging Output
 void WriteLogLine(char* outStringPtr)
 {
 
 }
+// 7) (Optional) Config Input
 void ReadConfigLine(char* inStringPtr)
 {
 
 
 }
-
+// 8) Platform API Functions (From Template?)
 int SN_PrintF(char* str, unsigned int size, const char* format, ...)
 {
     va_list argptr;
@@ -221,10 +208,11 @@ UI_8 ATO_U64(const char* str, UI_64* val)
     else
         return ui8FALSE;
 }
+#endif
 
+// 9) Global Execution System Instance
 PLATFORM_EXESYS_DECLARE(PLATFORM_NAME);
-
-// and 4) Module API Functions
+// 10) ExeSys API Functions (From Template?)
 UI_32 getuSecTicks()
 {
     return PLATFORM_EXESYS_NAME(PLATFORM_NAME).uSecTicks;
@@ -233,5 +221,7 @@ UI_32 getHourTicks()
 {
     return PLATFORM_EXESYS_NAME(PLATFORM_NAME).hourTicks;
 }
-//</moduleAPIFunctions>
-/* [] END OF FILE */
+UI_32 getuSecPerSysTick()
+{
+    return PLATFORM_EXESYS_NAME(PLATFORM_NAME).uSecPerSysTick;
+}

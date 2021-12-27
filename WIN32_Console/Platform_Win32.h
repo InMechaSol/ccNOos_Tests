@@ -1,4 +1,6 @@
-#define PLATFORM_NAME Win32
+#if PLATFORM_NAME!=Win32
+    error PLATFORM_NAME must be Win32
+#endif
 
 
 #ifdef REDEFINE_NULLPTR
@@ -8,26 +10,21 @@
 #error Must not compile with -D__NOEXCEPTIONS on WIN32
 #endif // !__NOEXCEPTIONS
 
-//#include <cstring>
+
 #include <ctime>
 #include <thread>
 #include <cstdarg>
 #include <cstdio>
 #include <iostream>
 #include <fstream>
-#define uSEC_PER_CLOCK (1000000/CLOCKS_PER_SEC)
-
-/* Function Prototype for systick isr callback function */
-//void SysTickISRCallback(void); // not using on WIN32
-//</platformConfigChecks>
 #include "../ccNOos/tests/ccNOos_tests.h"
+#define uSEC_PER_CLOCK (1000000/CLOCKS_PER_SEC)
+#define MAXLINELENGTH (80)
 
-//<moduleAPIFunctions>
-////////////////////////////////////////////////////////////
-// An Execution System Requires Platform Implementations of:
-// 1) Platform Configure Function
+// 0) (Optional) Platform Config and Log Files/Devices
 std::ifstream configFile;
 std::ofstream LogFile;
+// 1) Platform Setup Function
 void platformSetup()
 {
     //<platformSetup>
@@ -55,15 +52,17 @@ void platformLoopDelay()
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
     //</platformLoopDelay>
 }
+// 4) Basic ability for user console input
 void GetMenuChars(char* inStringPtr)
 {
     std::cin >> inStringPtr;
 }
+// 5) Basic ability for user console output
 void WriteMenuLine(char* outStringPtr)
 {
     std::cout << outStringPtr;
 }
-#define MAXLINELENGTH (80)
+// 6) (Optional) Logging Output
 void WriteLogLine(char* outStringPtr)
 {
     int logLineLen = -1;
@@ -73,6 +72,7 @@ void WriteLogLine(char* outStringPtr)
     if (logLineLen > 0)
         LogFile.write(outStringPtr, logLineLen);
 }
+// 7) (Optional) Config Input
 void ReadConfigLine(char* inStringPtr)
 {
     int confLineLen = 0;
@@ -85,18 +85,7 @@ void ReadConfigLine(char* inStringPtr)
     }
 
 }
-
-// Global Execution System Instance
-executionSystemClass PLATFORM_EXESYS_NAME(PLATFORM_NAME)(uSEC_PER_CLOCK);
-// and 4) Module API Functions
-UI_32 getuSecTicks()
-{
-    return PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->uSecTicks;
-}
-UI_32 getHourTicks()
-{
-    return PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->hourTicks;
-}
+// 8) Platform API Functions (From Template?)
 int SN_PrintF(char* str, unsigned int size, const char* format, ...)
 {
     va_list argptr;
@@ -205,5 +194,19 @@ UI_8 ATO_U64(const char* str, uint64_t* val)
     else
         return false;
 }
-//</moduleAPIFunctions>
+// 9) Global Execution System Instance
+executionSystemClass PLATFORM_EXESYS_NAME(PLATFORM_NAME)(uSEC_PER_CLOCK);
+// 10) ExeSys API Functions (From Template?)
+UI_32 getuSecTicks()
+{
+    return PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->uSecTicks;
+}
+UI_32 getHourTicks()
+{
+    return PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->hourTicks;
+}
+UI_32 getuSecPerSysTick()
+{
+    return PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->uSecPerSysTick;
+}
 

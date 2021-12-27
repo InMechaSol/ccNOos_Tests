@@ -5,6 +5,8 @@ CONFIG -= qt
 
 DEFINES += \
     PLATFORM_QTCreatorC \
+    __USINGCONSOLEMENU \
+    COMPILE_TESTS \
     EXAMPLE_SYSTICK
 
 

@@ -57,61 +57,59 @@ PLATFORM_APP_CLASS(PLATFORM_NAME, MODULENAME);
 // SysTick Example
 ///////////////////////////////////////////////////////////////////////
 #ifdef EXAMPLE_SYSTICK
-//<applicationIncludes>
-//</applicationIncludes>
 
-//<applicationDefines>
 #define LIGHT_OFF (0u)      // 1-PSoC4, 0-most others
-//</applicationDefines>
 
 
-//<applicationClass>
-PLATFORM_APP_CLASS_SYSTICK(PLATFORM_NAME, MODULENAME);
-//</applicationClass>
+PLATFORM_APP_CLASS(PLATFORM_NAME, Mn);
 
+
+//<moduleIOFunctions>
 //////////////////////////////////////////////////
 // IO Devices Require Platform Implementations of
 // of open,close,read,write
 // This SysTick Example Application only uses write
 // for each of its three application devices
 // 1) Minute LED Device Write
-void WriteMinLED(MODSTRUCTPTR_IN(MODULENAME))
+void WriteMinLED(MODdeclarePTRIN(Mn))
 {
     //<writeMinLEDdevice>
     //LED_Min_Write(sysTickDataPtr->MinLEDvalue); 
     //</writeMinLEDdevice>
 }
 // 2) Second LED Device Write
-void WriteSecLED(MODSTRUCTPTR_IN(MODULENAME))
+void WriteSecLED(MODdeclarePTRIN(Mn))
 {
     //<writeSecLEDdevice>
-    //LED_Sec_Write(sysTickDataPtr->SecLEDvalue);
+    //LED_Sec_Write(MODdataPTR(Mn)->SecLEDvalue);
     //</writeSecLEDdevice>
 }
 // 3) Serial Device Write
-void WriteTimeSerial(MODSTRUCTPTR_IN(MODULENAME))
+void WriteTimeSerial(MODdeclarePTRIN(Mn))
 {
     //<writeSerialdevice>
-    Serial.write(SysTickClockDataPtrIn->time);
-    //std::cout << sysTickDataPtr->time;// << std::fflush;
-    //UART_PutString(sysTickDataPtr->time); 
+
+    Serial.write(MODdataPTR(Mn)->time);// << std::fflush;
+    //UART_PutString(MODdataPTR(Mn)->time); 
     //</writeSerialdevice>
 }
+//</moduleIOFunctions>
+
+
+//<moduleSerializationFunctions>
 // 4) Serialization of Time String
-void SerializeTimeString(MODSTRUCTPTR_IN(MODULENAME))
+void SerializeTimeString(MODdeclarePTRIN(Mn))
 {
-    int retval = sprintf(SysTickClockDataPtrIn->time, "\r%02u:%02u:%02u\n",
-        (int)(SysTickClockDataPtrIn->hrCount % 100),
-        (int)(SysTickClockDataPtrIn->minCount % TIME_MIN_PER_HR),
-        (int)(SysTickClockDataPtrIn->secCount % TIME_SEC_PER_MIN)
+    int retval = SN_PrintF(MODdataPTR(Mn)->time, "\r%02u:%02u:%02u",
+        (int)(MODdataPTR(Mn)->hrCount % 100),
+        (int)(MODdataPTR(Mn)->minCount % TIME_MIN_PER_HR),
+        (int)(MODdataPTR(Mn)->secCount % TIME_SEC_PER_MIN)
     );
     //sysTickDataPtr->time[retval] = 0x00;
 }
+//</moduleSerializationFunctions>
 
-
-#endif
-
-
+#endif //!EXAMPLE_SYSTICK
 
 ///////////////////////////////////////////////////////////////////////
 // Attenuators UI Example
@@ -119,10 +117,6 @@ void SerializeTimeString(MODSTRUCTPTR_IN(MODULENAME))
 #ifdef EXAMPLE_ATTEN_UI
 
 
-//<applicationIncludes>
-//</applicationIncludes>
-
-//<applicationDefines>
 #define SETPIN_TX_C16(high_low)    IC1.digitalWrite(0, high_low)
 #define SETPIN_TX_C8(high_low)     IC1.digitalWrite(1, high_low)
 #define SETPIN_TX_C4(high_low)     IC1.digitalWrite(2, high_low)
@@ -150,11 +144,9 @@ void SerializeTimeString(MODSTRUCTPTR_IN(MODULENAME))
 #define SETPIN_XX_C0_50(high_low)  
 #define SETPIN_XX_LE(high_low)  
 
-//</applicationDefines>
 
-//<applicationClass>
-PLATFORM_APP_CLASS_ATTEN_UI(PLATFORM_NAME, MODULENAME);
-//</applicationClass>
+PLATFORM_APP_CLASS(PLATFORM_NAME, Mn);
+
 
 float ModuloFloat(float floatValue, float* intPartPtr)
 {
@@ -168,10 +160,9 @@ float ModuloFloat(float floatValue, float* intPartPtr)
 #define IC1Addr 0x27
 bool runOnce = true;
 Adafruit_MCP23017 IC1;
-
 //<moduleIOFunctions>
 // platform and application specific io device functions
-void WriteAttenuators(MODSTRUCTPTR_IN(MODULENAME))
+void WriteAttenuators(MODdeclarePTRIN(Mn))
 {
     if (runOnce)
     {
@@ -195,13 +186,13 @@ void WriteAttenuators(MODSTRUCTPTR_IN(MODULENAME))
         IC1.pinMode(15, OUTPUT);
     }
     
-#define bit16   ( (0b10000000 & AttenUIDataPtrIn->CMD_AttenuatorBits) >> 7 )
-#define bit8    ( (0b01000000 & AttenUIDataPtrIn->CMD_AttenuatorBits) >> 6 )
-#define bit4    ( (0b00100000 & AttenUIDataPtrIn->CMD_AttenuatorBits) >> 5 )
-#define bit2    ( (0b00010000 & AttenUIDataPtrIn->CMD_AttenuatorBits) >> 4 )
-#define bit1    ( (0b00001000 & AttenUIDataPtrIn->CMD_AttenuatorBits) >> 3 )
-#define bit0_25 ( (0b00000100 & AttenUIDataPtrIn->CMD_AttenuatorBits) >> 2 )
-#define bit0_50 ( (0b00000010 & AttenUIDataPtrIn->CMD_AttenuatorBits) >> 1 )
+#define bit16   ( (0b10000000 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 7 )
+#define bit8    ( (0b01000000 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 6 )
+#define bit4    ( (0b00100000 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 5 )
+#define bit2    ( (0b00010000 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 4 )
+#define bit1    ( (0b00001000 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 3 )
+#define bit0_25 ( (0b00000100 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 2 )
+#define bit0_50 ( (0b00000010 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 1 )
 
 switch (AttenUIDataPtrIn->INDEX_Attenuator) {
     case 0:
@@ -250,17 +241,19 @@ switch (AttenUIDataPtrIn->INDEX_Attenuator) {
 #undef bit2
 #undef bit1
 #undef bit0_25 
-#undef bit0_50
+#undef bit0_50 
 }
-void ReadUserInput(MODSTRUCTPTR_IN(MODULENAME))
+
+
+void ReadUserInput(MODdeclarePTRIN(Mn))
 {
     if (Serial.available() > 0)
     {
-        AttenUIDataPtrIn->charsRead = 0u;
+        MODdataPTR(Mn)->charsRead = 0u;
         do {
-            AttenUIDataPtrIn->apiLine[AttenUIDataPtrIn->charsRead++] = Serial.read();
+            MODdataPTR(Mn)->apiLine[MODdataPTR(Mn)->charsRead++] = Serial.read();
             delay(1);
-        } while (Serial.available() > 0 && AttenUIDataPtrIn->charsRead < CONSOLE_LINE_LEN);
+        } while (Serial.available() > 0 && MODdataPTR(Mn)->charsRead < CONSOLE_LINE_LEN);
         
         SETPIN_XX_LE(0x01);
         SETPIN_RX_LE(0x01);
@@ -268,14 +261,18 @@ void ReadUserInput(MODSTRUCTPTR_IN(MODULENAME))
     }
         
 }
-void WriteMenuLine(MODSTRUCTPTR_IN(MODULENAME))
+void WriteMenuLine(MODdeclarePTRIN(Mn))
 {
-    Serial.write(AttenUIDataPtrIn->consoleLine);
+    Serial.write(MODdataPTR(Mn)->consoleLine);
 }
+
 //</moduleIOFunctions>
 
 
 #endif //!EXAMPLE_ATTEN_UI
+
+
+#endif // !COMPILE_TESTS
 
 ///////////////////////////////////////////////////////////////////////
 // Application Data Instances are Created here (Platform Specific)
@@ -296,46 +293,49 @@ CPP_OS_MAIN_TEMPLATE(PLATFORM_NAME)
 #ifdef MAIN_C_NOos_NOsystick
 C_OS_MAIN_TEMPLATE(PLATFORM_NAME)
 #endif
-
-////////////////////////////////////////////////////////////////////////////////
-// Finally, an applications entry points call the execution system entry points
-// 1) The Main Entry Points (setup and loop)
+#ifdef MAIN_C_NOos_NOsystick
+C_OS_MAIN_TEMPLATE(PLATFORM_NAME)
+#endif
+#ifdef MAIN_CPP_NOos_NOsystick_Arduino
+//CPP_OS_MAIN_TEMPLATE_ARDUINO(PLATFORM_NAME)
 unsigned long tlast;
 unsigned long tnow, tdelta;
 uint32_t* uSecTicksPtr;
 uint32_t* hourTicksPtr;
-
 void setup() {
-    //asm(".global _printf_float");
-    tlast = millis();
-    tnow, tdelta;
-    uSecTicksPtr = &PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->uSecTicks;
-    hourTicksPtr = &PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->hourTicks;
-    PLATFORM_EXESYS_NAME(PLATFORM_NAME).ExecuteSetup();
+    
+        asm(".global _printf_float"); 
+        tlast = millis(); 
+        tnow, tdelta; 
+        uSecTicksPtr = &PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->uSecTicks;
+        hourTicksPtr = &PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->hourTicks;
+        PLATFORM_EXESYS_NAME(PLATFORM_NAME).ExecuteSetup();
 }
 
-void loop() 
-{
-    // Arduino platfrom doesn't use systick (maybe could but, future option)
-    // So the exesystem clock must be maintained here
-    // and rely on the arduino library
-    tnow = millis();
-    if (tnow >= tlast)
-        tdelta = tnow - tlast;
-    else
-        tdelta = tnow + (0xffffffff - tlast);
-    tlast = tnow;
-
-    (*uSecTicksPtr) += tdelta * uSEC_PER_CLOCK;
-    if ((*uSecTicksPtr) >= TIME_uS_PER_HR)
+void loop()
     {
-        (*uSecTicksPtr) = 0u;
-        (*hourTicksPtr)++;
+        tnow = millis(); 
+        if (tnow >= tlast)
+            tdelta = tnow - tlast; 
+        else
+            tdelta = tnow + (0xffffffff - tlast); 
+            tlast = tnow; 
+            
+            (*uSecTicksPtr) += tdelta * uSEC_PER_CLOCK; 
+            if ((*uSecTicksPtr) >= TIME_uS_PER_HR)
+            {
+                (*uSecTicksPtr) = 0u; 
+                (*hourTicksPtr)++; 
+            }
+                
+                PLATFORM_EXESYS_NAME(PLATFORM_NAME).ExecuteLoop();
     }
+#endif
 
-    PLATFORM_EXESYS_NAME(PLATFORM_NAME).ExecuteLoop();
+////////////////////////////////////////////////////////////////////////////////
+// Finally, an applications entry points call the execution system entry points
+// 1) The Main Entry Points (setup and loop)
 
-}
 
 // 2) The SysTick Entry Point
 

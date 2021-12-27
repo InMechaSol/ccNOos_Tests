@@ -9,6 +9,7 @@
 // 3) a Compile Switch for Running Examples vs Automated Tests
 #ifdef COMPILE_TESTS
 // 4) all of the ccNOos Tests Automated Tests
+    MODdeclareDATA(Mn);
 #else
 // 5) all of the ccNOos Tests Example Applications
 #ifdef EXAMPLE_SYSTICK

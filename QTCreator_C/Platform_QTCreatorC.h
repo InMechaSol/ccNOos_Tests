@@ -1,8 +1,7 @@
-
-
 #if PLATFORM_NAME!=QTCreatorC
     error PLATFORM_NAME must be QTCreatorC
 #endif
+
 
 #ifdef REDEFINE_NULLPTR
 #error Must not compile with -DREDEFINE_NULLPTR on QTCreatorC
@@ -11,23 +10,21 @@
 #error Must not compile with -D__NOEXCEPTIONS on QTCreatorC
 #endif // !__NOEXCEPTIONS
 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <unistd.h>
 #include <stdarg.h>
+#include "../ccNOos/tests/ccNOos_tests.h"
+//void SysTickISRCallback(void); // not using on QTCreatorC
+#define LIGHT_OFF (1u)      // 1-PSoC4, 0-most others
 #define uSEC_PER_CLOCK (1000000/CLOCKS_PER_SEC)
 #define MAXLINELENGTH (80)
 
-/* Function Prototype for systick isr callback function */
-//void SysTickISRCallback(void); // not using on QTCreatorC
-//</platformConfigChecks>
-#include "../ccNOos/tests/ccNOos_tests.h"
 
-
-////////////////////////////////////////////////////////////
-// An Execution System Requires Platform Implementations of:
-// 1) Platform Configure Function
+// 0) (Optional) Platform Config and Log Files/Devices
+// 1) Platform Setup Function
 void platformSetup()
 {
     //<platformSetup>
@@ -55,7 +52,9 @@ void platformLoopDelay()
     usleep(100000);
     //</platformLoopDelay>
 }
-// 4) GetMenuChars Function (optional)
+
+#ifdef __USINGCONSOLEMENU
+// 4) Basic ability for user console input
 void GetMenuChars(char* inStringPtr)
 {
     int ch = 0;
@@ -72,24 +71,23 @@ void GetMenuChars(char* inStringPtr)
     }
     inStringPtr[ch] = 0x00;
 }
-// 5) WriteMenuLine Function (optional)
+// 5) Basic ability for user console output
 void WriteMenuLine(char* outStringPtr)
 {
     int retVal = printf(outStringPtr);
 }
-// 6) WriteLogLine Function (optional)
+// 6) (Optional) Logging Output
 void WriteLogLine(char* outStringPtr)
 {
 
 }
-// 7) ReadConfigLine Function (optional)
+// 7) (Optional) Config Input
 void ReadConfigLine(char* inStringPtr)
 {
 
 
 }
-//
-// 8) A Group of Functions used in String Serialization/Deserialization
+// 8) Platform API Functions (From Template?)
 int SN_PrintF(char* str, unsigned int size, const char* format, ...)
 {
     va_list argptr;
@@ -198,11 +196,10 @@ UI_8 ATO_U64(const char* str, UI_64* val)
     else
         return ui8FALSE;
 }
-//
-// 9) The Platform Specific Execution System Instance (not unique to application)
+#endif
+// 9) Global Execution System Instance
 PLATFORM_EXESYS_DECLARE(PLATFORM_NAME);
-//
-// 10) Module API Functions (not unique to application)
+// 10) ExeSys API Functions (From Template?)
 UI_32 getuSecTicks()
 {
     return PLATFORM_EXESYS_NAME(PLATFORM_NAME).uSecTicks;
@@ -210,4 +207,8 @@ UI_32 getuSecTicks()
 UI_32 getHourTicks()
 {
     return PLATFORM_EXESYS_NAME(PLATFORM_NAME).hourTicks;
+}
+UI_32 getuSecPerSysTick()
+{
+    return PLATFORM_EXESYS_NAME(PLATFORM_NAME).uSecPerSysTick;
 }
