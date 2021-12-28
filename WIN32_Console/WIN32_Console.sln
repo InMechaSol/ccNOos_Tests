@@ -14,9 +14,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Platform Application Implem
 	ProjectSection(SolutionItems) = preProject
 		..\Arduino\ccNOos_Tests\ccNOos_Tests.ino = ..\Arduino\ccNOos_Tests\ccNOos_Tests.ino
 		..\PIC\dsPIC33F_Tests.X\dsPIC33F_Tests.c = ..\PIC\dsPIC33F_Tests.X\dsPIC33F_Tests.c
-		..\PSoC\SysTick_Example01.cydsn\main.c = ..\PSoC\SysTick_Example01.cydsn\main.c
+		..\PSoC\PSoC4_Tests.cydsn\main.c = ..\PSoC\PSoC4_Tests.cydsn\main.c
 		..\PIC\PIC32MZ_Tests.X\PIC32MZ_Tests.cpp = ..\PIC\PIC32MZ_Tests.X\PIC32MZ_Tests.cpp
 		..\Arduino\ccNOos_Tests\Platform_Arduino.h = ..\Arduino\ccNOos_Tests\Platform_Arduino.h
+		..\PSoC\PSoC4_Tests.cydsn\Platform_PSoC4.h = ..\PSoC\PSoC4_Tests.cydsn\Platform_PSoC4.h
+		..\QTCreator_C\Platform_QTCreatorC.h = ..\QTCreator_C\Platform_QTCreatorC.h
+		Platform_Win32.h = Platform_Win32.h
+		..\QTCreator_C\QTCreator_C.c = ..\QTCreator_C\QTCreator_C.c
 		WIN32_Console.cpp = WIN32_Console.cpp
 	EndProjectSection
 EndProject

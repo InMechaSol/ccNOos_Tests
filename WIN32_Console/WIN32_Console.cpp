@@ -23,7 +23,7 @@ Notes:
 
 #ifdef COMPILE_TESTS
 
-PLATFORM_APP_CLASS(PLATFORM_NAME, MODULENAME);
+PLATFORM_APP_CLASS(PLATFORM_NAME, Mn);
 
 #else
 
@@ -38,7 +38,7 @@ PLATFORM_APP_CLASS(PLATFORM_NAME, MODULENAME);
 //</applicationIncludes>
 
 //<applicationDefines>
-#define LIGHT_OFF (0u)      // 1-PSoC4, 0-most others
+
 //</applicationDefines>
 
 //<applicationClass>

@@ -14,6 +14,7 @@
 #include <Arduino.h>
 #include <Adafruit_MCP23017.h>
 #include <ccNOos_tests_arduino.h>
+#define LIGHT_OFF (0u)      // 1-PSoC4, 0-most others
 #define uSEC_PER_CLOCK (1000u)
 #define MAXLINELENGTH (80)
 
@@ -22,6 +23,11 @@
 void platformSetup()
 {
     //<platformSetup>
+#ifdef __USINGCONSOLEMENU
+#ifdef __USINGFLOATPRINTF
+        asm(".global _printf_float");
+#endif
+#endif
     Serial.begin(115200);
     Wire.begin();
 
@@ -43,6 +49,7 @@ void platformLoopDelay()
     ;
     //</platformLoopDelay>
 }
+#ifdef __USINGCONSOLEMENU
 // 4) Basic ability for user console input
 void GetMenuChars(char* inStringPtr)
 {
@@ -183,6 +190,7 @@ UI_8 ATO_U64(const char* str, UI_64* val)
     else
         return ui8FALSE;
 }
+#endif
 // 9) Global Execution System Instance
 executionSystemClass PLATFORM_EXESYS_NAME(PLATFORM_NAME)(uSEC_PER_CLOCK);
 // 10) ExeSys API Functions (From Template?)
@@ -193,4 +201,8 @@ UI_32 getuSecTicks()
 UI_32 getHourTicks()
 {
     return PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->hourTicks;
+}
+UI_32 getuSecPerSysTick()
+{
+    return PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->uSecPerSysTick;
 }

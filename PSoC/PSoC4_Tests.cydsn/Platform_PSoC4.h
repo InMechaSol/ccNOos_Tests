@@ -20,7 +20,7 @@
 #include "../../ccNOos/tests/ccNOos_tests.h"    // all things ccNOos w/tests
 void SysTickISRCallback();
 #define LIGHT_OFF (1u)      // 1-PSoC4, 0-most others
-#define uSEC_PER_CLOCK (1000000/CLOCKS_PER_SEC)
+#define uSEC_PER_CLOCK (1000u)
 #define MAXLINELENGTH (80)
 
 
@@ -29,6 +29,11 @@ void SysTickISRCallback();
 void platformSetup()
 {      
     //<platformSetup>
+#ifdef __USINGCONSOLEMENU
+#ifdef __USINGFLOATPRINTF
+    asm(".global _printf_float");
+#endif
+#endif
     /* Enable global interrupts. */
     CyGlobalIntEnable;
     //</platformSetup>
@@ -54,6 +59,7 @@ void platformStart()
             break;
         }
     }
+    UART_Start();
     //</platformStart>
 }
 // 3) Platform Loop Delay Function
@@ -69,24 +75,23 @@ void platformLoopDelay()
 // 4) Basic ability for user console input
 void GetMenuChars(char* inStringPtr)
 {
-//    int ch = 0;
-//    int retVal = 1;
-//    while(ch < MAXLINELENGTH)
-//    {
-//        retVal = read(STDIN_FILENO, &inStringPtr[ch], 1);
-//        ch++;
-//        if  (
-//            inStringPtr[ch-1] == '\n' ||
-//            retVal < 1
-//            )
-//            break;
-//    }
-//    inStringPtr[ch] = 0x00;
+    static UI_32 tTHEN = 0u;
+    
+    if(tTHEN == 0)
+        tTHEN = getuSecTicks();
+        
+    if((getuSecTicks()-tTHEN)>1000000)
+    {
+        inStringPtr[0] = ';';
+        tTHEN = getuSecTicks();
+    }
+    else
+        inStringPtr[0] = 0x00;
 }
 // 5) Basic ability for user console output
 void WriteMenuLine(char* outStringPtr)
 {
-//    int retVal = printf(outStringPtr);
+    UART_PutString(outStringPtr);
 }
 // 6) (Optional) Logging Output
 void WriteLogLine(char* outStringPtr)
@@ -104,7 +109,7 @@ int SN_PrintF(char* str, unsigned int size, const char* format, ...)
 {
     va_list argptr;
     va_start(argptr, format);
-    int chars = vsnprintf(str, size, format, argptr);
+    int chars = vsnprintf(str, size+1, format, argptr);
     va_end(argptr);
     return chars;
 }

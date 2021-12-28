@@ -18,6 +18,7 @@
 #include <iostream>
 #include <fstream>
 #include "../ccNOos/tests/ccNOos_tests.h"
+#define LIGHT_OFF (0u)      // 1-PSoC4, 0-most others
 #define uSEC_PER_CLOCK (1000000/CLOCKS_PER_SEC)
 #define MAXLINELENGTH (80)
 
@@ -52,6 +53,7 @@ void platformLoopDelay()
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
     //</platformLoopDelay>
 }
+#ifdef __USINGCONSOLEMENU
 // 4) Basic ability for user console input
 void GetMenuChars(char* inStringPtr)
 {
@@ -90,7 +92,7 @@ int SN_PrintF(char* str, unsigned int size, const char* format, ...)
 {
     va_list argptr;
     va_start(argptr, format);
-    int chars = vsnprintf(str, size, format, argptr);
+    int chars = vsnprintf(str, size+1, format, argptr);
     va_end(argptr);
     return chars;
 }
@@ -114,86 +116,87 @@ UI_8 ATO_D(const char* str, double* val)
     else
         return false;
 }
-UI_8 ATO_I8(const char* str, int8_t* val)
+UI_8 ATO_I8(const char* str, I_8* val)
 {
     if (isIntegerString((char*)str))
     {
-        *val = (int8_t)atoi(str);
+        *val = (I_8)atoi(str);
         return true;
     }
     else
         return false;
 }
-UI_8 ATO_I16(const char* str, int16_t* val)
+UI_8 ATO_I16(const char* str, I_16* val)
 {
     if (isIntegerString((char*)str))
     {
-        *val = (int16_t)atoi(str);
+        *val = (I_16)atoi(str);
         return true;
     }
     else
         return false;
 }
-UI_8 ATO_I32(const char* str, int32_t* val)
+UI_8 ATO_I32(const char* str, I_32* val)
 {
     if (isIntegerString((char*)str))
     {
-        *val = (int32_t)atoll(str);
+        *val = (I_32)atoll(str);
         return true;
     }
     else
         return false;
 }
-UI_8 ATO_I64(const char* str, int64_t* val)
+UI_8 ATO_I64(const char* str, I_64* val)
 {
     if (isIntegerString((char*)str))
     {
-        *val = (int64_t)atoll(str);
+        *val = (I_64)atoll(str);
         return true;
     }
     else
         return false;
 }
-UI_8 ATO_U8(const char* str, uint8_t* val)
+UI_8 ATO_U8(const char* str, UI_8* val)
 {
     if (isUnsignedIntegerString((char*)str))
     {
-        *val = (uint8_t)atoll(str);
+        *val = (UI_8)atoll(str);
         return true;
     }
     else
         return false;
 }
-UI_8 ATO_U16(const char* str, uint16_t* val)
+UI_8 ATO_U16(const char* str, UI_16* val)
 {
     if (isUnsignedIntegerString((char*)str))
     {
-        *val = (uint16_t)atoll(str);
+        *val = (UI_16)atoll(str);
         return true;
     }
     else
         return false;
 }
-UI_8 ATO_U32(const char* str, uint32_t* val)
+UI_8 ATO_U32(const char* str, UI_32* val)
 {
     if (isUnsignedIntegerString((char*)str))
     {
-        *val = (uint32_t)atoll(str);
+        *val = (UI_32)atoll(str);
         return true;
     }
     else
         return false;
 }
-UI_8 ATO_U64(const char* str, uint64_t* val)
+UI_8 ATO_U64(const char* str, UI_64* val)
 {
     if (isUnsignedIntegerString((char*)str))
     {
-        *val = (uint64_t)atoll(str);
+        *val = (UI_64)atoll(str);
         return true;
     }
     else
         return false;
 }
+#endif
 // 9) Global Execution System Instance
 executionSystemClass PLATFORM_EXESYS_NAME(PLATFORM_NAME)(uSEC_PER_CLOCK);
 // 10) ExeSys API Functions (From Template?)
