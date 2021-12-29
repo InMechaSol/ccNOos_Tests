@@ -88,8 +88,9 @@ void WriteSecLED(MODdeclarePTRIN(Mn))
 void WriteTimeSerial(MODdeclarePTRIN(Mn))
 {
     //<writeSerialdevice>
-
+    Serial.write("\r");
     Serial.write(MODdataPTR(Mn)->time);// << std::fflush;
+    Serial.write("\n");
     //UART_PutString(MODdataPTR(Mn)->time); 
     //</writeSerialdevice>
 }
@@ -98,15 +99,15 @@ void WriteTimeSerial(MODdeclarePTRIN(Mn))
 
 //<moduleSerializationFunctions>
 // 4) Serialization of Time String
-void SerializeTimeString(MODdeclarePTRIN(Mn))
-{
-    int retval = SN_PrintF(MODdataPTR(Mn)->time, "\r%02u:%02u:%02u",
-        (int)(MODdataPTR(Mn)->hrCount % 100),
-        (int)(MODdataPTR(Mn)->minCount % TIME_MIN_PER_HR),
-        (int)(MODdataPTR(Mn)->secCount % TIME_SEC_PER_MIN)
-    );
-    //sysTickDataPtr->time[retval] = 0x00;
-}
+//void SerializeTimeString(MODdeclarePTRIN(Mn))
+//{
+//    int retval = SN_PrintF(MODdataPTR(Mn)->time, 9, "\r%02u:%02u:%02u",
+//        (int)(MODdataPTR(Mn)->hrCount % 100),
+//        (int)(MODdataPTR(Mn)->minCount % TIME_MIN_PER_HR),
+//        (int)(MODdataPTR(Mn)->secCount % TIME_SEC_PER_MIN)
+//    );
+//    //sysTickDataPtr->time[retval] = 0x00;
+//}
 //</moduleSerializationFunctions>
 
 #endif //!EXAMPLE_SYSTICK
@@ -203,9 +204,9 @@ switch (AttenUIDataPtrIn->INDEX_Attenuator) {
         SETPIN_TX_C1(bit1);
         SETPIN_TX_C0_25(bit0_25);
         SETPIN_TX_C0_50(bit0_50);
-        //SETPIN_TX_LE(0x01);
-        //delay(1);
-        //SETPIN_TX_LE(0x00);
+        SETPIN_TX_LE(0x01);
+        delay(1);
+        SETPIN_TX_LE(0x00);
         break;
     case 1:
         SETPIN_RX_C16(bit16);
@@ -215,9 +216,9 @@ switch (AttenUIDataPtrIn->INDEX_Attenuator) {
         SETPIN_RX_C1(bit1);
         SETPIN_RX_C0_25(bit0_25);
         SETPIN_RX_C0_50(bit0_50);
-        //SETPIN_RX_LE(0x01);
-        //delay(1);
-        //SETPIN_RX_LE(0x00);
+        SETPIN_RX_LE(0x01);
+        delay(1);
+        SETPIN_RX_LE(0x00);
         break;
     case 2:
         SETPIN_XX_C16(bit16);
@@ -227,9 +228,9 @@ switch (AttenUIDataPtrIn->INDEX_Attenuator) {
         SETPIN_XX_C1(bit1);
         SETPIN_XX_C0_25(bit0_25);
         SETPIN_XX_C0_50(bit0_50);
-        //SETPIN_XX_LE(0x01);
-        //delay(1);
-        //SETPIN_XX_LE(0x00);
+        SETPIN_XX_LE(0x01);
+        delay(1);
+        SETPIN_XX_LE(0x00);
         break;
     default:
         break;
@@ -245,22 +246,22 @@ switch (AttenUIDataPtrIn->INDEX_Attenuator) {
 }
 
 
-void ReadUserInput(MODdeclarePTRIN(Mn))
-{
-    if (Serial.available() > 0)
-    {
-        MODdataPTR(Mn)->charsRead = 0u;
-        do {
-            MODdataPTR(Mn)->apiLine[MODdataPTR(Mn)->charsRead++] = Serial.read();
-            delay(1);
-        } while (Serial.available() > 0 && MODdataPTR(Mn)->charsRead < CONSOLE_LINE_LEN);
-        
-        SETPIN_XX_LE(0x01);
-        SETPIN_RX_LE(0x01);
-        SETPIN_TX_LE(0x01);
-    }
-        
-}
+//void ReadUserInput(MODdeclarePTRIN(Mn))
+//{
+//    if (Serial.available() > 0)
+//    {
+//        MODdataPTR(Mn)->charsRead = 0u;
+//        do {
+//            MODdataPTR(Mn)->apiLine[MODdataPTR(Mn)->charsRead++] = Serial.read();
+//            delay(1);
+//        } while (Serial.available() > 0 && MODdataPTR(Mn)->charsRead < CONSOLE_LINE_LEN);
+//        
+//        SETPIN_XX_LE(0x01);
+//        SETPIN_RX_LE(0x01);
+//        SETPIN_TX_LE(0x01);
+//    }
+//        
+//}
 void WriteMenuLine(MODdeclarePTRIN(Mn))
 {
     Serial.write(MODdataPTR(Mn)->consoleLine);

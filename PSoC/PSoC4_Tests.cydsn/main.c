@@ -61,17 +61,6 @@ void WriteTimeSerial(MODdeclarePTRIN(Mn))
     UART_PutString(MODdataPTR(Mn)->time); 
     //</writeSerialdevice>
 }
-// 4) Serialization of Time String
-void SerializeTimeString(MODdeclarePTRIN(Mn))
-{
-    sprintf(MODdataPTR(Mn)->time, "\r%02u:%02u:%02u", 
-                    (int)(MODdataPTR(Mn)->hrCount % 100), 
-                    (int)(MODdataPTR(Mn)->minCount % TIME_MIN_PER_HR),
-                    (int)(MODdataPTR(Mn)->secCount % TIME_SEC_PER_MIN)
-                    );
-}
-
-
 
 #endif //!EXAMPLE_SYSTICK
 #ifdef EXAMPLE_ATTEN_UI
@@ -122,14 +111,6 @@ void WriteAttenuators(MODdeclarePTRIN(Mn))
 #undef bit0_25
 #undef bit0_50
 }
-
-
-void ReadUserInput(MODdeclarePTRIN(Mn))
-{
-    GetMenuChars(&MODdataPTR(Mn)->apiLine[0]);
-    MODdataPTR(Mn)->charsRead++;
-}
-
 //</moduleIOFunctions>
 
 

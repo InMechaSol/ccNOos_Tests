@@ -63,15 +63,15 @@ void WriteTimeSerial(MODdeclarePTRIN(Mn))
 
 //<moduleSerializationFunctions>
 // 4) Serialization of Time String
-void SerializeTimeString(MODdeclarePTRIN(Mn))
-{
-    int retval = sprintf(MODdataPTR(Mn)->time, "\r%02u:%02u:%02u",
-        (int)(MODdataPTR(Mn)->hrCount % 100),
-        (int)(MODdataPTR(Mn)->minCount % TIME_MIN_PER_HR),
-        (int)(MODdataPTR(Mn)->secCount % TIME_SEC_PER_MIN)
-    );
-    //sysTickDataPtr->time[retval] = 0x00;
-}
+//void SerializeTimeString(MODdeclarePTRIN(Mn))
+//{
+//    int retval = sprintf(MODdataPTR(Mn)->time, "\r%02u:%02u:%02u",
+//        (int)(MODdataPTR(Mn)->hrCount % 100),
+//        (int)(MODdataPTR(Mn)->minCount % TIME_MIN_PER_HR),
+//        (int)(MODdataPTR(Mn)->secCount % TIME_SEC_PER_MIN)
+//    );
+//    //sysTickDataPtr->time[retval] = 0x00;
+//}
 //</moduleSerializationFunctions>
 
 #endif //!EXAMPLE_SYSTICK
@@ -125,11 +125,11 @@ void WriteAttenuators(MODdeclarePTRIN(Mn))
 }
 
 
-void ReadUserInput(MODdeclarePTRIN(Mn))
-{
-    GetMenuChars(&MODdataPTR(Mn)->apiLine[0]);
-    MODdataPTR(Mn)->charsRead++;
-}
+//void ReadUserInput(MODdeclarePTRIN(Mn))
+//{
+//    GetMenuChars(&MODdataPTR(Mn)->apiLine[0]);
+//    MODdataPTR(Mn)->charsRead++;
+//}
 
 //</moduleIOFunctions>
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 5.0.2, 2021-12-28T12:06:55. -->
+<!-- Written by QtCreator 5.0.2, 2021-12-29T13:58:55. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -99,8 +99,8 @@
    <value type="int" key="ProjectExplorer.Target.ActiveRunConfiguration">0</value>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.0">
     <value type="int" key="EnableQmlDebugging">0</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\build-QTCreator_C-Desktop_Qt_6_2_0_MinGW_64_bit-Debug</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">C:/IMS_Source_Controlled/IMS_Compute_Resources/ccNOos_Tests/build-QTCreator_C-Desktop_Qt_6_2_0_MinGW_64_bit-Debug</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:/IMS_Source_Controlled/IMS_Compute_Resources/ccNOos_Tests/QTCreator_C/build-QTCreator_C-Desktop_Qt_6_2_0_MinGW_64_bit-Debug</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">C:/IMS_Source_Controlled/IMS_Compute_Resources/ccNOos_Tests/QTCreator_C/build-QTCreator_C-Desktop_Qt_6_2_0_MinGW_64_bit-Debug</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -137,8 +137,8 @@
     <value type="int" key="Qt4ProjectManager.Qt4BuildConfiguration.BuildConfiguration">2</value>
    </valuemap>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.1">
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\build-QTCreator_C-Desktop_Qt_6_2_0_MinGW_64_bit-Release</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">C:/IMS_Source_Controlled/IMS_Compute_Resources/ccNOos_Tests/build-QTCreator_C-Desktop_Qt_6_2_0_MinGW_64_bit-Release</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:/IMS_Source_Controlled/IMS_Compute_Resources/ccNOos_Tests/QTCreator_C/build-QTCreator_C-Desktop_Qt_6_2_0_MinGW_64_bit-Release</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">C:/IMS_Source_Controlled/IMS_Compute_Resources/ccNOos_Tests/QTCreator_C/build-QTCreator_C-Desktop_Qt_6_2_0_MinGW_64_bit-Release</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -177,8 +177,8 @@
    </valuemap>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.2">
     <value type="int" key="EnableQmlDebugging">0</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\build-QTCreator_C-Desktop_Qt_6_2_0_MinGW_64_bit-Profile</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">C:/IMS_Source_Controlled/IMS_Compute_Resources/ccNOos_Tests/build-QTCreator_C-Desktop_Qt_6_2_0_MinGW_64_bit-Profile</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:/IMS_Source_Controlled/IMS_Compute_Resources/ccNOos_Tests/QTCreator_C/build-QTCreator_C-Desktop_Qt_6_2_0_MinGW_64_bit-Profile</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">C:/IMS_Source_Controlled/IMS_Compute_Resources/ccNOos_Tests/QTCreator_C/build-QTCreator_C-Desktop_Qt_6_2_0_MinGW_64_bit-Profile</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -245,7 +245,7 @@
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseTerminal">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/IMS_Source_Controlled/IMS_Compute_Resources/ccNOos_Tests/build-QTCreator_C-Desktop_Qt_6_2_0_MinGW_64_bit-Debug</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/IMS_Source_Controlled/IMS_Compute_Resources/ccNOos_Tests/QTCreator_C/build-QTCreator_C-Desktop_Qt_6_2_0_MinGW_64_bit-Debug</value>
    </valuemap>
    <value type="int" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>
