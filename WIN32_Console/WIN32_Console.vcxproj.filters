@@ -43,6 +43,24 @@
     <Filter Include="Header Files\computeModule">
       <UniqueIdentifier>{ef85051c-0d07-4c41-8f6f-9e106e4d9ac4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\ccLibs">
+      <UniqueIdentifier>{93a6a1ec-9052-44aa-bbaf-6fe8e39db193}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ccLibs\acs">
+      <UniqueIdentifier>{49093b82-2e35-4c2a-910e-42743f28f153}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ccLibs\mcs">
+      <UniqueIdentifier>{041bc710-0048-47f5-b0e9-23b78d101a27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ccLibs">
+      <UniqueIdentifier>{fda69a32-d637-48c7-b794-16db1a8004f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ccLibs\acs">
+      <UniqueIdentifier>{32b224a9-1cdb-448f-8d2f-d429af693309}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ccLibs\mcs">
+      <UniqueIdentifier>{4b762ba1-5910-4696-b58c-528bf9c43013}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WIN32_Console.cpp">
@@ -71,6 +89,12 @@
     </ClCompile>
     <ClCompile Include="..\ccNOos\tests\SatComACSExample.cpp">
       <Filter>Source Files\tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ccOS_Tests\ccOS\ccNOos\ccLibs\acs\satComControl.cpp">
+      <Filter>Source Files\ccLibs\acs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ccOS_Tests\ccOS\ccNOos\ccLibs\mcs\motionControl.cpp">
+      <Filter>Source Files\ccLibs\mcs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -127,6 +151,18 @@
     </ClInclude>
     <ClInclude Include="Platform_Win32.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ccOS_Tests\ccOS\ccNOos\ccLibs\acs\satComControl.h">
+      <Filter>Header Files\ccLibs\acs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ccOS_Tests\ccOS\ccNOos\ccLibs\acs\satComControl.c">
+      <Filter>Source Files\ccLibs\acs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ccOS_Tests\ccOS\ccNOos\ccLibs\mcs\motionControl.h">
+      <Filter>Header Files\ccLibs\mcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ccOS_Tests\ccOS\ccNOos\ccLibs\mcs\motionControl.c">
+      <Filter>Source Files\ccLibs\mcs</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

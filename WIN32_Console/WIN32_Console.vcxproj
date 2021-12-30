@@ -167,9 +167,19 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\ccOS_Tests\ccOS\ccNOos\ccLibs\acs\satComControl.h" />
+    <ClInclude Include="..\..\ccOS_Tests\ccOS\ccNOos\ccLibs\mcs\motionControl.h" />
     <ClInclude Include="..\ccNOos\computeModule\compute_module.c">
       <FileType>CppCode</FileType>
     </ClInclude>
+    <ClInclude Include="..\..\ccOS_Tests\ccOS\ccNOos\ccLibs\acs\satComControl.c">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClCompile Include="..\..\ccOS_Tests\ccOS\ccNOos\ccLibs\acs\satComControl.cpp" />
+    <ClInclude Include="..\..\ccOS_Tests\ccOS\ccNOos\ccLibs\mcs\motionControl.c">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClCompile Include="..\..\ccOS_Tests\ccOS\ccNOos\ccLibs\mcs\motionControl.cpp" />
     <ClCompile Include="..\ccNOos\computeModule\compute_module_class.cpp" />
     <ClInclude Include="..\ccNOos\consoleMenu\console_menu.c">
       <FileType>CppCode</FileType>
