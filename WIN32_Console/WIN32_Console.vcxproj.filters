@@ -90,10 +90,10 @@
     <ClCompile Include="..\ccNOos\tests\SatComACSExample.cpp">
       <Filter>Source Files\tests</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ccOS_Tests\ccOS\ccNOos\ccLibs\acs\satComControl.cpp">
+    <ClCompile Include="..\ccNOos\ccLibs\acs\satComControl.cpp">
       <Filter>Source Files\ccLibs\acs</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ccOS_Tests\ccOS\ccNOos\ccLibs\mcs\motionControl.cpp">
+    <ClCompile Include="..\ccNOos\ccLibs\mcs\motionControl.cpp">
       <Filter>Source Files\ccLibs\mcs</Filter>
     </ClCompile>
   </ItemGroup>
@@ -152,16 +152,16 @@
     <ClInclude Include="Platform_Win32.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\ccOS_Tests\ccOS\ccNOos\ccLibs\acs\satComControl.h">
+    <ClInclude Include="..\ccNOos\ccLibs\acs\satComControl.h">
       <Filter>Header Files\ccLibs\acs</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\ccOS_Tests\ccOS\ccNOos\ccLibs\acs\satComControl.c">
+    <ClInclude Include="..\ccNOos\ccLibs\acs\satComControl.c">
       <Filter>Source Files\ccLibs\acs</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\ccOS_Tests\ccOS\ccNOos\ccLibs\mcs\motionControl.h">
+    <ClInclude Include="..\ccNOos\ccLibs\mcs\motionControl.h">
       <Filter>Header Files\ccLibs\mcs</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\ccOS_Tests\ccOS\ccNOos\ccLibs\mcs\motionControl.c">
+    <ClInclude Include="..\ccNOos\ccLibs\mcs\motionControl.c">
       <Filter>Source Files\ccLibs\mcs</Filter>
     </ClInclude>
   </ItemGroup>

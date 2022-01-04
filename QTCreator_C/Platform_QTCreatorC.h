@@ -88,7 +88,7 @@ void ReadConfigLine(char* inStringPtr)
 
 }
 // 8) Platform API Functions (From Template?)
-PlatformAPIFuncsTemplate(size);
+PlatformAPIFuncsTemplate(size+1);
 
 #endif
 // 9) Global Execution System Instance

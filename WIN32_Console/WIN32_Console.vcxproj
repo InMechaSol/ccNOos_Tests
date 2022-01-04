@@ -95,7 +95,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>GenerateArduinoLib.exe</Command>
+      <Command>GenerateArduinoLib.exe "c:\\ccNOos_Tests"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>Generating Arduino Library Files...</Message>
@@ -167,19 +167,19 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\ccOS_Tests\ccOS\ccNOos\ccLibs\acs\satComControl.h" />
-    <ClInclude Include="..\..\ccOS_Tests\ccOS\ccNOos\ccLibs\mcs\motionControl.h" />
+    <ClInclude Include="..\ccNOos\ccLibs\acs\satComControl.h" />
+    <ClInclude Include="..\ccNOos\ccLibs\mcs\motionControl.h" />
     <ClInclude Include="..\ccNOos\computeModule\compute_module.c">
       <FileType>CppCode</FileType>
     </ClInclude>
-    <ClInclude Include="..\..\ccOS_Tests\ccOS\ccNOos\ccLibs\acs\satComControl.c">
+    <ClInclude Include="..\ccNOos\ccLibs\acs\satComControl.c">
       <FileType>CppCode</FileType>
     </ClInclude>
-    <ClCompile Include="..\..\ccOS_Tests\ccOS\ccNOos\ccLibs\acs\satComControl.cpp" />
-    <ClInclude Include="..\..\ccOS_Tests\ccOS\ccNOos\ccLibs\mcs\motionControl.c">
+    <ClCompile Include="..\ccNOos\ccLibs\acs\satComControl.cpp" />
+    <ClInclude Include="..\ccNOos\ccLibs\mcs\motionControl.c">
       <FileType>CppCode</FileType>
     </ClInclude>
-    <ClCompile Include="..\..\ccOS_Tests\ccOS\ccNOos\ccLibs\mcs\motionControl.cpp" />
+    <ClCompile Include="..\ccNOos\ccLibs\mcs\motionControl.cpp" />
     <ClCompile Include="..\ccNOos\computeModule\compute_module_class.cpp" />
     <ClInclude Include="..\ccNOos\consoleMenu\console_menu.c">
       <FileType>CppCode</FileType>
