@@ -86,7 +86,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>PLATFORM_WIN32; __USINGFLOATPRINTF; __USINGCONSOLEMENU; COMPILE_TESTS; EXAMPLE_ATTEN_UI;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>PLATFORM_WIN32; __USINGFLOATPRINTF; __USINGCONSOLEMENU;  EXAMPLE_POWER_METER;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>../ccNOos/computeModule; ../ccNOos/consoleMenu; ../ccNOos/executionSystem; ../ccNOos/ioDevice; ../ccNOos/tests; /</AdditionalIncludeDirectories>
     </ClCompile>
@@ -202,6 +202,7 @@
     </ClInclude>
     <ClCompile Include="..\ccNOos\tests\AttensUIExample.cpp" />
     <ClInclude Include="..\ccNOos\tests\SatComACSExample.h" />
+    <ClInclude Include="..\ccNOos\tests\SatComPowerMeterExample.h" />
     <ClInclude Include="..\ccNOos\tests\SysTickExample.c">
       <FileType>CppCode</FileType>
     </ClInclude>
@@ -210,6 +211,10 @@
       <FileType>CppCode</FileType>
     </ClInclude>
     <ClCompile Include="..\ccNOos\tests\SatComACSExample.cpp" />
+    <ClInclude Include="..\ccNOos\tests\SatComPowerMeterExample.c">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClCompile Include="..\ccNOos\tests\SatComPowerMeterExample.cpp" />
     <ClCompile Include="..\ccNOos\tests\SysTickExample.cpp" />
     <ClCompile Include="WIN32_Console.cpp" />
     <ClInclude Include="..\ccNOos\tests\SysTickExample.h" />

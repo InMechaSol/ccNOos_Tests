@@ -137,6 +137,41 @@ void WriteAttenuators(MODdeclarePTRIN(Mn))
 
 #endif //!EXAMPLE_ATTEN_UI
 
+///////////////////////////////////////////////////////////////////////
+// SatCom Tunable Power Meter Example
+///////////////////////////////////////////////////////////////////////
+#ifdef EXAMPLE_POWER_METER
+
+
+//<applicationIncludes>
+//</applicationIncludes>
+
+//<applicationDefines>
+//</applicationDefines>
+
+//<applicationClass>
+MODdeclareDATA(Mn);
+//</applicationClass>
+
+//<moduleIOFunctions>
+// platform and application specific io device functions
+void WriteSPIDevice(MODdeclarePTRIN(Mn))
+{
+
+}
+void ReadSPIDevice(MODdeclarePTRIN(Mn))
+{
+
+}
+void WriteChipSelect(MODdeclarePTRIN(Mn))
+{
+
+}
+//</moduleIOFunctions>
+
+
+#endif //!EXAMPLE_SATCOM_ACS
+
 #endif // !COMPILE_TESTS
 
 ///////////////////////////////////////////////////////////////////////

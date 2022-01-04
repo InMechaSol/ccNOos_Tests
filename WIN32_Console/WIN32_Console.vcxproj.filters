@@ -96,6 +96,9 @@
     <ClCompile Include="..\ccNOos\ccLibs\mcs\motionControl.cpp">
       <Filter>Source Files\ccLibs\mcs</Filter>
     </ClCompile>
+    <ClCompile Include="..\ccNOos\tests\SatComPowerMeterExample.cpp">
+      <Filter>Source Files\tests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\ccNOos\tests\ccNOos_tests.h">
@@ -163,6 +166,12 @@
     </ClInclude>
     <ClInclude Include="..\ccNOos\ccLibs\mcs\motionControl.c">
       <Filter>Source Files\ccLibs\mcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ccNOos\tests\SatComPowerMeterExample.h">
+      <Filter>Header Files\tests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ccNOos\tests\SatComPowerMeterExample.c">
+      <Filter>Source Files\tests</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

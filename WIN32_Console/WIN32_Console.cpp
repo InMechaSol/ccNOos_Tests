@@ -150,12 +150,47 @@ void WriteAttenuators(MODdeclarePTRIN(Mn))
 //</applicationDefines>
 
 //<applicationClass>
-PLATFORM_APP_CLASS_SATCOM_ACS(PLATFORM_NAME, MODULENAME);
+PLATFORM_APP_CLASS(PLATFORM_NAME, Mn);
 //</applicationClass>
 
 //<moduleIOFunctions>
 // platform and application specific io device functions
 
+//</moduleIOFunctions>
+
+
+#endif //!EXAMPLE_SATCOM_ACS
+
+///////////////////////////////////////////////////////////////////////
+// SatCom Tunable Power Meter Example
+///////////////////////////////////////////////////////////////////////
+#ifdef EXAMPLE_POWER_METER
+
+
+//<applicationIncludes>
+//</applicationIncludes>
+
+//<applicationDefines>
+//</applicationDefines>
+
+//<applicationClass>
+PLATFORM_APP_CLASS(PLATFORM_NAME, Mn);
+//</applicationClass>
+
+//<moduleIOFunctions>
+// platform and application specific io device functions
+void WriteSPIDevice(MODdeclarePTRIN(Mn))
+{
+
+}
+void ReadSPIDevice(MODdeclarePTRIN(Mn))
+{
+
+}
+void WriteChipSelect(MODdeclarePTRIN(Mn))
+{
+
+}
 //</moduleIOFunctions>
 
 

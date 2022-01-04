@@ -13,7 +13,7 @@ namespace GenerateArduinoLib
         static void Main(string[] args)
         {
             // Program expects ccNOosTest Directory as an input
-            if(args.Length == 1)
+            if (args.Length == 1)
             {
                 string ccNOosTestsDIR = args[0];
                 if (Directory.Exists(ccNOosTestsDIR))
@@ -21,10 +21,10 @@ namespace GenerateArduinoLib
                     string ccNOosDIR = ccNOosTestsDIR + "\\ccNOos";
                     if (!Directory.Exists(ccNOosDIR))
                     {
-                        Console.WriteLine("FAILURE:( "+ccNOosDIR+" does not exist!");
+                        Console.WriteLine("FAILURE:( " + ccNOosDIR + " does not exist!");
                         return;
                     }
-                        
+
 
                     string ArduinoDIR = ccNOosTestsDIR + "\\Arduino\\libraries\\ccNOos\\src";
                     if (!Directory.Exists(ArduinoDIR))
@@ -89,7 +89,8 @@ namespace GenerateArduinoLib
                 {
                     Console.WriteLine("FAILURE:( " + ccNOosTestsDIR + " does not exist!");
                     return;
-                }            }
+                }
+            }
             else
             {
                 Console.WriteLine("FAILURE:( ccNOos Directory was not entered as input to program!");
