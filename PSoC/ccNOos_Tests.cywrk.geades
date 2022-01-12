@@ -56,8 +56,8 @@
 <v>ccNOos_Tests\PSoC4_Tests\Source Files\tests\SatComACSExample.c</v>
 <v>ccNOos_Tests\PSoC4_Tests\Source Files\tests\SysTickExample.c</v>
 <v>ccNOos_Tests\PSoC4_Tests\Source Files\main.c</v>
-<v>ccNOos_Tests\PSoC4_Tests\Generated_Source\PSoC4\LED_Min</v>
-<v>ccNOos_Tests\PSoC4_Tests\Generated_Source\PSoC4\LED_Sec</v>
+<v>ccNOos_Tests\PSoC4_Tests\Generated_Source</v>
+<v>ccNOos_Tests\PSoC4_Tests\Generated_Source\PSoC4</v>
 <v>ccNOos_Tests\PSoC4_Tests\SysTick_Example.pdf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
@@ -103,7 +103,12 @@
 <v>ccNOos_Tests\PSoC4_Tests\Source Files\tests\SysTickExample.c</v>
 <v>ccNOos_Tests\PSoC4_Tests\Source Files\main.c</v>
 <v>ccNOos_Tests\PSoC4_Tests\Generated_Source</v>
-<v>ccNOos_Tests\PSoC4_Tests\SysTick_Example.pdf</v>
+<v>ccNOos_Tests\PSoC4_Tests\Generated_Source\PSoC4</v>
+<v>ccNOos_Tests\PSoC4_Tests\Generated_Source\PSoC4\cy_boot</v>
+<v>ccNOos_Tests\PSoC4_Tests\Generated_Source\PSoC4\cy_lfclk</v>
+<v>ccNOos_Tests\PSoC4_Tests\Generated_Source\PSoC4\Em_EEPROM_Dynamic</v>
+<v>ccNOos_Tests\PSoC4_Tests\Generated_Source\PSoC4\LED_Min</v>
+<v>ccNOos_Tests\PSoC4_Tests\Generated_Source\PSoC4\LED_Sec</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="ccNOos_Tests">
@@ -184,36 +189,6 @@
 <v>ccNOos_Tests\PSoC4_Tests</v>
 <v>ccNOos_Tests\PSoC4_Tests\CortexM0</v>
 <v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541</v>
-<v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Debug</v>
-<v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Debug\Listing Files</v>
-<v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Debug\Listing Files\AttensUIExample.lst</v>
-<v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Debug\Listing Files\ccNOos_tests.lst</v>
-<v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
-<v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Debug\Listing Files\compute_module.lst</v>
-<v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Debug\Listing Files\console_menu.lst</v>
-<v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
-<v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
-<v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
-<v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
-<v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
-<v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Debug\Listing Files\execution_system.lst</v>
-<v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Debug\Listing Files\io_device.lst</v>
-<v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Debug\Listing Files\LED_Min.lst</v>
-<v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Debug\Listing Files\LED_Min_PM.lst</v>
-<v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Debug\Listing Files\LED_Sec.lst</v>
-<v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Debug\Listing Files\LED_Sec_PM.lst</v>
-<v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Debug\Listing Files\main.lst</v>
-<v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Debug\Listing Files\SatComACSExample.lst</v>
-<v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Debug\Listing Files\SysTickExample.lst</v>
-<v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Debug\Listing Files\UART.lst</v>
-<v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_AsmGnu.lst</v>
-<v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Debug\PSoC4_Tests.elf</v>
-<v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Debug\PSoC4_Tests.hex</v>
-<v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Debug\PSoC4_Tests.map</v>
 <v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Release</v>
 <v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Release\Listing Files</v>
 <v>ccNOos_Tests\PSoC4_Tests\CortexM0\ARM_GCC_541\Release\Listing Files\AttensUIExample.lst</v>
@@ -251,6 +226,8 @@
 <VisibleNodeIds>
 <v>ccNOos_Tests</v>
 <v>ccNOos_Tests\PSoC4_Tests</v>
+<v>ccNOos_Tests\PSoC4_Tests\PSoC4_Tests.rpt</v>
+<v>ccNOos_Tests\PSoC4_Tests\PSoC4_Tests_timing.html</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -316,34 +293,14 @@
 </userData>
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
-<OpenDocs>
-<name v="..\ccNOos\executionSystem\execution_system.c" />
-<name v="..\ccNOos\tests\ccNOos_tests.h" />
-<name v="..\ccNOos\consoleMenu\console_menu.h" />
-<name v="..\ccNOos\tests\AttensUIExample.h" />
-<name v=".\PSoC4_Tests.cydsn\Platform_PSoC4.h" />
-<name v="..\ccNOos\consoleMenu\console_menu.c" />
-<name v="..\ccNOos\executionSystem\execution_system.h" />
-<name v="..\ccNOos\tests\AttensUIExample.c" />
-<name v="..\ccNOos\computeModule\compute_module.c" />
-<name v="..\ccNOos\computeModule\compute_module.h" />
-<name v="..\ccNOos\tests\SysTickExample.h" />
-<name v=".\PSoC4_Tests.cydsn\main.c" />
-<name v=".\PSoC4_Tests.cydsn\Generated_Source\PSoC4\UART.c" />
-<name v=".\PSoC4_Tests.cydsn\Generated_Source\PSoC4\UART_AsmGnu.s" />
-<name v=".\PSoC4_Tests.cydsn\PSoC4_Tests.cydwr" />
-<name v="..\ccNOos\executionSystem\version_config.h" />
-<name v="..\ccNOos\tests\SysTickExample.c" />
-<name v="..\ccNOos\tests\ccNOos_tests.c" />
-<name v=".\PSoC4_Tests.cydsn\TopDesign\TopDesign.cysch" />
-</OpenDocs>
+<OpenDocs />
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
   Actipro Docking/MDI for WinForms
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Vertical"><TabbedMdiContainer Size="667, 771" SelectedTabbedMdiWindow="de0e272d-50e1-4996-8616-ba498433bf4f"><DocumentWindow Key="C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\ccNOos\executionSystem\execution_system.c" Guid="de0e272d-50e1-4996-8616-ba498433bf4f" /><DocumentWindow Key="C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\ccNOos\tests\ccNOos_tests.h" Guid="3a01d7fc-b240-4101-8864-e909a3ea2e58" /><DocumentWindow Key="C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\ccNOos\consoleMenu\console_menu.h" Guid="41392f41-6cfa-441f-9259-ffc73f1f9500" /><DocumentWindow Key="C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\ccNOos\tests\AttensUIExample.h" Guid="e1bbfdd3-4379-479a-82e0-be1f36208829" /><DocumentWindow Key="C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\PSoC4_Tests.cydsn\Platform_PSoC4.h" Guid="24c0bf04-0b0d-4e93-ab76-dbeeac91b81d" /><DocumentWindow Key="C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\ccNOos\consoleMenu\console_menu.c" Guid="56e06107-6289-40b3-8186-3e2ef89713bc" /><DocumentWindow Key="C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\ccNOos\executionSystem\execution_system.h" Guid="8733a902-224d-4358-ab46-7b5c9dbf372a" /><DocumentWindow Key="C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\ccNOos\tests\AttensUIExample.c" Guid="6ceefb38-1da3-40bd-84d8-6b3e96875bbf" /><DocumentWindow Key="C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\ccNOos\computeModule\compute_module.c" Guid="0093c9a9-1765-4446-a3b1-c7e1540d8df5" /><DocumentWindow Key="C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\ccNOos\computeModule\compute_module.h" Guid="1257caed-206f-42d1-9a40-d911b606aef8" /><DocumentWindow Key="C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\ccNOos\tests\SysTickExample.h" Guid="7730adb1-8afc-41cf-880b-2630904f79bb" /><DocumentWindow Key="C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\PSoC4_Tests.cydsn\main.c" Guid="b0c1a537-7288-4a7e-b7d4-9267b111cddc" /><DocumentWindow Key="C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\PSoC4_Tests.cydsn\Generated_Source\PSoC4\UART.c" Guid="7b66150a-7f32-45ba-9c10-9654a0389cee" /><DocumentWindow Key="C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\PSoC4_Tests.cydsn\Generated_Source\PSoC4\UART_AsmGnu.s" Guid="c3ca47f0-a960-48d0-9135-ab6d8361b2f3" /><DocumentWindow Key="C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\PSoC4_Tests.cydsn\PSoC4_Tests.cydwr" Guid="b9994b36-1d3b-4544-8d28-48c3a7c7faec" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="edc86cb5-e9da-4f6a-b9cb-edd43289711a" /></TabbedMdiContainer><TabbedMdiContainer Size="942, 771" SelectedTabbedMdiWindow="08756847-6add-49ce-8a40-9a2a4580537a"><DocumentWindow Key="C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\ccNOos\executionSystem\version_config.h" Guid="15835a50-6219-4cd5-8d88-8ad2aad05adf" /><DocumentWindow Key="C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\ccNOos\tests\SysTickExample.c" Guid="c100142a-0d5e-4ff3-909f-35df86b566df" /><DocumentWindow Key="C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\ccNOos\tests\ccNOos_tests.c" Guid="08756847-6add-49ce-8a40-9a2a4580537a" /><DocumentWindow Key="C:\IMS_Source_Controlled\IMS_Compute_Resources\ccNOos_Tests\PSoC\PSoC4_Tests.cydsn\TopDesign\TopDesign.cysch" Guid="ff7da536-0641-400a-ba92-3559b1e6d9f8" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Vertical"><TabbedMdiContainer Size="1613, 492" SelectedTabbedMdiWindow="edc86cb5-e9da-4f6a-b9cb-edd43289711a"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="edc86cb5-e9da-4f6a-b9cb-edd43289711a" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="Release" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

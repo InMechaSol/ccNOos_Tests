@@ -298,39 +298,40 @@ C_OS_MAIN_TEMPLATE(PLATFORM_NAME)
 C_OS_MAIN_TEMPLATE(PLATFORM_NAME)
 #endif
 #ifdef MAIN_CPP_NOos_NOsystick_Arduino
-//CPP_OS_MAIN_TEMPLATE_ARDUINO(PLATFORM_NAME)
-unsigned long tlast;
-unsigned long tnow, tdelta;
-uint32_t* uSecTicksPtr;
-uint32_t* hourTicksPtr;
-void setup() {
-    
-        asm(".global _printf_float"); 
-        tlast = millis(); 
-        tnow, tdelta; 
-        uSecTicksPtr = &PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->uSecTicks;
-        hourTicksPtr = &PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->hourTicks;
-        PLATFORM_EXESYS_NAME(PLATFORM_NAME).ExecuteSetup();
-}
-
-void loop()
-    {
-        tnow = millis(); 
-        if (tnow >= tlast)
-            tdelta = tnow - tlast; 
-        else
-            tdelta = tnow + (0xffffffff - tlast); 
-            tlast = tnow; 
-            
-            (*uSecTicksPtr) += tdelta * uSEC_PER_CLOCK; 
-            if ((*uSecTicksPtr) >= TIME_uS_PER_HR)
-            {
-                (*uSecTicksPtr) = 0u; 
-                (*hourTicksPtr)++; 
-            }
-                
-                PLATFORM_EXESYS_NAME(PLATFORM_NAME).ExecuteLoop();
-    }
+CPP_MAIN_TEMPLATE_ARDUINO(PLATFORM_NAME)
+//ccNOosVersionsTemplate
+//unsigned long tlast;
+//unsigned long tnow, tdelta;
+//uint32_t* uSecTicksPtr;
+//uint32_t* hourTicksPtr;
+//void setup() {
+//    
+//        asm(".global _printf_float"); 
+//        tlast = millis(); 
+//        tnow, tdelta; 
+//        uSecTicksPtr = &PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->uSecTicks;
+//        hourTicksPtr = &PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->hourTicks;
+//        PLATFORM_EXESYS_NAME(PLATFORM_NAME).ExecuteSetup();
+//}
+//
+//void loop()
+//    {
+//        tnow = millis(); 
+//        if (tnow >= tlast)
+//            tdelta = tnow - tlast; 
+//        else
+//            tdelta = tnow + (0xffffffff - tlast); 
+//            tlast = tnow; 
+//            
+//            (*uSecTicksPtr) += tdelta * uSEC_PER_CLOCK; 
+//            if ((*uSecTicksPtr) >= TIME_uS_PER_HR)
+//            {
+//                (*uSecTicksPtr) = 0u; 
+//                (*hourTicksPtr)++; 
+//            }
+//                
+//                PLATFORM_EXESYS_NAME(PLATFORM_NAME).ExecuteLoop();
+//    }
 #endif
 
 ////////////////////////////////////////////////////////////////////////////////

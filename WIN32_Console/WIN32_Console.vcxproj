@@ -86,7 +86,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>PLATFORM_WIN32; __USINGFLOATPRINTF; __USINGCONSOLEMENU;  EXAMPLE_POWER_METER;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>PLATFORM_WIN32; __USINGFLOATPRINTF; __USINGCONSOLEMENU;COMPILE_TESTS;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>../ccNOos/computeModule; ../ccNOos/consoleMenu; ../ccNOos/executionSystem; ../ccNOos/ioDevice; ../ccNOos/tests; /</AdditionalIncludeDirectories>
     </ClCompile>
@@ -107,7 +107,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>PLATFORM_WIN32; __USINGFLOATPRINTF; __USINGCONSOLEMENU; COMPILE_TESTS; EXAMPLE_ATTEN_UI;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>PLATFORM_WIN32; __USINGFLOATPRINTF; __USINGCONSOLEMENU;COMPILE_TESTS;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>../ccNOos/computeModule; ../ccNOos/consoleMenu; ../ccNOos/executionSystem; ../ccNOos/ioDevice; ../ccNOos/tests; /</AdditionalIncludeDirectories>
     </ClCompile>
@@ -128,7 +128,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>PLATFORM_WIN32; __USINGFLOATPRINTF; __USINGCONSOLEMENU; COMPILE_TESTS; EXAMPLE_ATTEN_UI;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>PLATFORM_WIN32; __USINGFLOATPRINTF; __USINGCONSOLEMENU;COMPILE_TESTS;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>../ccNOos/computeModule; ../ccNOos/consoleMenu; ../ccNOos/executionSystem; ../ccNOos/ioDevice; ../ccNOos/tests; /</AdditionalIncludeDirectories>
     </ClCompile>
@@ -149,7 +149,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>PLATFORM_WIN32; __USINGFLOATPRINTF; __USINGCONSOLEMENU; COMPILE_TESTS; EXAMPLE_ATTEN_UI;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>PLATFORM_WIN32; __USINGFLOATPRINTF; __USINGCONSOLEMENU;COMPILE_TESTS;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>../ccNOos/computeModule; ../ccNOos/consoleMenu; ../ccNOos/executionSystem; ../ccNOos/ioDevice; ../ccNOos/tests; /</AdditionalIncludeDirectories>
     </ClCompile>
@@ -206,6 +206,7 @@
       <FileType>CppCode</FileType>
     </ClInclude>
     <ClCompile Include="..\ccNOos\tests\AttensUIExample.cpp" />
+    <ClInclude Include="..\ccNOos\tests\Platform_Win32.h" />
     <ClInclude Include="..\ccNOos\tests\SatComACSExample.h" />
     <ClInclude Include="..\ccNOos\tests\SatComPowerMeterExample.h" />
     <ClInclude Include="..\ccNOos\tests\SysTickExample.c">
@@ -223,7 +224,6 @@
     <ClCompile Include="..\ccNOos\tests\SysTickExample.cpp" />
     <ClCompile Include="WIN32_Console.cpp" />
     <ClInclude Include="..\ccNOos\tests\SysTickExample.h" />
-    <ClInclude Include="Platform_Win32.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\ccNOos\computeModule\compute_module.h" />

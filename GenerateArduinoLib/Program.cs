@@ -44,6 +44,10 @@ namespace GenerateArduinoLib
                         }
                         Directory.Delete(dstring);
                     }
+                    foreach (string fstring in Directory.GetFiles(ArduinoDIR))
+                    {
+                        File.Delete(fstring);
+                    }
                     foreach (string dstring in Directory.GetDirectories(ccNOosDIR))
                     {
                         string[] tokens = dstring.Split('\\');
@@ -78,7 +82,14 @@ namespace GenerateArduinoLib
                             else
                             {
                                 // copy, should be h files,  maybe others
-                                File.Copy(fstring, filestring + Path.GetExtension(fstring));
+                                if( !fstring.Contains("Platform"))
+                                    File.Copy(fstring, filestring + Path.GetExtension(fstring));
+                                else if(fstring.Contains("Platform") && fstring.Contains("Arduino"))
+                                {
+                                    string filestring1 = filestring.Replace("\\tests","");
+                                    File.Copy(fstring, filestring1 + Path.GetExtension(fstring));
+                                }
+                                    
                             }
                         }
 

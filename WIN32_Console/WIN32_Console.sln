@@ -13,15 +13,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Platform Application Implementations", "Platform Application Implementations", "{84A0F8C2-0021-4B4C-960F-08286CF967C6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Arduino", "Arduino", "{7683D62D-5801-49F9-9E31-1A65937DC505}"
-	ProjectSection(SolutionItems) = preProject
-		..\Arduino\ccNOos_Tests\ccNOos_Tests.ino = ..\Arduino\ccNOos_Tests\ccNOos_Tests.ino
-		..\Arduino\ccNOos_Tests\Platform_Arduino.h = ..\Arduino\ccNOos_Tests\Platform_Arduino.h
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PSoC4", "PSoC4", "{8F1AED60-1E71-4B9B-94A0-9E69A2A7A4C1}"
 	ProjectSection(SolutionItems) = preProject
 		..\PSoC\PSoC4_Tests.cydsn\main.c = ..\PSoC\PSoC4_Tests.cydsn\main.c
-		..\PSoC\PSoC4_Tests.cydsn\Platform_PSoC4.h = ..\PSoC\PSoC4_Tests.cydsn\Platform_PSoC4.h
+		..\ccNOos\tests\Platform_PSoC4.h = ..\ccNOos\tests\Platform_PSoC4.h
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PIC32MZ", "PIC32MZ", "{133FD866-9460-40C3-AC5B-7E2D6B411C2D}"
@@ -30,14 +26,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dsPIC33f", "dsPIC33f", "{FC
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "QTCreator_C", "QTCreator_C", "{75043025-A1B9-445A-88A8-7CA5F1EDDD0A}"
 	ProjectSection(SolutionItems) = preProject
-		..\QTCreator_C\Platform_QTCreatorC.h = ..\QTCreator_C\Platform_QTCreatorC.h
+		..\ccNOos\tests\Platform_QTCreatorC.h = ..\ccNOos\tests\Platform_QTCreatorC.h
 		..\QTCreator_C\QTCreator_C.c = ..\QTCreator_C\QTCreator_C.c
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WIN32", "WIN32", "{A91CD9C6-8147-4C9A-A3DE-1945DD5716B1}"
 	ProjectSection(SolutionItems) = preProject
-		Platform_Win32.h = Platform_Win32.h
+		..\ccNOos\tests\Platform_Win32.h = ..\ccNOos\tests\Platform_Win32.h
 		WIN32_Console.cpp = WIN32_Console.cpp
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ccNOos_Tests", "ccNOos_Tests", "{97F09F88-54B5-425E-8ADD-E6DFAA621774}"
+	ProjectSection(SolutionItems) = preProject
+		..\Arduino\ccNOos_Tests\ccNOos_Tests.ino = ..\Arduino\ccNOos_Tests\ccNOos_Tests.ino
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libraries", "libraries", "{D0F80766-7ED8-466A-9382-E4E29BD2B84E}"
+	ProjectSection(SolutionItems) = preProject
+		..\Arduino\libraries\ccNOos\library.properties = ..\Arduino\libraries\ccNOos\library.properties
+		..\ccNOos\tests\Platform_Arduino.h = ..\ccNOos\tests\Platform_Arduino.h
 	EndProjectSection
 EndProject
 Global
@@ -83,6 +90,8 @@ Global
 		{FC4CD769-A4B5-4CF6-8A8A-5AB246AA3313} = {84A0F8C2-0021-4B4C-960F-08286CF967C6}
 		{75043025-A1B9-445A-88A8-7CA5F1EDDD0A} = {84A0F8C2-0021-4B4C-960F-08286CF967C6}
 		{A91CD9C6-8147-4C9A-A3DE-1945DD5716B1} = {84A0F8C2-0021-4B4C-960F-08286CF967C6}
+		{97F09F88-54B5-425E-8ADD-E6DFAA621774} = {7683D62D-5801-49F9-9E31-1A65937DC505}
+		{D0F80766-7ED8-466A-9382-E4E29BD2B84E} = {7683D62D-5801-49F9-9E31-1A65937DC505}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {36822031-E1AE-44F2-8F04-04C601E812B4}

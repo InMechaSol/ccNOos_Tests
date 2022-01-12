@@ -9,6 +9,7 @@ DEFINES += \
     __USINGFLOATPRINTF \
     EXAMPLE_POWER_METER
 
+INCLUDEPATH += ../ccNOos/tests/
 
 SOURCES += \
     ../ccNOos/ccLibs/acs/satComControl.c \
@@ -33,8 +34,8 @@ HEADERS += \
     ../ccNOos/executionSystem/version_config.h \
     ../ccNOos/ioDevice/io_device.h \
     ../ccNOos/tests/AttensUIExample.h \
+    ../ccNOos/tests/Platform_QTCreatorC.h \
     ../ccNOos/tests/SatComACSExample.h \
     ../ccNOos/tests/SatComPowerMeterExample.h \
     ../ccNOos/tests/SysTickExample.h \
-    ../ccNOos/tests/ccNOos_tests.h \
-    Platform_QTCreatorC.h
+    ../ccNOos/tests/ccNOos_tests.h

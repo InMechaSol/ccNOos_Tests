@@ -158,9 +158,6 @@
     <ClInclude Include="..\ccNOos\tests\SatComACSExample.c">
       <Filter>Source Files\tests</Filter>
     </ClInclude>
-    <ClInclude Include="Platform_Win32.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\ccNOos\ccLibs\acs\satComControl.h">
       <Filter>Header Files\ccLibs\acs</Filter>
     </ClInclude>
@@ -187,6 +184,9 @@
     </ClInclude>
     <ClInclude Include="..\ccNOos\ccLibs\acs\LTC2360.h">
       <Filter>Header Files\ccLibs\acs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ccNOos\tests\Platform_Win32.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
