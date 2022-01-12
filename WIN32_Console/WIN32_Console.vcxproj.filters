@@ -90,14 +90,20 @@
     <ClCompile Include="..\ccNOos\tests\SatComACSExample.cpp">
       <Filter>Source Files\tests</Filter>
     </ClCompile>
-    <ClCompile Include="..\ccNOos\ccLibs\acs\satComControl.cpp">
-      <Filter>Source Files\ccLibs\acs</Filter>
-    </ClCompile>
     <ClCompile Include="..\ccNOos\ccLibs\mcs\motionControl.cpp">
       <Filter>Source Files\ccLibs\mcs</Filter>
     </ClCompile>
     <ClCompile Include="..\ccNOos\tests\SatComPowerMeterExample.cpp">
       <Filter>Source Files\tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ccNOos\ccLibs\acs\ADRF6650.c">
+      <Filter>Source Files\ccLibs\acs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ccNOos\ccLibs\acs\LTC2360.c">
+      <Filter>Source Files\ccLibs\acs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ccNOos\ccLibs\acs\satComControl.cpp">
+      <Filter>Source Files\ccLibs\acs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +178,15 @@
     </ClInclude>
     <ClInclude Include="..\ccNOos\tests\SatComPowerMeterExample.c">
       <Filter>Source Files\tests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ccNOos\ccLibs\acs\ADRF6650.h">
+      <Filter>Header Files\ccLibs\acs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ccNOos\ccLibs\acs\ADRF6650_Map.h">
+      <Filter>Header Files\ccLibs\acs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ccNOos\ccLibs\acs\LTC2360.h">
+      <Filter>Header Files\ccLibs\acs</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

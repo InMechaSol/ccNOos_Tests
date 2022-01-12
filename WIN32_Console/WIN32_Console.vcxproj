@@ -167,6 +167,9 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\ccNOos\ccLibs\acs\ADRF6650.h" />
+    <ClInclude Include="..\ccNOos\ccLibs\acs\ADRF6650_Map.h" />
+    <ClInclude Include="..\ccNOos\ccLibs\acs\LTC2360.h" />
     <ClInclude Include="..\ccNOos\ccLibs\acs\satComControl.h" />
     <ClInclude Include="..\ccNOos\ccLibs\mcs\motionControl.h" />
     <ClInclude Include="..\ccNOos\computeModule\compute_module.c">
@@ -175,10 +178,12 @@
     <ClInclude Include="..\ccNOos\ccLibs\acs\satComControl.c">
       <FileType>CppCode</FileType>
     </ClInclude>
-    <ClCompile Include="..\ccNOos\ccLibs\acs\satComControl.cpp" />
+    <ClCompile Include="..\ccNOos\ccLibs\acs\ADRF6650.c" />
+    <ClCompile Include="..\ccNOos\ccLibs\acs\LTC2360.c" />
     <ClInclude Include="..\ccNOos\ccLibs\mcs\motionControl.c">
       <FileType>CppCode</FileType>
     </ClInclude>
+    <ClCompile Include="..\ccNOos\ccLibs\acs\satComControl.cpp" />
     <ClCompile Include="..\ccNOos\ccLibs\mcs\motionControl.cpp" />
     <ClCompile Include="..\ccNOos\computeModule\compute_module_class.cpp" />
     <ClInclude Include="..\ccNOos\consoleMenu\console_menu.c">
