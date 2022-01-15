@@ -1,5 +1,5 @@
-/** \file ccNOos_Tests.ino
-*   \brief Arduino Implementation of ccNOos_Tests in c++
+/** \file WIN32_Console.cpp
+*   \brief WIN32 Console Implementation of ccNOos_Tests in c++
 
    Copyright 2021 InMechaSol, Inc
 
@@ -16,99 +16,108 @@
    limitations under the License.
 
 Notes:
- the systick example demonstrates the basic operation of the "systick" execution
- area and timing maintained by the execution system.  when properly implemented
- and configured, this example blinks LED(s) every second and minute.  when
- properly implemented and configured, this example formats and writes a
- character array of current execution system time - once per second to a serial
- device.
-
- proper implementation and configuration is as follows:
- 1) Create Project using Platform IDE (PSoC Creator, MPLAB X, etc)
- 2) Replace the "main.c" of the project with this file, and rename appropriately
- 3) Complete all sections of platform specific code enclosed in <tags> </tags>.
-   <platformConfigChecks> - Compiler Configuration Checks
-   <platformIncludes> - The platform specific header includes
-   <platformAppDefines> - Constants of the application, unique to the platform
-   <writeMinLEDdevice> - IO Write Function for Minute LED
-   <writeSecLEDdevice> - IO Write Function for Second LED
-   <writeSerialdevice> - IO Write Function for Time String Output
-   <platformSetup> - Base Execution System Setup
-   <platformStart> - Executed after platformSetup and all Modules Setup,
-                                                     but before any modules Loop
-   <platformLoopDelay> - Define "rest" between main loop cycles
-
-   .ino means arduino...
-
-   Remember to set compiler flags in platform.txt !!!
-   compiler.cpp.extra_flags= -DUSING_STDINT -D__NOEXCEPTIONS
 
 */
 
-#include "Platform_Arduino.h"
-
+// Include all things ccNOos_tests, which is an application of ccNOos
+// ccNOos_tests is the application solution
 #ifdef COMPILE_TESTS
+#include "..\testApps\ccNOos_Tests\PlatformApp_Serialization.h"
+#else // !COMPILE_TESTS
+#ifdef EXAMPLE_SYSTICK
+#include "..\testApps\SysTick\PlatformApp_Serialization.h"
+#endif // EXAMPLE_SYSTICK
+#ifdef EXAMPLE_SATCOM_ACS
+#include "..\testApps\SatComACS\PlatformApp_Serialization.h"
+#endif // EXAMPLE_SATCOM_ACS
+#endif // !COMPILE_TESTS
 
-PLATFORM_APP_CLASS(PLATFORM_NAME, Mn);
 
+////////////////////////////////
+// Compile Error if Examples/Tests not defining 
+#ifndef Mn
+    #error Mn must be defined - see examples
+#endif
+#ifndef MODdeclareCREATEINS
+    #error MODdeclareCREATEINS must be defined - see examples
+#endif
+#ifndef MODcallCREATEINS
+    #error MODcallCREATEINS must be defined - see examples
+#endif
+#ifdef __cplusplus
+    #ifndef PLATFORM_APP_CLASS
+        #error PLATFORM_APP_CLASS macro must be defined in application code
+    #endif
 #else
+    #ifndef MODdeclareDATA
+        #error MODdeclareDATA macro must be defined in application code
+    #endif
+#endif
 
+////////////////////////////////
+// Compile Error if Examples/Tests not defining 
+#if PLATFORM_NAME==Win32
+#include "Platform_Win32.h"
+#elif PLATFORM_NAME==QTCreatorC
+#include <Platform_QTCreatorC.h>
+#else
+#error "No Platform Selected for Compile!"
+#endif
+
+
+///////////////////////////////////////////////////////////////////////
+// Module Data Structure or Module Data Class 
+//   -Declared from Macro Template
+//   -Macro Template is Defined in the Application Solution Header
+///////////////////////////////////////////////////////////////////////
+#ifdef __cplusplus
+    PLATFORM_APP_CLASS(Mn);
+#else
+    MODdeclareDATA(Mn);
+#endif
+
+
+#ifndef COMPILE_TESTS
 ///////////////////////////////////////////////////////////////////////
 // SysTick Example
 ///////////////////////////////////////////////////////////////////////
 #ifdef EXAMPLE_SYSTICK
-
-#define LIGHT_OFF (0u)      // 1-PSoC4, 0-most others
-
-
-PLATFORM_APP_CLASS(PLATFORM_NAME, Mn);
-
-
-//<moduleIOFunctions>
-//////////////////////////////////////////////////
-// IO Devices Require Platform Implementations of
-// of open,close,read,write
-// This SysTick Example Application only uses write
-// for each of its three application devices
-// 1) Minute LED Device Write
-void WriteMinLED(MODdeclarePTRIN(Mn))
-{
-    //<writeMinLEDdevice>
-    //LED_Min_Write(sysTickDataPtr->MinLEDvalue); 
-    //</writeMinLEDdevice>
-}
-// 2) Second LED Device Write
-void WriteSecLED(MODdeclarePTRIN(Mn))
-{
-    //<writeSecLEDdevice>
-    //LED_Sec_Write(MODdataPTR(Mn)->SecLEDvalue);
-    //</writeSecLEDdevice>
-}
-// 3) Serial Device Write
-void WriteTimeSerial(MODdeclarePTRIN(Mn))
-{
-    //<writeSerialdevice>
-    Serial.write("\r");
-    Serial.write(MODdataPTR(Mn)->time);// << std::fflush;
-    Serial.write("\n");
-    //UART_PutString(MODdataPTR(Mn)->time); 
-    //</writeSerialdevice>
-}
-//</moduleIOFunctions>
-
-
-//<moduleSerializationFunctions>
-// 4) Serialization of Time String
-//void SerializeTimeString(MODdeclarePTRIN(Mn))
-//{
-//    int retval = SN_PrintF(MODdataPTR(Mn)->time, 9, "\r%02u:%02u:%02u",
-//        (int)(MODdataPTR(Mn)->hrCount % 100),
-//        (int)(MODdataPTR(Mn)->minCount % TIME_MIN_PER_HR),
-//        (int)(MODdataPTR(Mn)->secCount % TIME_SEC_PER_MIN)
-//    );
-//    //sysTickDataPtr->time[retval] = 0x00;
-//}
-//</moduleSerializationFunctions>
+#if PLATFORM_NAME==Win32
+    // 1) Minute LED Device Write
+    void WriteMinLED(MODdeclarePTRIN(Mn)){ ; }
+    // 2) Second LED Device Write
+    void WriteSecLED(MODdeclarePTRIN(Mn)) { ; }
+    // 3) Serial Device Write
+    void WriteTimeSerial(MODdeclarePTRIN(Mn))
+    {
+        std::cout << MODdataPTR(Mn)->time;
+    }
+#elif PLATFORM_NAME==QTCreatorC
+    // 1) Minute LED Device Write
+    void WriteMinLED(MODdeclarePTRIN(Mn)) { ; }
+    // 2) Second LED Device Write
+    void WriteSecLED(MODdeclarePTRIN(Mn)) { ; }
+    // 3) Serial Device Write
+    void WriteTimeSerial(MODdeclarePTRIN(Mn))
+    {
+        printf("%s", MODdataPTR(Mn)->time);
+        fflush(stdout);
+    }
+#elif PLATFORM_NAME==Arduino
+    // 1) Minute LED Device Write
+    void WriteMinLED(MODdeclarePTRIN(Mn)) { ; }
+    // 2) Second LED Device Write
+    void WriteSecLED(MODdeclarePTRIN(Mn)) { ; }
+    // 3) Serial Device Write
+    void WriteTimeSerial(MODdeclarePTRIN(Mn))
+    {
+        Serial.write("\r");
+        Serial.write(MODdataPTR(Mn)->time);
+        Serial.write("\n");
+    }
+#else
+#error "No Platform Selected for EXAMPLE!"
+#endif
 
 #endif //!EXAMPLE_SYSTICK
 
@@ -116,7 +125,65 @@ void WriteTimeSerial(MODdeclarePTRIN(Mn))
 // Attenuators UI Example
 ///////////////////////////////////////////////////////////////////////
 #ifdef EXAMPLE_ATTEN_UI
+#if PLATFORM_NAME==Win32
 
+    float ModuloFloat(float floatValue, float* intPartPtr)
+    {
+        return modf(floatValue, intPartPtr);
+    }
+    void WriteAttenuators(MODdeclarePTRIN(Mn))
+    {
+#define bit16   ( (0b10000000 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 7 )
+#define bit8    ( (0b01000000 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 6 )
+#define bit4    ( (0b00100000 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 5 )
+#define bit2    ( (0b00010000 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 4 )
+#define bit1    ( (0b00001000 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 3 )
+#define bit0_25 ( (0b00000100 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 2 )
+#define bit0_50 ( (0b00000010 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 1 )
+        //float fracPart = (16.0 * bit16) + (8.0 * bit8) + (4.0 * bit4) + (2.0 * bit2) + (1.0 * bit1) + (0.25 * bit0_25) + (0.50 * bit0_50);
+        //std::cout << fracPart;
+#undef bit16  
+#undef bit8
+#undef bit4
+#undef bit2
+#undef bit1
+#undef bit0_25 
+#undef bit0_50 
+}
+
+#elif PLATFORM_NAME==QTCreatorC
+
+    float ModuloFloat(float floatValue, float* intPartPtr)
+    {
+        double retVal;
+        double dblValue = floatValue;
+        double intPartPtrDb;
+        retVal = modf(dblValue, &intPartPtrDb);
+        *intPartPtr = (float)(intPartPtrDb);
+        return (float)retVal;
+    }
+    // platform and application specific io device functions
+    void WriteAttenuators(MODdeclarePTRIN(Mn))
+    {
+    #define bit16   ( (0b10000000 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 7 )
+    #define bit8    ( (0b01000000 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 6 )
+    #define bit4    ( (0b00100000 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 5 )
+    #define bit2    ( (0b00010000 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 4 )
+    #define bit1    ( (0b00001000 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 3 )
+    #define bit0_25 ( (0b00000100 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 2 )
+    #define bit0_50 ( (0b00000010 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 1 )
+            //float fracPart = (16.0 * bit16) + (8.0 * bit8) + (4.0 * bit4) + (2.0 * bit2) + (1.0 * bit1) + (0.25 * bit0_25) + (0.50 * bit0_50);
+            //std::cout << fracPart;
+    #undef bit16
+    #undef bit8
+    #undef bit4
+    #undef bit2
+    #undef bit1
+    #undef bit0_25
+    #undef bit0_50
+    }
+
+#elif PLATFORM_NAME==Arduino
 
 #define SETPIN_TX_C16(high_low)    IC1.digitalWrite(0, high_low)
 #define SETPIN_TX_C8(high_low)     IC1.digitalWrite(1, high_low)
@@ -143,11 +210,7 @@ void WriteTimeSerial(MODdeclarePTRIN(Mn))
 #define SETPIN_XX_C1(high_low)     
 #define SETPIN_XX_C0_25(high_low)  
 #define SETPIN_XX_C0_50(high_low)  
-#define SETPIN_XX_LE(high_low)  
-
-
-PLATFORM_APP_CLASS(PLATFORM_NAME, Mn);
-
+#define SETPIN_XX_LE(high_low)
 
 float ModuloFloat(float floatValue, float* intPartPtr)
 {
@@ -156,12 +219,10 @@ float ModuloFloat(float floatValue, float* intPartPtr)
     *intPartPtr = (float)intPart;
     return (float)fracPart;
 }
-
 // Application Specific, Platform modifications
 #define IC1Addr 0x27
 bool runOnce = true;
 Adafruit_MCP23017 IC1;
-//<moduleIOFunctions>
 // platform and application specific io device functions
 void WriteAttenuators(MODdeclarePTRIN(Mn))
 {
@@ -186,7 +247,7 @@ void WriteAttenuators(MODdeclarePTRIN(Mn))
         IC1.pinMode(14, OUTPUT);
         IC1.pinMode(15, OUTPUT);
     }
-    
+
 #define bit16   ( (0b10000000 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 7 )
 #define bit8    ( (0b01000000 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 6 )
 #define bit4    ( (0b00100000 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 5 )
@@ -195,7 +256,7 @@ void WriteAttenuators(MODdeclarePTRIN(Mn))
 #define bit0_25 ( (0b00000100 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 2 )
 #define bit0_50 ( (0b00000010 & MODdataPTR(Mn)->CMD_AttenuatorBits) >> 1 )
 
-switch (AttenUIDataPtrIn->INDEX_Attenuator) {
+    switch (AttenUIDataPtrIn->INDEX_Attenuator) {
     case 0:
         SETPIN_TX_C16(bit16);
         SETPIN_TX_C8(bit8);
@@ -245,100 +306,111 @@ switch (AttenUIDataPtrIn->INDEX_Attenuator) {
 #undef bit0_50 
 }
 
-
-//void ReadUserInput(MODdeclarePTRIN(Mn))
-//{
-//    if (Serial.available() > 0)
-//    {
-//        MODdataPTR(Mn)->charsRead = 0u;
-//        do {
-//            MODdataPTR(Mn)->apiLine[MODdataPTR(Mn)->charsRead++] = Serial.read();
-//            delay(1);
-//        } while (Serial.available() > 0 && MODdataPTR(Mn)->charsRead < CONSOLE_LINE_LEN);
-//        
-//        SETPIN_XX_LE(0x01);
-//        SETPIN_RX_LE(0x01);
-//        SETPIN_TX_LE(0x01);
-//    }
-//        
-//}
 void WriteMenuLine(MODdeclarePTRIN(Mn))
 {
     Serial.write(MODdataPTR(Mn)->consoleLine);
 }
 
-//</moduleIOFunctions>
+#else
+#error "No Platform Selected for EXAMPLE!"
+#endif
+
+
+
 
 
 #endif //!EXAMPLE_ATTEN_UI
 
+///////////////////////////////////////////////////////////////////////
+// SatCom ACS Example
+///////////////////////////////////////////////////////////////////////
+#ifdef EXAMPLE_SATCOM_ACS
+#if PLATFORM_NAME==Win32
+    // 1) Minute LED Device Write
+void WriteMinLED(MODdeclarePTRIN(Mn)) { ; }
+// 2) Second LED Device Write
+void WriteSecLED(MODdeclarePTRIN(Mn)) { ; }
+// 3) Serial Device Write
+void WriteTimeSerial(MODdeclarePTRIN(Mn))
+{
+    std::cout << MODdataPTR(Mn)->time;
+}
+#elif PLATFORM_NAME==QTCreatorC
+    // 1) Minute LED Device Write
+void WriteMinLED(MODdeclarePTRIN(Mn)) { ; }
+// 2) Second LED Device Write
+void WriteSecLED(MODdeclarePTRIN(Mn)) { ; }
+// 3) Serial Device Write
+void WriteTimeSerial(MODdeclarePTRIN(Mn))
+{
+    printf("%s", MODdataPTR(Mn)->time);
+    fflush(stdout);
+}
+#else
+#error "No Platform Selected for EXAMPLE!"
+#endif
+#endif //!EXAMPLE_SATCOM_ACS
 
+///////////////////////////////////////////////////////////////////////
+// SatCom Tunable Power Meter Example
+///////////////////////////////////////////////////////////////////////
+#ifdef EXAMPLE_POWER_METER
+#if PLATFORM_NAME==Win32
+// platform and application specific io device functions
+void WriteSPIDevice(MODdeclarePTRIN(Mn))
+{
+
+}
+void ReadSPIDevice(MODdeclarePTRIN(Mn))
+{
+
+}
+void WriteChipSelect(MODdeclarePTRIN(Mn))
+{
+
+}
+#elif PLATFORM_NAME==QTCreatorC
+// platform and application specific io device functions
+void WriteSPIDevice(MODdeclarePTRIN(Mn))
+{
+
+}
+void ReadSPIDevice(MODdeclarePTRIN(Mn))
+{
+
+}
+void WriteChipSelect(MODdeclarePTRIN(Mn))
+{
+
+}
+#else
+#error "No Platform Selected for EXAMPLE!"
+#endif
+#endif //!EXAMPLE_SATCOM_ACS
 #endif // !COMPILE_TESTS
 
 ///////////////////////////////////////////////////////////////////////
 // Application Data Instances are Created here (Platform Specific)
 #ifdef __cplusplus
-PLATFORM_APP_CPPTEMPLATE(PLATFORM_NAME)
+theApplicationClass theApplicationExample;
 #else
-PLATFORM_APP_CTEMPLATE(PLATFORM_NAME, Mn)
+PLATFORM_APP_CTEMPLATE(Mn)
 #endif
 
 ////////////////////////////////////////////////////////////////////////////////
-// Finally, Application Entry Points call ExeSys Entry Points
+// Platform Main Entry Points call ExeSys Area Functions
 #ifdef MAIN_C_NOos_Wsystick
-C_NOos_MAINnSYSTICK_TEMPLATE(PLATFORM_NAME)
+C_NOos_MAINnSYSTICK_TEMPLATE
 #endif
+#ifdef MAIN_C_NOos_NOsystick
+C_OS_MAIN_TEMPLATE
+#endif
+
+
 #ifdef MAIN_CPP_NOos_NOsystick
-CPP_OS_MAIN_TEMPLATE(PLATFORM_NAME)
+CPP_OS_MAIN_TEMPLATE
 #endif
-#ifdef MAIN_C_NOos_NOsystick
-C_OS_MAIN_TEMPLATE(PLATFORM_NAME)
-#endif
-#ifdef MAIN_C_NOos_NOsystick
-C_OS_MAIN_TEMPLATE(PLATFORM_NAME)
-#endif
+
 #ifdef MAIN_CPP_NOos_NOsystick_Arduino
-CPP_MAIN_TEMPLATE_ARDUINO(PLATFORM_NAME)
-//ccNOosVersionsTemplate
-//unsigned long tlast;
-//unsigned long tnow, tdelta;
-//uint32_t* uSecTicksPtr;
-//uint32_t* hourTicksPtr;
-//void setup() {
-//    
-//        asm(".global _printf_float"); 
-//        tlast = millis(); 
-//        tnow, tdelta; 
-//        uSecTicksPtr = &PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->uSecTicks;
-//        hourTicksPtr = &PLATFORM_EXESYS_NAME(PLATFORM_NAME).getExeDataPtr()->hourTicks;
-//        PLATFORM_EXESYS_NAME(PLATFORM_NAME).ExecuteSetup();
-//}
-//
-//void loop()
-//    {
-//        tnow = millis(); 
-//        if (tnow >= tlast)
-//            tdelta = tnow - tlast; 
-//        else
-//            tdelta = tnow + (0xffffffff - tlast); 
-//            tlast = tnow; 
-//            
-//            (*uSecTicksPtr) += tdelta * uSEC_PER_CLOCK; 
-//            if ((*uSecTicksPtr) >= TIME_uS_PER_HR)
-//            {
-//                (*uSecTicksPtr) = 0u; 
-//                (*hourTicksPtr)++; 
-//            }
-//                
-//                PLATFORM_EXESYS_NAME(PLATFORM_NAME).ExecuteLoop();
-//    }
+CPP_MAIN_TEMPLATE_ARDUINO
 #endif
-
-////////////////////////////////////////////////////////////////////////////////
-// Finally, an applications entry points call the execution system entry points
-// 1) The Main Entry Points (setup and loop)
-
-
-// 2) The SysTick Entry Point
-
-/* [] END OF FILE */

@@ -10,12 +10,107 @@ namespace GenerateArduinoLib
 {
     class Program
     {
+        public static void DeleteFilesAndFoldersRecursively(string target_dir)
+        {
+            foreach (string file in Directory.GetFiles(target_dir))
+            {
+                File.Delete(file);
+            }
+
+            foreach (string subDir in Directory.GetDirectories(target_dir))
+            {
+                DeleteFilesAndFoldersRecursively(subDir);
+            }
+
+            System.Threading.Thread.Sleep(1); // This makes the difference between whether it works or not. Sleep(0) is not enough.
+            Directory.Delete(target_dir);
+        }
+
+        public static void CopyModifyDirectoryRecursively(string target_dir, string dirstring, string odstring)
+        {
+            foreach (string fstring in Directory.GetFiles(target_dir))
+            {
+                string filestring = fstring.Replace(odstring, dirstring);
+
+                if(Directory.Exists(Path.GetDirectoryName(filestring)))
+                {
+                    ;
+                }
+                else
+                {
+                    Directory.CreateDirectory(Path.GetDirectoryName(filestring));
+                }
+                
+                if (Path.GetExtension(fstring).Equals(".c"))
+                {
+                    if(fstring.Contains("ccLibs"))
+                        // copy 
+                        File.Copy(fstring, filestring);
+                    else if (!fstring.Contains("Application_Platform_Main"))
+                        // copy and change extension to hpp
+                        File.Copy(fstring, filestring.Replace(".c",".hpp"));
+                }
+                else if (Path.GetExtension(fstring).Equals(".cpp"))
+                {
+                    if(fstring.Contains("Application_Platform_Main"))
+                    {
+                        // copy change name and extension
+                        // copy and modify #include line within
+
+                        string fctext = File.ReadAllText(fstring.Replace(".cpp",".c"));
+
+                        string ftext = File.ReadAllText(fstring);
+                        ftext = ftext.Replace("#include \"Application_Platform_Main.c\"", "");                                               
+                        string inostring = Path.GetFileName(filestring.Replace("Application_Platform_Main", "ccNOos_Tests").Replace(".cpp", ".ino"));
+                        inostring = odstring + "\\..\\Arduino\\ccNOos_Tests\\" + inostring;
+                        inostring = Path.GetFullPath(inostring);
+                        File.WriteAllText(inostring, fctext+ftext);
+                    }
+                    else
+                    {
+                        // copy and modify #include line within
+                        string ftext = File.ReadAllText(fstring);
+
+                        Regex rx = new Regex(@"#include .*\.([c])");
+                        MatchCollection matches = rx.Matches(ftext);
+                        foreach (Match m in matches)
+                        {
+                            string[] toks = m.Value.Split('.');
+                            ftext = rx.Replace(ftext, toks[0] + ".hpp");
+                        }
+                        File.WriteAllText(filestring, ftext);
+                    }
+                    
+                }
+                else
+                {
+                    // copy, should be h files,  maybe others
+                    if (!fstring.Contains("Platform"))
+                        File.Copy(fstring, filestring.Replace(Path.GetExtension(filestring), Path.GetExtension(fstring)));
+                    else if (fstring.Contains("Platform") && fstring.Contains("Arduino"))
+                    {
+                        string filestring1 = filestring.Replace("\\tests\\testPlatforms", "");
+                        if (File.Exists(filestring1))
+                            File.Delete(filestring1);
+                        File.Copy(fstring, filestring1);
+                    }
+
+                }
+            }
+
+            foreach (string subDir in Directory.GetDirectories(target_dir))
+            {
+                CopyModifyDirectoryRecursively(subDir, dirstring, odstring);
+            }
+
+        }
+
         static void Main(string[] args)
         {
             // Program expects ccNOosTest Directory as an input
-            if (args.Length == 1)
+            if (args.Length == 2)
             {
-                string ccNOosTestsDIR = args[0];
+                string ccNOosTestsDIR = Path.GetFullPath(args[0]);
                 if (Directory.Exists(ccNOosTestsDIR))
                 {
                     string ccNOosDIR = ccNOosTestsDIR + "\\ccNOos";
@@ -31,84 +126,78 @@ namespace GenerateArduinoLib
                     {
                         Directory.CreateDirectory(ArduinoDIR);
                     }
-
-                    // loop through all like named directories, 
-                    // loop through all files, 
-                    // delete from "arduino", 
-                    // copy and modify from "ccNOos" 
-                    foreach (string dstring in Directory.GetDirectories(ArduinoDIR))
+                    else
                     {
-                        foreach (string fstring in Directory.GetFiles(dstring))
+                        // loop through all like named directories, 
+                        // loop through all files, 
+                        // delete from "arduino", 
+                        // copy and modify from "ccNOos" 
+                        foreach (string dstring in Directory.GetDirectories(ArduinoDIR))
                         {
-                            File.Delete(fstring);
+                            DeleteFilesAndFoldersRecursively(dstring);
                         }
-                        Directory.Delete(dstring);
                     }
-                    foreach (string fstring in Directory.GetFiles(ArduinoDIR))
-                    {
-                        File.Delete(fstring);
-                    }
+
+                    
+
                     foreach (string dstring in Directory.GetDirectories(ccNOosDIR))
                     {
-                        string[] tokens = dstring.Split('\\');
-                        string dirstring = ArduinoDIR + "\\" + tokens[tokens.Length - 1];
-                        Directory.CreateDirectory(dirstring);
-
-                        foreach (string fstring in Directory.GetFiles(dstring))
-                        {
-                            string[] ftokens = fstring.Split('\\');
-
-                            string filestring = dirstring + "\\" + ((ftokens[ftokens.Length - 1]).Split('.'))[0];
-
-                            if (Path.GetExtension(fstring).Equals(".c"))
-                            {
-                                // copy and change extension to hpp
-                                File.Copy(fstring, filestring + ".hpp");
-                            }
-                            else if (Path.GetExtension(fstring).Equals(".cpp"))
-                            {
-                                // copy and modify #include line within
-                                string ftext = File.ReadAllText(fstring);
-
-                                Regex rx = new Regex(@"#include .*\.([c])");
-                                MatchCollection matches = rx.Matches(ftext);
-                                foreach (Match m in matches)
-                                {
-                                    string[] toks = m.Value.Split('.');
-                                    ftext = rx.Replace(ftext, toks[0] + ".hpp");
-                                }
-                                File.WriteAllText(filestring + ".cpp", ftext);
-                            }
-                            else
-                            {
-                                // copy, should be h files,  maybe others
-                                if( !fstring.Contains("Platform"))
-                                    File.Copy(fstring, filestring + Path.GetExtension(fstring));
-                                else if(fstring.Contains("Platform") && fstring.Contains("Arduino"))
-                                {
-                                    string filestring1 = filestring.Replace("\\tests","");
-                                    File.Copy(fstring, filestring1 + Path.GetExtension(fstring));
-                                }
-                                    
-                            }
-                        }
+                        CopyModifyDirectoryRecursively(dstring, ArduinoDIR, ccNOosDIR);
 
                     }
-                    Console.WriteLine("SUCCESS!");
+                    Console.WriteLine("Arduino Lib Source Generated!");
                 }
                 else
                 {
                     Console.WriteLine("FAILURE:( " + ccNOosTestsDIR + " does not exist!");
                     return;
                 }
+
+                string objDIR = Path.GetFullPath(args[1]);
+                bool notOnce = true;
+                if (Directory.Exists(objDIR))
+                {
+                    foreach(string filenamestring in Directory.GetFiles(objDIR))
+                    {
+                        if(filenamestring.EndsWith(".i"))
+                        {
+                            Console.Write($"Processing {filenamestring} ...");
+                            notOnce = false;
+                            char[] seps = { '\n', '\r' };
+                            string [] lines = File.ReadAllText(filenamestring).Split(seps, StringSplitOptions.RemoveEmptyEntries);
+                            string outText = "";
+                            foreach(string lString in lines)
+                            {
+                                if (!String.IsNullOrWhiteSpace(lString))
+                                    outText += lString + "\n";
+                            }
+                            Console.Write("Saving ...");
+                            File.WriteAllText(filenamestring.Replace(".i",".cpp"),outText);
+                            Console.Write("Done!\n");
+                        }
+                    }
+
+                    if (notOnce)
+                        Console.WriteLine("No .i Files to Process this Time.");
+                    else
+                        Console.WriteLine("Pre-Processed Files Cleaned and Saved for Flat Console Test!");
+                    return;
+
+                }
+                else
+                {
+                    Console.WriteLine("FAILURE:( " + objDIR + " does not exist!");
+                    return;
+                }
             }
             else
             {
-                Console.WriteLine("FAILURE:( ccNOos Directory was not entered as input to program!");
+                Console.WriteLine("FAILURE:( Correct Directories were not entered as program inputs!");
                 return;
             }
 
             
         }
     }
+    
 }

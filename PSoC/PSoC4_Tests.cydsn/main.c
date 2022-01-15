@@ -128,14 +128,16 @@ PLATFORM_APP_CTEMPLATE(PLATFORM_NAME, Mn)
 ////////////////////////////////////////////////////////////////////////////////
 // Finally, Application Entry Points call ExeSys Entry Points
 #ifdef MAIN_C_NOos_Wsystick
-C_NOos_MAINnSYSTICK_TEMPLATE(PLATFORM_NAME)
+C_NOos_MAINnSYSTICK_TEMPLATE
 #endif
 #ifdef MAIN_CPP_NOos_NOsystick
-CPP_OS_MAIN_TEMPLATE(PLATFORM_NAME)
+CPP_OS_MAIN_TEMPLATE
 #endif
 #ifdef MAIN_C_NOos_NOsystick
-C_OS_MAIN_TEMPLATE(PLATFORM_NAME)
+C_OS_MAIN_TEMPLATE
 #endif
-
+#ifdef MAIN_CPP_NOos_NOsystick_Arduino
+CPP_MAIN_TEMPLATE_ARDUINO
+#endif
 
 /* [] END OF FILE */

@@ -61,11 +61,38 @@
     <Filter Include="Source Files\ccLibs\mcs">
       <UniqueIdentifier>{4b762ba1-5910-4696-b58c-528bf9c43013}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\tests\testPlatforms">
+      <UniqueIdentifier>{5ef23fe5-d96f-4a79-aaba-30278cbe0da2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\tests\testApps">
+      <UniqueIdentifier>{8b9c3c16-cc6f-4b10-b534-1f7346005599}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\tests\testApps">
+      <UniqueIdentifier>{7c720205-43eb-4b47-b338-97a110426972}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\tests\testMainTemplates">
+      <UniqueIdentifier>{c559d2c0-8c3d-47ca-af0f-b53d5cfc9ea0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\tests\testApps\SysTick">
+      <UniqueIdentifier>{bf5c3056-5174-484a-b665-fc915d951c25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\tests\testApps\ccNOos_Tests">
+      <UniqueIdentifier>{e23a300f-69e5-4d0e-b65d-87892fd70e53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\tests\testApps\SatComACS">
+      <UniqueIdentifier>{a9568efe-feee-4362-bfe0-78e6b4129a02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\tests\testApps\SysTick">
+      <UniqueIdentifier>{5e20241a-3564-46a4-9367-e62345e20dbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\tests\testApps\SatComACS">
+      <UniqueIdentifier>{ba2d6e0d-735b-422e-bb50-6aa2ed35d701}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\tests\testApps\ccNOos_Tests">
+      <UniqueIdentifier>{0c6e2158-b403-4256-ad1e-dce4f675950b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="WIN32_Console.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\ccNOos\ioDevice\io_device_class.cpp">
       <Filter>Source Files\ioDevice</Filter>
     </ClCompile>
@@ -78,23 +105,8 @@
     <ClCompile Include="..\ccNOos\computeModule\compute_module_class.cpp">
       <Filter>Source Files\computeModule</Filter>
     </ClCompile>
-    <ClCompile Include="..\ccNOos\tests\SysTickExample.cpp">
-      <Filter>Source Files\tests</Filter>
-    </ClCompile>
-    <ClCompile Include="..\ccNOos\tests\AttensUIExample.cpp">
-      <Filter>Source Files\tests</Filter>
-    </ClCompile>
-    <ClCompile Include="..\ccNOos\tests\ccNOos_tests_class.cpp">
-      <Filter>Source Files\tests</Filter>
-    </ClCompile>
-    <ClCompile Include="..\ccNOos\tests\SatComACSExample.cpp">
-      <Filter>Source Files\tests</Filter>
-    </ClCompile>
     <ClCompile Include="..\ccNOos\ccLibs\mcs\motionControl.cpp">
       <Filter>Source Files\ccLibs\mcs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\ccNOos\tests\SatComPowerMeterExample.cpp">
-      <Filter>Source Files\tests</Filter>
     </ClCompile>
     <ClCompile Include="..\ccNOos\ccLibs\acs\ADRF6650.c">
       <Filter>Source Files\ccLibs\acs</Filter>
@@ -105,11 +117,44 @@
     <ClCompile Include="..\ccNOos\ccLibs\acs\satComControl.cpp">
       <Filter>Source Files\ccLibs\acs</Filter>
     </ClCompile>
+    <ClCompile Include="..\ccNOos\tests\testApps\ccNOos_Tests\Application_Solution.c">
+      <Filter>Source Files\tests\testApps\ccNOos_Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ccNOos\tests\testApps\ccNOos_Tests\Application_Solution.cpp">
+      <Filter>Source Files\tests\testApps\ccNOos_Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ccNOos\tests\testApps\ccNOos_Tests\PlatformApp_Serialization.c">
+      <Filter>Source Files\tests\testApps\ccNOos_Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ccNOos\tests\testApps\ccNOos_Tests\PlatformApp_Serialization.cpp">
+      <Filter>Source Files\tests\testApps\ccNOos_Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ccNOos\tests\testMainTemplates\Application_Platform_Main.cpp">
+      <Filter>Source Files\tests\testMainTemplates</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ccNOos\tests\testApps\SatComACS\Application_Solution.c">
+      <Filter>Source Files\tests\testApps\SatComACS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ccNOos\tests\testApps\SatComACS\Application_Solution.cpp">
+      <Filter>Source Files\tests\testApps\SatComACS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ccNOos\tests\testApps\SatComACS\PlatformApp_Serialization.c">
+      <Filter>Source Files\tests\testApps\SatComACS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ccNOos\tests\testApps\SatComACS\PlatformApp_Serialization.cpp">
+      <Filter>Source Files\tests\testApps\SatComACS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ccNOos\tests\testApps\SysTick\Application_Solution.cpp">
+      <Filter>Source Files\tests\testApps\SysTick</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ccNOos\tests\testApps\SysTick\PlatformApp_Serialization.c">
+      <Filter>Source Files\tests\testApps\SysTick</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ccNOos\tests\testApps\SysTick\PlatformApp_Serialization.cpp">
+      <Filter>Source Files\tests\testApps\SysTick</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\ccNOos\tests\ccNOos_tests.h">
-      <Filter>Header Files\tests</Filter>
-    </ClInclude>
     <ClInclude Include="..\ccNOos\ioDevice\io_device.h">
       <Filter>Header Files\ioDevice</Filter>
     </ClInclude>
@@ -125,38 +170,17 @@
     <ClInclude Include="..\ccNOos\computeModule\compute_module.h">
       <Filter>Header Files\computeModule</Filter>
     </ClInclude>
-    <ClInclude Include="..\ccNOos\tests\SysTickExample.c">
-      <Filter>Source Files\tests</Filter>
-    </ClInclude>
     <ClInclude Include="..\ccNOos\computeModule\compute_module.c">
       <Filter>Source Files\computeModule</Filter>
     </ClInclude>
     <ClInclude Include="..\ccNOos\ioDevice\io_device.c">
       <Filter>Source Files\ioDevice</Filter>
     </ClInclude>
-    <ClInclude Include="..\ccNOos\tests\ccNOos_tests.c">
-      <Filter>Source Files\tests</Filter>
-    </ClInclude>
     <ClInclude Include="..\ccNOos\consoleMenu\console_menu.c">
       <Filter>Source Files\consoleMenu</Filter>
     </ClInclude>
     <ClInclude Include="..\ccNOos\executionSystem\execution_system.c">
       <Filter>Source Files\executionSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="..\ccNOos\tests\SysTickExample.h">
-      <Filter>Header Files\tests</Filter>
-    </ClInclude>
-    <ClInclude Include="..\ccNOos\tests\AttensUIExample.h">
-      <Filter>Header Files\tests</Filter>
-    </ClInclude>
-    <ClInclude Include="..\ccNOos\tests\AttensUIExample.c">
-      <Filter>Source Files\tests</Filter>
-    </ClInclude>
-    <ClInclude Include="..\ccNOos\tests\SatComACSExample.h">
-      <Filter>Header Files\tests</Filter>
-    </ClInclude>
-    <ClInclude Include="..\ccNOos\tests\SatComACSExample.c">
-      <Filter>Source Files\tests</Filter>
     </ClInclude>
     <ClInclude Include="..\ccNOos\ccLibs\acs\satComControl.h">
       <Filter>Header Files\ccLibs\acs</Filter>
@@ -170,12 +194,6 @@
     <ClInclude Include="..\ccNOos\ccLibs\mcs\motionControl.c">
       <Filter>Source Files\ccLibs\mcs</Filter>
     </ClInclude>
-    <ClInclude Include="..\ccNOos\tests\SatComPowerMeterExample.h">
-      <Filter>Header Files\tests</Filter>
-    </ClInclude>
-    <ClInclude Include="..\ccNOos\tests\SatComPowerMeterExample.c">
-      <Filter>Source Files\tests</Filter>
-    </ClInclude>
     <ClInclude Include="..\ccNOos\ccLibs\acs\ADRF6650.h">
       <Filter>Header Files\ccLibs\acs</Filter>
     </ClInclude>
@@ -185,8 +203,41 @@
     <ClInclude Include="..\ccNOos\ccLibs\acs\LTC2360.h">
       <Filter>Header Files\ccLibs\acs</Filter>
     </ClInclude>
-    <ClInclude Include="..\ccNOos\tests\Platform_Win32.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\ccNOos\tests\testPlatforms\Platform_Arduino.h">
+      <Filter>Header Files\tests\testPlatforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ccNOos\tests\testPlatforms\Platform_PSoC4.h">
+      <Filter>Header Files\tests\testPlatforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ccNOos\tests\testPlatforms\Platform_QTCreatorC.h">
+      <Filter>Header Files\tests\testPlatforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ccNOos\tests\testPlatforms\Platform_Win32.h">
+      <Filter>Header Files\tests\testPlatforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ccNOos\tests\testApps\ccNOos_Tests\Application_Solution.h">
+      <Filter>Header Files\tests\testApps\ccNOos_Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ccNOos\tests\testApps\ccNOos_Tests\PlatformApp_Serialization.h">
+      <Filter>Header Files\tests\testApps\ccNOos_Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ccNOos\tests\testMainTemplates\Application_Platform_Main.c">
+      <Filter>Source Files\tests\testMainTemplates</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ccNOos\tests\testApps\SatComACS\Application_Solution.h">
+      <Filter>Header Files\tests\testApps\SatComACS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ccNOos\tests\testApps\SatComACS\PlatformApp_Serialization.h">
+      <Filter>Header Files\tests\testApps\SatComACS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ccNOos\tests\testApps\SysTick\Application_Solution.h">
+      <Filter>Header Files\tests\testApps\SysTick</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ccNOos\tests\testApps\SysTick\PlatformApp_Serialization.h">
+      <Filter>Header Files\tests\testApps\SysTick</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ccNOos\tests\testApps\SysTick\Application_Solution.c">
+      <Filter>Source Files\tests\testApps\SysTick</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -19,33 +19,46 @@ Notes:
 
 */
 
-#include "Platform_Win32.h"
+#include "ccNOos_tests.h"
 
 #ifdef COMPILE_TESTS
+#include "..\testApps\ccNOos_Tests\Application_Solution.h"
+#include "..\testApps\ccNOos_Tests\PlatformApp_Serialization.h"
+#else // !COMPILE_TESTS
+#ifdef EXAMPLE_SYSTICK
+#include "..\testApps\SysTick\Application_Solution.h"
+#include "..\testApps\SysTick\PlatformApp_Serialization.h"
+#endif // EXAMPLE_SYSTICK
+#ifdef EXAMPLE_SATCOM_ACS
+#include "..\testApps\SatComACS\Application_Solution.h"
+#include "..\testApps\SatComACS\PlatformApp_Serialization.h"
+#endif // EXAMPLE_SATCOM_ACS
+#endif // !COMPILE_TESTS
 
-PLATFORM_APP_CLASS(PLATFORM_NAME, Mn);
+#ifdef PLATFORM_NAME
+#if PLATFORM_NAME==Win32
+#include "Platform_Win32.h"
+#elif PLATFORM_NAME==QTCreatorC
+#include <Platform_QTCreatorC.h>
+#endif
+#endif
 
+
+
+#ifdef __cplusplus
+PLATFORM_APP_CLASS(Mn);
 #else
+MODdeclareDATA(Mn);
+#endif
 
+
+#ifndef COMPILE_TESTS
 ///////////////////////////////////////////////////////////////////////
 // SysTick Example
 ///////////////////////////////////////////////////////////////////////
 #ifdef EXAMPLE_SYSTICK
 
-//<applicationIncludes>
-#include <cstdio>
-#include <cmath>
-//</applicationIncludes>
 
-//<applicationDefines>
-
-//</applicationDefines>
-
-//<applicationClass>
-PLATFORM_APP_CLASS(PLATFORM_NAME, Mn);
-//</applicationClass>
-
-//<moduleIOFunctions>
 //////////////////////////////////////////////////
 // IO Devices Require Platform Implementations of
 // of open,close,read,write
@@ -83,19 +96,6 @@ void WriteTimeSerial(MODdeclarePTRIN(Mn))
 ///////////////////////////////////////////////////////////////////////
 #ifdef EXAMPLE_ATTEN_UI
 
-
-//<applicationIncludes>
-#include <cstdio>
-#include <cmath>
-//</applicationIncludes>
-
-//<applicationDefines>
-//</applicationDefines>
-
-//<applicationClass>
-PLATFORM_APP_CLASS(PLATFORM_NAME, Mn);
-//</applicationClass>
-
 float ModuloFloat(float floatValue, float* intPartPtr)
 {
     return modf(floatValue, intPartPtr);
@@ -123,13 +123,6 @@ void WriteAttenuators(MODdeclarePTRIN(Mn))
 #undef bit0_50 
 }
 
-
-//void ReadUserInput(MODdeclarePTRIN(Mn))
-//{
-//    GetMenuChars(&MODdataPTR(Mn)->apiLine[0]);
-//    MODdataPTR(Mn)->charsRead++;
-//}
-
 //</moduleIOFunctions>
 
 
@@ -141,22 +134,6 @@ void WriteAttenuators(MODdeclarePTRIN(Mn))
 #ifdef EXAMPLE_SATCOM_ACS
 
 
-//<applicationIncludes>
-#include <cstdio>
-#include <cmath>
-//</applicationIncludes>
-
-//<applicationDefines>
-//</applicationDefines>
-
-//<applicationClass>
-PLATFORM_APP_CLASS(PLATFORM_NAME, Mn);
-//</applicationClass>
-
-//<moduleIOFunctions>
-// platform and application specific io device functions
-
-//</moduleIOFunctions>
 
 
 #endif //!EXAMPLE_SATCOM_ACS
@@ -165,17 +142,6 @@ PLATFORM_APP_CLASS(PLATFORM_NAME, Mn);
 // SatCom Tunable Power Meter Example
 ///////////////////////////////////////////////////////////////////////
 #ifdef EXAMPLE_POWER_METER
-
-
-//<applicationIncludes>
-//</applicationIncludes>
-
-//<applicationDefines>
-//</applicationDefines>
-
-//<applicationClass>
-PLATFORM_APP_CLASS(PLATFORM_NAME, Mn);
-//</applicationClass>
 
 //<moduleIOFunctions>
 // platform and application specific io device functions
@@ -201,9 +167,9 @@ void WriteChipSelect(MODdeclarePTRIN(Mn))
 ///////////////////////////////////////////////////////////////////////
 // Application Data Instances are Created here (Platform Specific)
 #ifdef __cplusplus
-PLATFORM_APP_CPPTEMPLATE(PLATFORM_NAME)
+theApplicationClass theApplicationExample;
 #else
-PLATFORM_APP_CTEMPLATE(PLATFORM_NAME, Mn)
+PLATFORM_APP_CTEMPLATE(Mn)
 #endif
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -212,7 +178,7 @@ PLATFORM_APP_CTEMPLATE(PLATFORM_NAME, Mn)
 C_NOos_MAINnSYSTICK_TEMPLATE(PLATFORM_NAME)
 #endif
 #ifdef MAIN_CPP_NOos_NOsystick
-CPP_OS_MAIN_TEMPLATE(PLATFORM_NAME)
+CPP_OS_MAIN_TEMPLATE
 #endif
 #ifdef MAIN_C_NOos_NOsystick
 C_OS_MAIN_TEMPLATE(PLATFORM_NAME)
