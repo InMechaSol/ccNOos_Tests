@@ -3,11 +3,12 @@
 <!--This file is machine generated and read. It is not intended to be edited by hand.-->
 <!--Due to this, there is no schema for this file.-->
 <CyGuid_2867d519-54d2-4c01-9830-c51cb08bc3dd type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWorkspaceSerialize" version="5" xml_contents_version="3" name="ccNOos_Tests" persistent="ccNOos_Tests.cywrk" platform="NOT_USED">
-<current_project name=".\PSoC4_Tests.cydsn\PSoC4_Tests.cyprj" />
+<current_project name=".\PSoC4_ccNOos_Tests.cydsn\PSoC4_ccNOos_Tests.cyprj" />
 <wrkspc_folders />
 <files />
 <projects>
-<v>.\PSoC4_Tests.cydsn\PSoC4_Tests.cyprj</v>
+<v>.\PSoC4_ccNOos_Tests.cydsn\PSoC4_ccNOos_Tests.cyprj</v>
+<v>.\PSoC4_SysTick.cydsn\PSoC4_SysTick.cyprj</v>
 </projects>
 <workspace_id v="68f6116e-d0d9-4595-81b0-2a15cacde20a" />
 <WriteAppVersionLastSavedWith v="4.4.0.80" />

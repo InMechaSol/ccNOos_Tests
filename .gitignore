@@ -39,3 +39,9 @@
 /WIN32_Console/Debug_FlatSysTick
 /WIN32_Console/Debug_SysTick
 /WIN32_Console/Debug_ccNOosTests
+/PSoC/PSoC4_SysTick.cydsn/CortexM0
+/PSoC/PSoC4_SysTick.cydsn/Generated_Source
+/PSoC/PSoC4_SysTick.cydsn/codegentemp
+/PSoC/PSoC4_ccNOos_Tests.cydsn/CortexM0
+/PSoC/PSoC4_ccNOos_Tests.cydsn/Generated_Source
+/PSoC/PSoC4_ccNOos_Tests.cydsn/codegentemp
