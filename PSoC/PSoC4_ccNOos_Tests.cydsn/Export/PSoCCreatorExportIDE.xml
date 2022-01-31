@@ -62,7 +62,7 @@
       </Folder>
       <Folder BuildType="STRICT" Path="C:\IMS\CR\ccNOos_Tests\PSoC\PSoC4_ccNOos_Tests.cydsn">
         <Files Root="C:\IMS\CR\ccNOos_Tests\PSoC\PSoC4_ccNOos_Tests.cydsn">
-          <File BuildType="BUILD" Toolchain="">..\..\ccNOos\tests\testMainTemplates\Application_Platform_Main.c</File>
+          <File BuildType="BUILD" Toolchain="">..\..\ccNOos\tests\testMainFiles\ccNOos_Tests\PSoC4\Application_Platform_Main.c</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\IMS\CR\ccNOos_Tests\PSoC\PSoC4_ccNOos_Tests.cydsn">

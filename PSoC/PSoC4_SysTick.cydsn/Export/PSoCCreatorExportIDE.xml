@@ -6,7 +6,7 @@
     <Toolchain Name="ARM GCC Generic" Selected="True">
       <Tool Name="prebuild" Command="" Options="" />
       <Tool Name="assembler" Command="arm-none-eabi-as.exe" Options="-mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -alh=${OutputDir}/${CompileFile}.lst -g -W" />
-      <Tool Name="compiler" Command="arm-none-eabi-gcc.exe" Options="-mcpu=cortex-m0 -mthumb -I..\..\ccNOos\tests\testMainTemplates -I..\..\ccNOos\tests\testPlatforms -I..\..\ccNOos\tests\testApps\SysTick -I..\..\ccNOos\ccLibs\acs -I..\..\ccNOos\ccLibs\mcs -I..\..\ccNOos\computeModule -I..\..\ccNOos\consoleMenu -I..\..\ccNOos\executionSystem -I..\..\ccNOos\ioDevice -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D NDEBUG -D PLATFORM_PSoC4 -D __USINGCONSOLEMENU -D EXAMPLE_SYSTICK -Wall -ffunction-sections -ffat-lto-objects -O3" />
+      <Tool Name="compiler" Command="arm-none-eabi-gcc.exe" Options="-mcpu=cortex-m0 -mthumb -I..\..\ccNOos\tests\testMainFiles\SysTick\PSoC4 -I..\..\ccNOos\tests\testPlatforms -I..\..\ccNOos\tests\testApps\SysTick -I..\..\ccNOos\ccLibs\acs -I..\..\ccNOos\ccLibs\mcs -I..\..\ccNOos\computeModule -I..\..\ccNOos\consoleMenu -I..\..\ccNOos\executionSystem -I..\..\ccNOos\ioDevice -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D NDEBUG -D PLATFORM_PSoC4 -D __USINGCONSOLEMENU -D EXAMPLE_SYSTICK -Wall -ffunction-sections -ffat-lto-objects -O3" />
       <Tool Name="linker" Command="arm-none-eabi-gcc.exe" Options="-mcpu=cortex-m0 -mthumb -L Generated_Source\PSoC4 -Wl,-Map,${OutputDir}/${ProjectShortName}.map -T Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -O3 -ffat-lto-objects" />
       <Tool Name="postbuild" Command="" Options="" />
     </Toolchain>
@@ -62,7 +62,7 @@
       </Folder>
       <Folder BuildType="STRICT" Path="C:\IMS\CR\ccNOos_Tests\PSoC\PSoC4_SysTick.cydsn">
         <Files Root="C:\IMS\CR\ccNOos_Tests\PSoC\PSoC4_SysTick.cydsn">
-          <File BuildType="BUILD" Toolchain="">..\..\ccNOos\tests\testMainTemplates\Application_Platform_Main.c</File>
+          <File BuildType="BUILD" Toolchain="">..\..\ccNOos\tests\testMainFiles\SysTick\PSoC4\Application_Platform_Main.c</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\IMS\CR\ccNOos_Tests\PSoC\PSoC4_SysTick.cydsn">

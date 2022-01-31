@@ -26,17 +26,18 @@ namespace GenerateArduinoLib
             Directory.Delete(target_dir);
         }
 
+        // this is called for each directory in the ccNOos directory
         public static void CopyModifyDirectoryRecursively(string target_dir, string dirstring, string odstring)
         {
+            // process each file
             foreach (string fstring in Directory.GetFiles(target_dir))
             {
+                // fstring - path to source file
+                // filestring - path to destination file
                 string filestring = fstring.Replace(odstring, dirstring);
 
-                if(Directory.Exists(Path.GetDirectoryName(filestring)))
-                {
-                    ;
-                }
-                else
+
+                if(!Directory.Exists(Path.GetDirectoryName(filestring)))
                 {
                     Directory.CreateDirectory(Path.GetDirectoryName(filestring));
                 }
@@ -56,15 +57,53 @@ namespace GenerateArduinoLib
                     {
                         // copy change name and extension
                         // copy and modify #include line within
+                        string dcname = Path.GetDirectoryName(fstring);
+                        dcname = dcname.Substring(dcname.LastIndexOf("\\") + 1);
 
                         string fctext = File.ReadAllText(fstring.Replace(".cpp",".c"));
+                        fctext = fctext.Replace("#include \"..\\testApps\\" + dcname + "\\PlatformApp_Serialization.h\"", "#include \"PlatformApp_Serialization.hpp\"");
 
                         string ftext = File.ReadAllText(fstring);
-                        ftext = ftext.Replace("#include \"Application_Platform_Main.c\"", "");                                               
-                        string inostring = Path.GetFileName(filestring.Replace("Application_Platform_Main", "ccNOos_Tests").Replace(".cpp", ".ino"));
-                        inostring = odstring + "\\..\\Arduino\\ccNOos_Tests\\" + inostring;
+                        ftext = ftext.Replace("#include \"Application_Platform_Main.c\"", "");
+                        
+                        string inostring = Path.GetFileName(filestring.Replace("Application_Platform_Main", dcname).Replace(".cpp", ".ino"));
+                        inostring = odstring + "\\..\\Arduino\\"+ dcname + "\\" + inostring;
                         inostring = Path.GetFullPath(inostring);
                         File.WriteAllText(inostring, fctext+ftext);
+                    }
+                    else if(fstring.Contains("Application_Solution"))
+                    {
+                        // copy change name and extension
+                        // copy and modify #include line within
+                        string dcname = Path.GetDirectoryName(fstring);
+                        dcname = dcname.Substring(dcname.LastIndexOf("\\") + 1);
+
+                        string fctext = File.ReadAllText(fstring.Replace(".cpp", ".c"));
+                        fctext = fctext.Replace("Application_Solution.h\"", "Application_Solution.hpp\"");                        
+
+                        string ftext = File.ReadAllText(fstring);
+                        ftext = ftext.Replace("#include \"Application_Solution.c\"", "");
+                        string inostring = Path.GetFileName(filestring);
+                        inostring = odstring + "\\..\\Arduino\\" + dcname + "\\" + inostring;
+                        inostring = Path.GetFullPath(inostring);
+                        File.WriteAllText(inostring, fctext + ftext);
+                    }
+                    else if (fstring.Contains("PlatformApp_Serialization"))
+                    {
+                        // copy change name and extension
+                        // copy and modify #include line within
+                        string dcname = Path.GetDirectoryName(fstring);
+                        dcname = dcname.Substring(dcname.LastIndexOf("\\") + 1);
+
+                        string fctext = File.ReadAllText(fstring.Replace(".cpp", ".c"));
+                        fctext = fctext.Replace("PlatformApp_Serialization.h\"", "PlatformApp_Serialization.hpp\"");
+
+                        string ftext = File.ReadAllText(fstring);
+                        ftext = ftext.Replace("#include \"PlatformApp_Serialization.c\"", "");
+                        string inostring = Path.GetFileName(filestring);
+                        inostring = odstring + "\\..\\Arduino\\" + dcname + "\\" + inostring;
+                        inostring = Path.GetFullPath(inostring);
+                        File.WriteAllText(inostring, fctext + ftext);
                     }
                     else
                     {
@@ -84,20 +123,40 @@ namespace GenerateArduinoLib
                 }
                 else
                 {
+                    string PlatformString = "";
                     // copy, should be h files,  maybe others
-                    if (!fstring.Contains("Platform"))
-                        File.Copy(fstring, filestring.Replace(Path.GetExtension(filestring), Path.GetExtension(fstring)));
-                    else if (fstring.Contains("Platform") && fstring.Contains("Arduino"))
+                    if (fstring.Contains("Platform") && fstring.Contains("Arduino"))
                     {
+                        PlatformString = fstring;
                         string filestring1 = filestring.Replace("\\tests\\testPlatforms", "");
                         if (File.Exists(filestring1))
                             File.Delete(filestring1);
                         File.Copy(fstring, filestring1);
                     }
+                    else if (fstring.Contains("Application_Solution") || fstring.Contains("PlatformApp_Serialization"))
+                    {
+                        // copy change name and extension
+                        string dcname = Path.GetDirectoryName(fstring);
+                        dcname = dcname.Substring(dcname.LastIndexOf("\\") + 1);
+
+                        string ftext = File.ReadAllText(fstring);
+                        ftext = ftext.Replace("Application_Solution.h\"", "Application_Solution.hpp\"");
+                        ftext = ftext.Replace("PlatformApp_Serialization.h\"", "PlatformApp_Serialization.hpp\"");
+
+                        string inostring = Path.GetFileName(filestring);
+                        inostring = odstring + "\\..\\Arduino\\" + dcname + "\\" + inostring;
+                        inostring = Path.GetFullPath(inostring).Replace(".h",".hpp");
+                        if (File.Exists(inostring))
+                            File.Delete(inostring);
+                        File.WriteAllText(inostring, ftext);
+                    }
+                    else
+                        File.Copy(fstring, filestring.Replace(Path.GetExtension(filestring), Path.GetExtension(fstring)));
 
                 }
             }
 
+            // recursively process each sub-directory
             foreach (string subDir in Directory.GetDirectories(target_dir))
             {
                 CopyModifyDirectoryRecursively(subDir, dirstring, odstring);

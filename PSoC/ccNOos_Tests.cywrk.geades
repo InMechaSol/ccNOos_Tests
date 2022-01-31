@@ -38,8 +38,6 @@
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\Header Files\tests\testApps\ccNOos_Tests</v>
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\Header Files\tests\testApps\ccNOos_Tests\Application_Solution.h</v>
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\Header Files\tests\testApps\ccNOos_Tests\PlatformApp_Serialization.h</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\Header Files\tests\testApps\SatComACS</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\Header Files\tests\testApps\SysTick</v>
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\Header Files\tests\testPlatforms</v>
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\Header Files\tests\testPlatforms\Platform_PSoC4.h</v>
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\Header Files\cyapicallbacks.h</v>
@@ -56,13 +54,11 @@
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\Source Files\tests\testApps\ccNOos_Tests</v>
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\Source Files\tests\testApps\ccNOos_Tests\Application_Solution.c</v>
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\Source Files\tests\testApps\ccNOos_Tests\PlatformApp_Serialization.c</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\Source Files\tests\testApps\SatComACS</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\Source Files\tests\testApps\SysTick</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\Source Files\tests\testMainTemplates</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\Source Files\tests\testMainTemplates\Application_Platform_Main.c</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\Generated_Source</v>
+<v>ccNOos_Tests\PSoC4_ccNOos_Tests\Source Files\tests\testMainFiles</v>
+<v>ccNOos_Tests\PSoC4_ccNOos_Tests\Source Files\tests\testMainFiles\ccNOos_Tests</v>
+<v>ccNOos_Tests\PSoC4_ccNOos_Tests\Source Files\tests\testMainFiles\ccNOos_Tests\PSoC4</v>
+<v>ccNOos_Tests\PSoC4_ccNOos_Tests\Source Files\tests\testMainFiles\ccNOos_Tests\PSoC4\Application_Platform_Main.c</v>
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\Generated_Source\PSoC4</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\SysTick_Example.pdf</v>
 <v>ccNOos_Tests\PSoC4_SysTick\TopDesign</v>
 <v>ccNOos_Tests\PSoC4_SysTick\PSoC4_SysTick.cydwr\Pins</v>
 <v>ccNOos_Tests\PSoC4_SysTick\PSoC4_SysTick.cydwr\Analog</v>
@@ -72,19 +68,13 @@
 <v>ccNOos_Tests\PSoC4_SysTick\PSoC4_SysTick.cydwr\Directives</v>
 <v>ccNOos_Tests\PSoC4_SysTick\PSoC4_SysTick.cydwr\Flash Security</v>
 <v>ccNOos_Tests\PSoC4_SysTick\Header Files</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Header Files\computeModule</v>
 <v>ccNOos_Tests\PSoC4_SysTick\Header Files\computeModule\compute_module.h</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Header Files\consoleMenu</v>
 <v>ccNOos_Tests\PSoC4_SysTick\Header Files\consoleMenu\console_menu.h</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Header Files\executionSystem</v>
 <v>ccNOos_Tests\PSoC4_SysTick\Header Files\executionSystem\execution_system.h</v>
 <v>ccNOos_Tests\PSoC4_SysTick\Header Files\executionSystem\version_config.h</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Header Files\ioDevice</v>
 <v>ccNOos_Tests\PSoC4_SysTick\Header Files\ioDevice\io_device.h</v>
 <v>ccNOos_Tests\PSoC4_SysTick\Header Files\tests</v>
 <v>ccNOos_Tests\PSoC4_SysTick\Header Files\tests\testApps</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Header Files\tests\testApps\ccNOos_Tests</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Header Files\tests\testApps\SatComACS</v>
 <v>ccNOos_Tests\PSoC4_SysTick\Header Files\tests\testApps\SysTick</v>
 <v>ccNOos_Tests\PSoC4_SysTick\Header Files\tests\testApps\SysTick\Application_Solution.h</v>
 <v>ccNOos_Tests\PSoC4_SysTick\Header Files\tests\testApps\SysTick\PlatformApp_Serialization.h</v>
@@ -92,25 +82,20 @@
 <v>ccNOos_Tests\PSoC4_SysTick\Header Files\tests\testPlatforms\Platform_PSoC4.h</v>
 <v>ccNOos_Tests\PSoC4_SysTick\Header Files\cyapicallbacks.h</v>
 <v>ccNOos_Tests\PSoC4_SysTick\Source Files</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Source Files\computeModule</v>
 <v>ccNOos_Tests\PSoC4_SysTick\Source Files\computeModule\compute_module.c</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Source Files\consoleMenu</v>
 <v>ccNOos_Tests\PSoC4_SysTick\Source Files\consoleMenu\console_menu.c</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Source Files\executionSystem</v>
 <v>ccNOos_Tests\PSoC4_SysTick\Source Files\executionSystem\execution_system.c</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Source Files\ioDevice</v>
 <v>ccNOos_Tests\PSoC4_SysTick\Source Files\ioDevice\io_device.c</v>
 <v>ccNOos_Tests\PSoC4_SysTick\Source Files\tests</v>
 <v>ccNOos_Tests\PSoC4_SysTick\Source Files\tests\testApps</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Source Files\tests\testApps\ccNOos_Tests</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Source Files\tests\testApps\SatComACS</v>
 <v>ccNOos_Tests\PSoC4_SysTick\Source Files\tests\testApps\SysTick</v>
 <v>ccNOos_Tests\PSoC4_SysTick\Source Files\tests\testApps\SysTick\Application_Solution.c</v>
 <v>ccNOos_Tests\PSoC4_SysTick\Source Files\tests\testApps\SysTick\PlatformApp_Serialization.c</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Source Files\tests\testMainTemplates</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Source Files\tests\testMainTemplates\Application_Platform_Main.c</v>
+<v>ccNOos_Tests\PSoC4_SysTick\Source Files\tests\testMainFiles</v>
+<v>ccNOos_Tests\PSoC4_SysTick\Source Files\tests\testMainFiles\SysTick</v>
+<v>ccNOos_Tests\PSoC4_SysTick\Source Files\tests\testMainFiles\SysTick\PSoC4</v>
+<v>ccNOos_Tests\PSoC4_SysTick\Source Files\tests\testMainFiles\SysTick\PSoC4\Application_Platform_Main.c</v>
 <v>ccNOos_Tests\PSoC4_SysTick\Generated_Source\PSoC4</v>
-<v>ccNOos_Tests\PSoC4_SysTick\SysTick_Example.pdf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>ccNOos_Tests</v>
@@ -450,7 +435,7 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v="..\ccNOos\tests\testMainTemplates\Application_Platform_Main.c" />
+<name v="..\ccNOos\tests\testMainFiles\ccNOos_Tests\PSoC4\Application_Platform_Main.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -458,7 +443,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Vertical"><TabbedMdiContainer Size="1613, 492" SelectedTabbedMdiWindow="88b17a9b-8954-45ce-8b0b-1a2f9eeb475d"><DocumentWindow Key="C:\IMS\CR\ccNOos_Tests\ccNOos\tests\testMainTemplates\Application_Platform_Main.c" Guid="88b17a9b-8954-45ce-8b0b-1a2f9eeb475d" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Vertical"><TabbedMdiContainer Size="1519, 672" SelectedTabbedMdiWindow="f450c441-a090-4b0a-a278-76a749e757f0"><DocumentWindow Key="C:\IMS\CR\ccNOos_Tests\ccNOos\tests\testMainFiles\ccNOos_Tests\PSoC4\Application_Platform_Main.c" Guid="f450c441-a090-4b0a-a278-76a749e757f0" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="Release" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
