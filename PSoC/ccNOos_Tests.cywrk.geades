@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="ccNOos_Tests">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="ccNOos_Tests\PSoC4_SatComACS">
 <ExpandedNodeIds>
 <v>ccNOos_Tests</v>
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\TopDesign</v>
@@ -59,7 +59,66 @@
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\Source Files\tests\testMainFiles\ccNOos_Tests\PSoC4</v>
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\Source Files\tests\testMainFiles\ccNOos_Tests\PSoC4\Application_Platform_Main.c</v>
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\Generated_Source\PSoC4</v>
-<v>ccNOos_Tests\PSoC4_SysTick</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\PSoC4_SatComACS.cydwr\Pins</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\PSoC4_SatComACS.cydwr\Analog</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\PSoC4_SatComACS.cydwr\Clocks</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\PSoC4_SatComACS.cydwr\Interrupts</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\PSoC4_SatComACS.cydwr\System</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\PSoC4_SatComACS.cydwr\Directives</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\PSoC4_SatComACS.cydwr\Flash Security</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Header Files</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Header Files\ccLibs</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Header Files\ccLibs\acs</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Header Files\ccLibs\acs\ADRF6650.h</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Header Files\ccLibs\acs\ADRF6650_Map.h</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Header Files\ccLibs\acs\LTC2360.h</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Header Files\ccLibs\acs\satComControl.h</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Header Files\ccLibs\mcs</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Header Files\ccLibs\mcs\motionControl.h</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Header Files\computeModule</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Header Files\computeModule\compute_module.h</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Header Files\consoleMenu</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Header Files\consoleMenu\console_menu.h</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Header Files\executionSystem</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Header Files\executionSystem\execution_system.h</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Header Files\executionSystem\version_config.h</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Header Files\ioDevice</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Header Files\ioDevice\io_device.h</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Header Files\tests</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Header Files\tests\testApps</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Header Files\tests\testApps\SatComACS</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Header Files\tests\testApps\SatComACS\Application_Solution.h</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Header Files\tests\testApps\SatComACS\PlatformApp_Serialization.h</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Header Files\tests\testPlatforms</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Header Files\tests\testPlatforms\Platform_PSoC4.h</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Header Files\cyapicallbacks.h</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Source Files</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Source Files\ccLibs</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Source Files\ccLibs\acs</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Source Files\ccLibs\acs\ADRF6650.c</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Source Files\ccLibs\acs\LTC2360.c</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Source Files\ccLibs\acs\satComControl.c</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Source Files\ccLibs\mcs</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Source Files\ccLibs\mcs\motionControl.c</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Source Files\computeModule</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Source Files\computeModule\compute_module.c</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Source Files\consoleMenu</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Source Files\consoleMenu\console_menu.c</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Source Files\executionSystem</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Source Files\executionSystem\execution_system.c</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Source Files\ioDevice</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Source Files\ioDevice\io_device.c</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Source Files\tests</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Source Files\tests\testApps</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Source Files\tests\testApps\SatComACS</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Source Files\tests\testApps\SatComACS\Application_Solution.c</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Source Files\tests\testApps\SatComACS\PlatformApp_Serialization.c</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Source Files\tests\testMainFiles</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Source Files\tests\testMainFiles\SatComACS</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Source Files\tests\testMainFiles\SatComACS\PSoC4</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Source Files\tests\testMainFiles\SatComACS\PSoC4\Application_Platform_Main.c</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Generated_Source\PSoC4</v>
 <v>ccNOos_Tests\PSoC4_SysTick\TopDesign</v>
 <v>ccNOos_Tests\PSoC4_SysTick\PSoC4_SysTick.cydwr\Pins</v>
 <v>ccNOos_Tests\PSoC4_SysTick\PSoC4_SysTick.cydwr\Analog</v>
@@ -101,37 +160,8 @@
 <VisibleNodeIds>
 <v>ccNOos_Tests</v>
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests</v>
+<v>ccNOos_Tests\PSoC4_SatComACS</v>
 <v>ccNOos_Tests\PSoC4_SysTick</v>
-<v>ccNOos_Tests\PSoC4_SysTick\TopDesign</v>
-<v>ccNOos_Tests\PSoC4_SysTick\PSoC4_SysTick.cydwr</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Header Files</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Header Files\computeModule</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Header Files\consoleMenu</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Header Files\executionSystem</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Header Files\ioDevice</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Header Files\tests</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Header Files\tests\testApps</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Header Files\tests\testApps\SysTick</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Header Files\tests\testApps\SysTick\Application_Solution.h</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Header Files\tests\testApps\SysTick\PlatformApp_Serialization.h</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Header Files\tests\testPlatforms</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Header Files\tests\testPlatforms\Platform_PSoC4.h</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Header Files\cyapicallbacks.h</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Source Files</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Source Files\computeModule</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Source Files\consoleMenu</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Source Files\executionSystem</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Source Files\ioDevice</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Source Files\tests</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Source Files\tests\testApps</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Source Files\tests\testApps\SysTick</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Source Files\tests\testApps\SysTick\Application_Solution.c</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Source Files\tests\testApps\SysTick\PlatformApp_Serialization.c</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Source Files\tests\testMainFiles</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Source Files\tests\testMainFiles\SysTick</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Source Files\tests\testMainFiles\SysTick\PSoC4</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Source Files\tests\testMainFiles\SysTick\PSoC4\Application_Platform_Main.c</v>
-<v>ccNOos_Tests\PSoC4_SysTick\Generated_Source</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="ccNOos_Tests">
@@ -169,6 +199,38 @@
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\TopDesign\PSoC5</v>
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\TopDesign\PSoC5\TopDesign.ctl</v>
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\TopDesign\TopDesign.cysch</v>
+<v>ccNOos_Tests\PSoC4_SatComACS</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4000</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4000\TopDesign.ctl</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4000S</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4000S\TopDesign.ctl</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4100</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4100\TopDesign.ctl</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4100 BLE</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4100 BLE\TopDesign.ctl</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4100 BLE II</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4100 BLE II\TopDesign.ctl</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4100M</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4100M\TopDesign.ctl</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4100S</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4100S\TopDesign.ctl</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4200</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4200\TopDesign.ctl</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4200 BLE</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4200 BLE\TopDesign.ctl</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4200 BLE II</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4200 BLE II\TopDesign.ctl</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4200L</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4200L\TopDesign.ctl</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4200M</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4200M\TopDesign.ctl</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC Analog Coprocessor</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC Analog Coprocessor\TopDesign.ctl</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC5</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC5\TopDesign.ctl</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\TopDesign.cysch</v>
 <v>ccNOos_Tests\PSoC4_SysTick</v>
 <v>ccNOos_Tests\PSoC4_SysTick\TopDesign</v>
 <v>ccNOos_Tests\PSoC4_SysTick\TopDesign\PSoC4</v>
@@ -236,21 +298,22 @@
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\TopDesign\PSoC5</v>
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\TopDesign\PSoC5\TopDesign.ctl</v>
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\TopDesign\TopDesign.cysch</v>
-<v>ccNOos_Tests\PSoC4_SysTick</v>
-<v>ccNOos_Tests\PSoC4_SysTick\TopDesign</v>
-<v>ccNOos_Tests\PSoC4_SysTick\TopDesign\PSoC4</v>
-<v>ccNOos_Tests\PSoC4_SysTick\TopDesign\PSoC4\PSoC 4000</v>
-<v>ccNOos_Tests\PSoC4_SysTick\TopDesign\PSoC4\PSoC 4000\TopDesign.ctl</v>
-<v>ccNOos_Tests\PSoC4_SysTick\TopDesign\PSoC4\PSoC 4000S</v>
-<v>ccNOos_Tests\PSoC4_SysTick\TopDesign\PSoC4\PSoC 4000S\TopDesign.ctl</v>
-<v>ccNOos_Tests\PSoC4_SysTick\TopDesign\PSoC4\PSoC 4100</v>
-<v>ccNOos_Tests\PSoC4_SysTick\TopDesign\PSoC4\PSoC 4100\TopDesign.ctl</v>
-<v>ccNOos_Tests\PSoC4_SysTick\TopDesign\PSoC4\PSoC 4100 BLE</v>
-<v>ccNOos_Tests\PSoC4_SysTick\TopDesign\PSoC4\PSoC 4100 BLE\TopDesign.ctl</v>
-<v>ccNOos_Tests\PSoC4_SysTick\TopDesign\PSoC4\PSoC 4100 BLE II</v>
-<v>ccNOos_Tests\PSoC4_SysTick\TopDesign\PSoC4\PSoC 4100 BLE II\TopDesign.ctl</v>
-<v>ccNOos_Tests\PSoC4_SysTick\TopDesign\PSoC4\PSoC 4100M</v>
-<v>ccNOos_Tests\PSoC4_SysTick\TopDesign\PSoC4\PSoC 4100M\TopDesign.ctl</v>
+<v>ccNOos_Tests\PSoC4_SatComACS</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4000</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4000\TopDesign.ctl</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4000S</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4000S\TopDesign.ctl</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4100</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4100\TopDesign.ctl</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4100 BLE</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4100 BLE\TopDesign.ctl</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4100 BLE II</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4100 BLE II\TopDesign.ctl</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4100M</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4100M\TopDesign.ctl</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\TopDesign\PSoC4\PSoC 4100S</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -290,6 +353,44 @@
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\PSoC4_ccNOos_Tests.gpdsc</v>
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\PSoC4_ccNOos_Tests.rpt</v>
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\PSoC4_ccNOos_Tests_timing.html</v>
+<v>ccNOos_Tests\PSoC4_SatComACS</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\ADRF6650.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\Application_Platform_Main.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\Application_Solution.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\Cm0Start.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\compute_module.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\console_menu.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\cy_em_eeprom.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\CyBootAsmGnu.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\cyfitter_cfg.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\CyFlash.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\CyLFClk.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\CyLib.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\cymetadata.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\cyPm.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\cyutils.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\execution_system.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\io_device.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\LED_Min.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\LED_Min_PM.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\LED_Sec.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\LED_Sec_PM.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\LTC2360.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\motionControl.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\PlatformApp_Serialization.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\satComControl.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\UART.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\UART_AsmGnu.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\PSoC4_SatComACS.elf</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\PSoC4_SatComACS.hex</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\PSoC4_SatComACS.map</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\PSoC4_SatComACS.gpdsc</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\PSoC4_SatComACS.rpt</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\PSoC4_SatComACS_timing.html</v>
 <v>ccNOos_Tests\PSoC4_SysTick</v>
 <v>ccNOos_Tests\PSoC4_SysTick\CortexM0</v>
 <v>ccNOos_Tests\PSoC4_SysTick\CortexM0\ARM_GCC_541</v>
@@ -361,19 +462,20 @@
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\PSoC4_ccNOos_Tests.gpdsc</v>
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\PSoC4_ccNOos_Tests.rpt</v>
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\PSoC4_ccNOos_Tests_timing.html</v>
-<v>ccNOos_Tests\PSoC4_SysTick</v>
-<v>ccNOos_Tests\PSoC4_SysTick\CortexM0</v>
-<v>ccNOos_Tests\PSoC4_SysTick\CortexM0\ARM_GCC_541</v>
-<v>ccNOos_Tests\PSoC4_SysTick\CortexM0\ARM_GCC_541\Release</v>
-<v>ccNOos_Tests\PSoC4_SysTick\CortexM0\ARM_GCC_541\Release\Listing Files</v>
-<v>ccNOos_Tests\PSoC4_SysTick\CortexM0\ARM_GCC_541\Release\Listing Files\Application_Platform_Main.lst</v>
-<v>ccNOos_Tests\PSoC4_SysTick\CortexM0\ARM_GCC_541\Release\Listing Files\Application_Solution.lst</v>
-<v>ccNOos_Tests\PSoC4_SysTick\CortexM0\ARM_GCC_541\Release\Listing Files\Cm0Start.lst</v>
-<v>ccNOos_Tests\PSoC4_SysTick\CortexM0\ARM_GCC_541\Release\Listing Files\compute_module.lst</v>
-<v>ccNOos_Tests\PSoC4_SysTick\CortexM0\ARM_GCC_541\Release\Listing Files\console_menu.lst</v>
-<v>ccNOos_Tests\PSoC4_SysTick\CortexM0\ARM_GCC_541\Release\Listing Files\cy_em_eeprom.lst</v>
-<v>ccNOos_Tests\PSoC4_SysTick\CortexM0\ARM_GCC_541\Release\Listing Files\CyBootAsmGnu.lst</v>
-<v>ccNOos_Tests\PSoC4_SysTick\CortexM0\ARM_GCC_541\Release\Listing Files\cyfitter_cfg.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\ADRF6650.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\Application_Platform_Main.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\Application_Solution.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\Cm0Start.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\compute_module.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\console_menu.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\cy_em_eeprom.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\CyBootAsmGnu.lst</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\cyfitter_cfg.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -397,6 +499,19 @@
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\Power_v1_0</v>
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\Power_v1_0\Power_v1_0.pdf</v>
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\SW_Tx_UART_v1_50.pdf</v>
+<v>ccNOos_Tests\PSoC4_SatComACS</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\PSoC 4 Architecture TRM</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\PSoC 4200 Family Datasheet</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\System Reference Guides</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\System Reference Guides\cy_boot_v5_60</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\System Reference Guides\cy_lfclk_v1_20</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\cy_pins_v2_20</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\LED_v1_0</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\LED_v1_0\LED_v1_0.pdf</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Power_v1_0</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Power_v1_0\Power_v1_0.pdf</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\SW_Tx_UART_v1_50.pdf</v>
 <v>ccNOos_Tests\PSoC4_SysTick</v>
 <v>ccNOos_Tests\PSoC4_SysTick\PSoC 4 Architecture TRM</v>
 <v>ccNOos_Tests\PSoC4_SysTick\PSoC 4200 Family Datasheet</v>
@@ -426,6 +541,19 @@
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\Power_v1_0</v>
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\Power_v1_0\Power_v1_0.pdf</v>
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\SW_Tx_UART_v1_50.pdf</v>
+<v>ccNOos_Tests\PSoC4_SatComACS</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\PSoC 4 Architecture TRM</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\PSoC 4200 Family Datasheet</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\System Reference Guides</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\System Reference Guides\cy_boot_v5_60</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\System Reference Guides\cy_lfclk_v1_20</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\cy_pins_v2_20</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\LED_v1_0</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\LED_v1_0\LED_v1_0.pdf</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Power_v1_0</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\Power_v1_0\Power_v1_0.pdf</v>
+<v>ccNOos_Tests\PSoC4_SatComACS\SW_Tx_UART_v1_50.pdf</v>
 <v>ccNOos_Tests\PSoC4_SysTick</v>
 <v>ccNOos_Tests\PSoC4_SysTick\PSoC 4 Architecture TRM</v>
 <v>ccNOos_Tests\PSoC4_SysTick\PSoC 4200 Family Datasheet</v>
@@ -466,7 +594,12 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v="..\ccNOos\tests\testMainFiles\ccNOos_Tests\PSoC4\Application_Platform_Main.c" />
+<name v="..\ccNOos\tests\testMainFiles\SysTick\PSoC4\Application_Platform_Main.c" />
+<name v=".\PSoC4_SatComACS.cydsn\TopDesign\TopDesign.cysch" />
+<name v="..\ccNOos\tests\testMainFiles\SatComACS\PSoC4\Application_Platform_Main.c" />
+<name v="..\ccNOos\tests\testApps\SatComACS\Application_Solution.c" />
+<name v="..\ccNOos\tests\testApps\SatComACS\PlatformApp_Serialization.c" />
+<name v="..\ccNOos\tests\testApps\SatComACS\Application_Solution.h" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -474,7 +607,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Vertical"><TabbedMdiContainer Size="1519, 672" SelectedTabbedMdiWindow="f450c441-a090-4b0a-a278-76a749e757f0"><DocumentWindow Key="C:\IMS\CR\ccNOos_Tests\ccNOos\tests\testMainFiles\ccNOos_Tests\PSoC4\Application_Platform_Main.c" Guid="f450c441-a090-4b0a-a278-76a749e757f0" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Vertical"><TabbedMdiContainer Size="1519, 672" SelectedTabbedMdiWindow="4b719607-b7f7-4a04-9c75-61b7a93077a5"><DocumentWindow Key="C:\IMS\CR\ccNOos_Tests\ccNOos\tests\testMainFiles\SysTick\PSoC4\Application_Platform_Main.c" Guid="69290cc5-5df7-4c25-8603-92093ba3c4cc" /><DocumentWindow Key="C:\IMS\CR\ccNOos_Tests\PSoC\PSoC4_SatComACS.cydsn\TopDesign\TopDesign.cysch" Guid="e67b1b91-3751-4d85-8720-6b5662c19c4d" /><DocumentWindow Key="C:\IMS\CR\ccNOos_Tests\ccNOos\tests\testMainFiles\SatComACS\PSoC4\Application_Platform_Main.c" Guid="f4dfa754-7d49-491b-9758-4e94ef096fa1" /><DocumentWindow Key="C:\IMS\CR\ccNOos_Tests\ccNOos\tests\testApps\SatComACS\Application_Solution.c" Guid="8959fcbf-175f-4e50-9659-e741ad3f26dc" /><DocumentWindow Key="C:\IMS\CR\ccNOos_Tests\ccNOos\tests\testApps\SatComACS\PlatformApp_Serialization.c" Guid="7ebc2118-483d-4c15-a3d0-cac6d1430589" /><DocumentWindow Key="C:\IMS\CR\ccNOos_Tests\ccNOos\tests\testApps\SatComACS\Application_Solution.h" Guid="4b719607-b7f7-4a04-9c75-61b7a93077a5" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="Release" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
