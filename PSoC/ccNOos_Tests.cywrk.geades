@@ -429,53 +429,9 @@
 <VisibleNodeIds>
 <v>ccNOos_Tests</v>
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\CortexM0</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\CortexM0\ARM_GCC_541</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\CortexM0\ARM_GCC_541\Release</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\CortexM0\ARM_GCC_541\Release\Listing Files</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\CortexM0\ARM_GCC_541\Release\Listing Files\Application_Platform_Main.lst</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\CortexM0\ARM_GCC_541\Release\Listing Files\Application_Solution.lst</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\CortexM0\ARM_GCC_541\Release\Listing Files\Cm0Start.lst</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\CortexM0\ARM_GCC_541\Release\Listing Files\compute_module.lst</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\CortexM0\ARM_GCC_541\Release\Listing Files\console_menu.lst</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\CortexM0\ARM_GCC_541\Release\Listing Files\cy_em_eeprom.lst</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\CortexM0\ARM_GCC_541\Release\Listing Files\CyBootAsmGnu.lst</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\CortexM0\ARM_GCC_541\Release\Listing Files\cyfitter_cfg.lst</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\CortexM0\ARM_GCC_541\Release\Listing Files\CyFlash.lst</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\CortexM0\ARM_GCC_541\Release\Listing Files\CyLFClk.lst</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\CortexM0\ARM_GCC_541\Release\Listing Files\CyLib.lst</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\CortexM0\ARM_GCC_541\Release\Listing Files\cymetadata.lst</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\CortexM0\ARM_GCC_541\Release\Listing Files\cyPm.lst</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\CortexM0\ARM_GCC_541\Release\Listing Files\cyutils.lst</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\CortexM0\ARM_GCC_541\Release\Listing Files\execution_system.lst</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\CortexM0\ARM_GCC_541\Release\Listing Files\io_device.lst</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\CortexM0\ARM_GCC_541\Release\Listing Files\LED_Min.lst</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\CortexM0\ARM_GCC_541\Release\Listing Files\LED_Min_PM.lst</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\CortexM0\ARM_GCC_541\Release\Listing Files\LED_Sec.lst</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\CortexM0\ARM_GCC_541\Release\Listing Files\LED_Sec_PM.lst</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\CortexM0\ARM_GCC_541\Release\Listing Files\PlatformApp_Serialization.lst</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\CortexM0\ARM_GCC_541\Release\Listing Files\UART.lst</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\CortexM0\ARM_GCC_541\Release\Listing Files\UART_AsmGnu.lst</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\CortexM0\ARM_GCC_541\Release\PSoC4_ccNOos_Tests.elf</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\CortexM0\ARM_GCC_541\Release\PSoC4_ccNOos_Tests.hex</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\CortexM0\ARM_GCC_541\Release\PSoC4_ccNOos_Tests.map</v>
-<v>ccNOos_Tests\PSoC4_ccNOos_Tests\PSoC4_ccNOos_Tests.gpdsc</v>
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\PSoC4_ccNOos_Tests.rpt</v>
 <v>ccNOos_Tests\PSoC4_ccNOos_Tests\PSoC4_ccNOos_Tests_timing.html</v>
 <v>ccNOos_Tests\PSoC4_SatComACS</v>
-<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0</v>
-<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541</v>
-<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release</v>
-<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files</v>
-<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\ADRF6650.lst</v>
-<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\Application_Platform_Main.lst</v>
-<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\Application_Solution.lst</v>
-<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\Cm0Start.lst</v>
-<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\compute_module.lst</v>
-<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\console_menu.lst</v>
-<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\cy_em_eeprom.lst</v>
-<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\CyBootAsmGnu.lst</v>
-<v>ccNOos_Tests\PSoC4_SatComACS\CortexM0\ARM_GCC_541\Release\Listing Files\cyfitter_cfg.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -607,7 +563,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Vertical"><TabbedMdiContainer Size="1519, 672" SelectedTabbedMdiWindow="4b719607-b7f7-4a04-9c75-61b7a93077a5"><DocumentWindow Key="C:\IMS\CR\ccNOos_Tests\ccNOos\tests\testMainFiles\SysTick\PSoC4\Application_Platform_Main.c" Guid="69290cc5-5df7-4c25-8603-92093ba3c4cc" /><DocumentWindow Key="C:\IMS\CR\ccNOos_Tests\PSoC\PSoC4_SatComACS.cydsn\TopDesign\TopDesign.cysch" Guid="e67b1b91-3751-4d85-8720-6b5662c19c4d" /><DocumentWindow Key="C:\IMS\CR\ccNOos_Tests\ccNOos\tests\testMainFiles\SatComACS\PSoC4\Application_Platform_Main.c" Guid="f4dfa754-7d49-491b-9758-4e94ef096fa1" /><DocumentWindow Key="C:\IMS\CR\ccNOos_Tests\ccNOos\tests\testApps\SatComACS\Application_Solution.c" Guid="8959fcbf-175f-4e50-9659-e741ad3f26dc" /><DocumentWindow Key="C:\IMS\CR\ccNOos_Tests\ccNOos\tests\testApps\SatComACS\PlatformApp_Serialization.c" Guid="7ebc2118-483d-4c15-a3d0-cac6d1430589" /><DocumentWindow Key="C:\IMS\CR\ccNOos_Tests\ccNOos\tests\testApps\SatComACS\Application_Solution.h" Guid="4b719607-b7f7-4a04-9c75-61b7a93077a5" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Vertical"><TabbedMdiContainer Size="1519, 672" SelectedTabbedMdiWindow="4b719607-b7f7-4a04-9c75-61b7a93077a5"><DocumentWindow Key="C:\IMS\CR\ccNOos_Tests\ccNOos\tests\testMainFiles\SysTick\PSoC4\Application_Platform_Main.c" Guid="69290cc5-5df7-4c25-8603-92093ba3c4cc" /><DocumentWindow Key="C:\IMS\CR\ccNOos_Tests\PSoC\PSoC4_SatComACS.cydsn\TopDesign\TopDesign.cysch" Guid="e67b1b91-3751-4d85-8720-6b5662c19c4d" /><DocumentWindow Key="C:\IMS\CR\ccNOos_Tests\ccNOos\tests\testMainFiles\SatComACS\PSoC4\Application_Platform_Main.c" Guid="f4dfa754-7d49-491b-9758-4e94ef096fa1" /><DocumentWindow Key="C:\IMS\CR\ccNOos_Tests\ccNOos\tests\testApps\SatComACS\Application_Solution.c" Guid="8959fcbf-175f-4e50-9659-e741ad3f26dc" /><DocumentWindow Key="C:\IMS\CR\ccNOos_Tests\ccNOos\tests\testApps\SatComACS\PlatformApp_Serialization.c" Guid="7ebc2118-483d-4c15-a3d0-cac6d1430589" /><DocumentWindow Key="C:\IMS\CR\ccNOos_Tests\ccNOos\tests\testApps\SatComACS\Application_Solution.h" Guid="4b719607-b7f7-4a04-9c75-61b7a93077a5" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="edc86cb5-e9da-4f6a-b9cb-edd43289711a" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="Release" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
