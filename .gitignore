@@ -48,3 +48,6 @@
 /PSoC/PSoC4_SatComACS.cydsn/CortexM0/ARM_GCC_541
 /PSoC/PSoC4_SatComACS.cydsn/Generated_Source
 /PSoC/PSoC4_SatComACS.cydsn/codegentemp
+/Arduino/SatComACS
+/Arduino/SysTick
+/Arduino/ccNOos_Tests

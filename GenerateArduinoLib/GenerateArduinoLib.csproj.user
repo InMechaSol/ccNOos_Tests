@@ -13,7 +13,7 @@
     <StartArguments>"C:\IMS\CR\ccNOos_Tests" "C:\IMS\CR\ccNOos_Tests\WIN32_Console\Debug_FlatFiles"</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ccNOos_SatComACS|AnyCPU'">
-    <StartArguments>"C:\IMS\CR\ccNOos_Tests" "C:\IMS\CR\ccNOos_Tests\WIN32_Console\Debug_FlatFiles"</StartArguments>
+    <StartArguments>"C:\IMS\CR\ccNOos_Tests\ccNOos\tests\testApps\SatComACS" "C:\IMS\CR\ccNOos_Tests\WIN32_Console\Debug_FlatFiles"</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ccOS_ccACU|AnyCPU'">
     <StartArguments>"C:\IMS\CR\ccNOos_Tests" "C:\IMS\CR\ccNOos_Tests\WIN32_Console\Debug_FlatFiles"</StartArguments>
