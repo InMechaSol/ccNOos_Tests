@@ -4,16 +4,16 @@
     <StartArguments>"C:\IMS\CR\ccNOos_Tests" "C:\IMS\CR\ccNOos_Tests\WIN32_Console\Debug_FlatFiles"</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ccNOos_Tests|AnyCPU'">
-    <StartArguments>"C:\IMS\CR\ccNOos_Tests\ccNOos\tests\testApps\ccNOos_Tests" "C:\IMS\CR\ccNOos_Tests\WIN32_Console\Debug_FlatFiles"</StartArguments>
+    <StartArguments>"C:\IMS\CR\ccOS_Tests\ccOS\ccNOos\tests\testApps\ccNOos_Tests" "C:\IMS\CR\ccNOos_Tests\Arduino\ccNOosTests" "C:\IMS\CR\ccNOos_Tests\WIN32_Console\Debug_FlatFiles"</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ccOS_Tests|AnyCPU'">
     <StartArguments>"C:\IMS\CR\ccNOos_Tests" "C:\IMS\CR\ccNOos_Tests\WIN32_Console\Debug_FlatFiles"</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ccNOos_SysTick|AnyCPU'">
-    <StartArguments>"C:\IMS\CR\ccNOos_Tests\ccNOos\tests\testApps\SysTick" "C:\IMS\CR\ccNOos_Tests\WIN32_Console\Debug_FlatFiles"</StartArguments>
+    <StartArguments>"C:\IMS\CR\ccOS_Tests\ccOS\ccNOos\tests\testApps\SysTick" "C:\IMS\CR\ccNOos_Tests\Arduino\SysTick" "C:\IMS\CR\ccNOos_Tests\WIN32_Console\Debug_FlatFiles"</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ccNOos_SatComACS|AnyCPU'">
-    <StartArguments>"C:\IMS\CR\ccNOos_Tests\ccNOos\tests\testApps\SatComACS" "C:\IMS\CR\ccNOos_Tests\WIN32_Console\Debug_FlatFiles"</StartArguments>
+    <StartArguments>"C:\IMS\CR\ccOS_Tests\ccOS\ccNOos\tests\testApps\SatComACS" "C:\IMS\CR\ccNOos_Tests\Arduino\SatComACS" "C:\IMS\CR\ccNOos_Tests\WIN32_Console\Debug_FlatFiles"</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ccOS_ccACU|AnyCPU'">
     <StartArguments>"C:\IMS\CR\ccNOos_Tests" "C:\IMS\CR\ccNOos_Tests\WIN32_Console\Debug_FlatFiles"</StartArguments>

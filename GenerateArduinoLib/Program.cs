@@ -147,7 +147,7 @@ namespace GenerateArduinoLib
         static void Main(string[] args)
         {
             // Program expects ccNOosTest Directory as an input
-            if (args.Length == 2)
+            if (args.Length == 3)
             {
 
                 string ccNOosTestAppDir = Path.GetFullPath(args[0]);
@@ -169,7 +169,8 @@ namespace GenerateArduinoLib
                     }
 
 
-                    string ArduinoDIR = ccNOosTestsDIR + "Arduino\\" + ccNOosTestAppDir.Substring(ccNOosTestAppDir.LastIndexOf("\\")+1);
+                    //string ArduinoDIR = ccNOosTestsDIR + "Arduino\\" + ccNOosTestAppDir.Substring(ccNOosTestAppDir.LastIndexOf("\\")+1);
+                    string ArduinoDIR = Path.GetFullPath(args[1]);
                     if (!Directory.Exists(ArduinoDIR))
                     {
                         Directory.CreateDirectory(ArduinoDIR);
@@ -205,7 +206,7 @@ namespace GenerateArduinoLib
 
                 ////////////////////////////////////////////////////////
                 //// this is for the FlatFiles project
-                string objDIR = Path.GetFullPath(args[1]);
+                string objDIR = Path.GetFullPath(args[2]);
                 bool notOnce = true;
                 if (Directory.Exists(objDIR))
                 {
