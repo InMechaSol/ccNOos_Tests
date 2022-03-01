@@ -38,6 +38,7 @@ namespace GenerateArduinoLib
                 
                 if (Path.GetExtension(fstring).Equals(".c"))
                 {
+                    Console.WriteLine("Processing: " + fstring);
                     // copy and change extension to hpp
                     File.Copy(fstring, filestring.Replace(".c", ".hpp"));
                 }
@@ -79,6 +80,7 @@ namespace GenerateArduinoLib
                     //}
                     //else
                     //{
+                        Console.WriteLine("Processing: " + fstring);
                         // copy and modify #include line within
                         string ftext = File.ReadAllText(fstring);
 
@@ -95,7 +97,8 @@ namespace GenerateArduinoLib
                 }
                 else if (Path.GetExtension(fstring).Equals(".h") || Path.GetExtension(fstring).Equals(".ino"))
                 {
-                    if(!fstring.Contains("Platform"))
+                    Console.WriteLine("Processing: " + fstring);
+                    if (!fstring.Contains("Platform"))
                         File.Copy(fstring, filestring);
                     else if(fstring.Contains("Arduino"))
                         File.Copy(fstring, filestring);
@@ -132,8 +135,16 @@ namespace GenerateArduinoLib
                     CopyModifyDirectoryRecursively(subDir, dirstring);
                 else if(subDir.Contains("tests\\testApps"))
                 {
-                    string tempDirstring = subDir + "\\" + dirstring.Substring(dirstring.LastIndexOf("\\") + 1);
-                    CopyModifyDirectoryRecursively(tempDirstring, dirstring);
+                    if(subDir.Contains("apiModules") || subDir.Contains("deviceModules"))
+                    {
+                        CopyModifyDirectoryRecursively(subDir, dirstring);
+                    }
+                    else
+                    {
+                        string tempDirstring = subDir + "\\" + dirstring.Substring(dirstring.LastIndexOf("\\") + 1);
+                        CopyModifyDirectoryRecursively(tempDirstring, dirstring);
+                    }
+                    
                 }
                 else if(subDir.Contains("tests\\testMainFiles"))
                 {
