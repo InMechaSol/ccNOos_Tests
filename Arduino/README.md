@@ -1,4 +1,5 @@
 # Arduino Platform Tests (ATMega2560)
+0) [Note the Published Release Location: https://github.com/InMechaSol/ccNOos_Tests/releases/tag/v0.0.0](https://github.com/InMechaSol/ccNOos_Tests/releases/tag/v0.0.0)
 1) [Download Arduino IDE 1.8.13 Windows Installation](https://github.com/InMechaSol/ccNOos_Tests/releases/download/v0.0.0/arduino-1.8.13-windows.exe)
 2) Install Arduino IDE 1.8.13 
     ![Arduino IDE](https://github.com/InMechaSol/ccNOos/blob/main/docs/pngs/ArduinoIDEAbout.PNG)
