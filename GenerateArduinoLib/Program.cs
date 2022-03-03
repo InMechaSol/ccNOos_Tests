@@ -28,8 +28,7 @@ namespace GenerateArduinoLib
         public static string LicenseText()
         {
             return @"
-    Copyright 2021 InMechaSol, Inc
-    https://www.inmechasol.org/
+    Copyright 2021 <a href=""https://www.inmechasol.org/"" target=""_blank"">InMechaSol, Inc</a>    
 
     Licensed under the Apache License, Version 2.0(the ""License"");
     you may not use this file except in compliance with the License.
@@ -46,28 +45,33 @@ namespace GenerateArduinoLib
         public static void FixFileBriefNLicense(string fstring)
         {
             bool fileNeedsNewHeaderText = true;
-            Console.WriteLine("Processing: " + fstring);
-            string fileText = File.ReadAllText(fstring);
-
-
             string ftypeText = "HowUnlikelyWouldItBe@if thisEx@ctTextWasN8";
             if (Path.GetExtension(fstring) == ".h")
             {
-                ftypeText = "Declarations for straight C and C++ wrappers";
+                if (Path.GetFileName(fstring).Contains("Platform_"))
+                    ftypeText = "Platform Specification, " + Path.GetFileNameWithoutExtension(fstring).Replace("Platform_", "");
+                else
+                    ftypeText = "Declarations for straight C and C++";
             }
-            else if (Path.GetExtension(fstring) == ".cpp")
+            else if (Path.GetExtension(fstring) == ".cpp" || Path.GetExtension(fstring) == ".ino")
             {
                 ftypeText = "Implementation for C++ wrappers";
             }
             else if (Path.GetExtension(fstring) == ".c")
             {
-                ftypeText = "Implementation for straight C, or Declarations for C++ wrappers";
+                ftypeText = "Implementation for straight C";
             }
+            else
+                return;
+
+
+            Console.WriteLine("Processing: " + fstring);
+            string fileText = File.ReadAllText(fstring);
 
 
             if (fileText.StartsWith("/** \\file " + Path.GetFileName(fstring)))
             { 
-                if(fileText.Contains("\r\n*   \\brief part of ccNOos, "))
+                if(fileText.Contains("\n*   \\brief <a href=\"https://www.inmechasol.org/\" target=\"_blank\">IMS</a>:\r\n\t\t<a href=\"https://github.com/InMechaSol/ccNOos\" target=\"_blank\">ccNOos</a>,\r\n\t\t"))
                 { 
                     if(fileText.Contains(ftypeText))
                     { 
@@ -75,7 +79,7 @@ namespace GenerateArduinoLib
                         { 
                             if ( fileText.Contains("(.c includes .h) - for straight C") && fileText.Contains("(.cpp includes .c which includes .h) - for C++ wrapped straight C") && fileText.Contains("Always compiled to a single compilation unit, either C or CPP, not both"))
                             {
-                                if (fileText.Contains("Copyright 2021 InMechaSol, Inc") && fileText.Contains("https://www.inmechasol.org/"))
+                                if (fileText.Contains(@"Copyright 2021 <a href=""https://www.inmechasol.org/"" target=""_blank"">InMechaSol, Inc</a>"))
                                 {
                                     if (fileText.Contains("Licensed under the Apache License, Version 2.0(the \"License\");") && fileText.Contains("you may not use this file except in compliance with the License.") && fileText.Contains("You may obtain a copy of the License at"))
                                     {
@@ -93,16 +97,6 @@ namespace GenerateArduinoLib
 
             if(fileNeedsNewHeaderText)
             {
-                //if(Path.GetExtension(fstring)==".c")
-                //{
-                //    fileText = fileText.Substring(fileText.IndexOf("#"));
-                //}
-                //else if (Path.GetExtension(fstring) == ".cpp")
-                //{
-                //    fileText = fileText.Substring(fileText.IndexOf("#include"));
-                //}
-                //if (Path.GetExtension(fstring) == ".h")
-                //{
                 int j = fileText.IndexOf("\n#");
                 int k = fileText.IndexOf("\n/*");
                 int i = fileText.IndexOf("*/");
@@ -122,11 +116,8 @@ namespace GenerateArduinoLib
                     }
                 }
                 fileText = fileText.Substring(h);
-                //}
                 fileText = fileText.Substring(fileText.IndexOf("\n#"));
-                fileText = "/** \\file " + Path.GetFileName(fstring) + "\r\n*   \\brief part of ccNOos, "+ ftypeText + " \r\n" + LicenseText() + "\r\n\r\nNotes:\r\n\t(.c includes .h) - for straight C or\r\n\t(.cpp includes .c which includes .h) - for C++ wrapped straight C\r\n\t*Always compiled to a single compilation unit, either C or CPP, not both\r\n\r\n*/\r\n" + fileText;
-
-
+                fileText = "/** \\file " + Path.GetFileName(fstring) + "\r\n*   \\brief <a href=\"https://www.inmechasol.org/\" target=\"_blank\">IMS</a>:\r\n\t\t<a href=\"https://github.com/InMechaSol/ccNOos\" target=\"_blank\">ccNOos</a>,\r\n\t\t" + ftypeText + " \r\n" + LicenseText() + "\r\n\r\nNotes:\r\n\t(.c includes .h) - for straight C or\r\n\t(.cpp includes .c which includes .h) - for C++ wrapped straight C\r\n\t*Always compiled to a single compilation unit, either C or CPP, not both\r\n\r\n*/\r\n" + fileText;
 
                 File.WriteAllText(fstring, fileText);
                
@@ -140,54 +131,19 @@ namespace GenerateArduinoLib
             foreach (string fstring in Directory.GetFiles(target_dir))
             {
                 // fstring - path to source file
+                FixFileBriefNLicense(fstring);
                 // filestring - path to destination file
                 string filestring = dirstring + "\\" + fstring.Substring(fstring.LastIndexOf("\\") + 1);
-
+                
                 if (Path.GetExtension(fstring).Equals(".c"))
                 {                    
-                    FixFileBriefNLicense(fstring);
+                    
                     // copy and change extension to hpp
                     File.Copy(fstring, filestring.Replace(".c", ".hpp"));
                 }
                 else if (Path.GetExtension(fstring).Equals(".cpp"))
                 {
-                    //if(fstring.Contains("Application_Solution"))
-                    //{
-                    //    // copy change name and extension
-                    //    // copy and modify #include line within
-                    //    string dcname = Path.GetDirectoryName(fstring);
-                    //    dcname = dcname.Substring(dcname.LastIndexOf("\\") + 1);
-
-                    //    string fctext = File.ReadAllText(fstring.Replace(".cpp", ".c"));
-                    //    fctext = fctext.Replace("Application_Solution.h\"", "Application_Solution.hpp\"");                        
-
-                    //    string ftext = File.ReadAllText(fstring);
-                    //    ftext = ftext.Replace("#include \"Application_Solution.c\"", "");
-                    //    string inostring = Path.GetFileName(filestring);
-                    //    //inostring = odstring + "\\..\\Arduino\\" + dcname + "\\" + inostring;
-                    //    inostring = Path.GetFullPath(inostring);
-                    //    File.WriteAllText(filestring, fctext + ftext);
-                    //}
-                    //else if (fstring.Contains("PlatformApp_Serialization"))
-                    //{
-                    //    // copy change name and extension
-                    //    // copy and modify #include line within
-                    //    string dcname = Path.GetDirectoryName(fstring);
-                    //    dcname = dcname.Substring(dcname.LastIndexOf("\\") + 1);
-
-                    //    string fctext = File.ReadAllText(fstring.Replace(".cpp", ".c"));
-                    //    fctext = fctext.Replace("PlatformApp_Serialization.h\"", "PlatformApp_Serialization.hpp\"");
-
-                    //    string ftext = File.ReadAllText(fstring);
-                    //    ftext = ftext.Replace("#include \"PlatformApp_Serialization.c\"", "");
-                    //    string inostring = Path.GetFileName(filestring);
-                    //    //inostring = odstring + "\\..\\Arduino\\" + dcname + "\\" + inostring;
-                    //    inostring = Path.GetFullPath(inostring);
-                    //    File.WriteAllText(inostring, fctext + ftext);
-                    //}
-                    //else
-                    //{
-                    FixFileBriefNLicense(fstring);
+                   
                     // copy and modify #include line within
                     string ftext = File.ReadAllText(fstring);
 
@@ -204,33 +160,12 @@ namespace GenerateArduinoLib
                 }
                 else if (Path.GetExtension(fstring).Equals(".h") || Path.GetExtension(fstring).Equals(".ino"))
                 {
-                    FixFileBriefNLicense(fstring);
                     if (!fstring.Contains("Platform"))
                         File.Copy(fstring, filestring);
                     else if (fstring.Contains("Arduino"))
                         File.Copy(fstring, filestring);
                     else if (fstring.Contains("PlatformApp_Serialization"))
                         File.Copy(fstring, filestring);
-
-                    //else if (fstring.Contains("Application_Solution") || fstring.Contains("PlatformApp_Serialization"))
-                    //{
-                    //    // copy change name and extension
-                    //    string dcname = Path.GetDirectoryName(fstring);
-                    //    dcname = dcname.Substring(dcname.LastIndexOf("\\") + 1);
-
-                    //    string ftext = File.ReadAllText(fstring);
-                    //    ftext = ftext.Replace("Application_Solution.h\"", "Application_Solution.hpp\"");
-                    //    ftext = ftext.Replace("PlatformApp_Serialization.h\"", "PlatformApp_Serialization.hpp\"");
-
-                    //    string inostring = Path.GetFileName(filestring);
-                    //    //inostring = odstring + "\\..\\Arduino\\" + dcname + "\\" + inostring;
-                    //    inostring = Path.GetFullPath(inostring).Replace(".h",".hpp");
-                    //    if (File.Exists(inostring))
-                    //        File.Delete(inostring);
-                    //    File.WriteAllText(inostring, ftext);
-                    //}
-                    //else
-                    //    File.Copy(fstring, filestring);
 
                 }
             }
