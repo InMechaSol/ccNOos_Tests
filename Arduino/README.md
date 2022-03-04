@@ -5,6 +5,8 @@
     ![Arduino IDE](https://github.com/InMechaSol/ccNOos/blob/main/docs/pngs/ArduinoIDEAbout.PNG)
 3) [Download Arduino.zip source skectch directory](https://github.com/InMechaSol/ccNOos_Tests/releases/download/v0.0.0/Arduino.zip)
 4) Extract Arduino.zip to any location and set location of skectbook in Arduino IDE
+   - note the directory of the "Arduino15\preferences.txt" file (bottom of preferences menu)
+     - clone [this reposiotry](https://github.com/GSE79/Arduino15) to the local location of "Arduino15"
    ![ArduinoIDE conf](https://github.com/InMechaSol/ccNOos/blob/main/docs/pngs/ArduinoIDEConfigure.PNG)
 5) Open SatComACS from Sketchbook
    ![ArduinoIDE open](https://github.com/InMechaSol/ccNOos/blob/main/docs/pngs/ArduinoIDEOpenSketch.PNG)
