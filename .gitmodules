@@ -1,3 +1,15 @@
 [submodule "ccNOos"]
 	path = ccNOos
 	url = https://github.com/InMechaSol/ccNOos.git
+[submodule "WIN32"]
+	path = WIN32
+	url = https://github.com/InMechaSol/WIN32.git
+	branch = ccGripper
+[submodule "Teensy"]
+	path = Teensy
+	url = https://github.com/InMechaSol/Teensy.git
+	branch = ccGripper
+[submodule "ccOS"]
+	path = ccOS
+	url = https://github.com/InMechaSol/ccOS.git
+	branch = main
