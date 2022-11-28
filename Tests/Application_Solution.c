@@ -37,6 +37,7 @@ MODdeclareCREATE(Mn)(MODdeclareCREATEINS)
     outStruct.PacketsAPI = createpackAPIStruct();
     outStruct.AutoUpdate = ui8FALSE;
     outStruct.execAPIsMainLoop = ui8TRUE;
+    outStruct.execDEVsMainLoop = ui8TRUE;
     for (i = 0; i < 20; i++)
         outStruct.OperationsLog[i] = 0;
     outStruct.OpsLogIndex = 0;
